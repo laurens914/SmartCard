@@ -14,6 +14,10 @@
 		894B5AFF1CA0C0E300DD2BFD /* SmartCard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 894B5AFD1CA0C0E300DD2BFD /* SmartCard.xcdatamodeld */; };
 		894B5B011CA0C0E300DD2BFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 894B5B001CA0C0E300DD2BFD /* Assets.xcassets */; };
 		894B5B041CA0C0E300DD2BFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 894B5B021CA0C0E300DD2BFD /* LaunchScreen.storyboard */; };
+		89A36A141CA1DDBC00997095 /* TemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A36A131CA1DDBB00997095 /* TemplateViewController.m */; };
+		89A36A171CA1DDCA00997095 /* CreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A36A161CA1DDCA00997095 /* CreateViewController.m */; };
+		89A36A1A1CA1DDD500997095 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A36A191CA1DDD500997095 /* InfoViewController.m */; };
+		89A36A1D1CA1DDE200997095 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A36A1C1CA1DDE200997095 /* ShareViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,14 @@
 		894B5B001CA0C0E300DD2BFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		894B5B031CA0C0E300DD2BFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		894B5B051CA0C0E300DD2BFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89A36A121CA1DDBB00997095 /* TemplateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateViewController.h; sourceTree = "<group>"; };
+		89A36A131CA1DDBB00997095 /* TemplateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateViewController.m; sourceTree = "<group>"; };
+		89A36A151CA1DDCA00997095 /* CreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateViewController.h; sourceTree = "<group>"; };
+		89A36A161CA1DDCA00997095 /* CreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateViewController.m; sourceTree = "<group>"; };
+		89A36A181CA1DDD500997095 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		89A36A191CA1DDD500997095 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		89A36A1B1CA1DDE200997095 /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
+		89A36A1C1CA1DDE200997095 /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +82,14 @@
 				894B5B051CA0C0E300DD2BFD /* Info.plist */,
 				894B5AFD1CA0C0E300DD2BFD /* SmartCard.xcdatamodeld */,
 				894B5AF11CA0C0E300DD2BFD /* Supporting Files */,
+				89A36A121CA1DDBB00997095 /* TemplateViewController.h */,
+				89A36A131CA1DDBB00997095 /* TemplateViewController.m */,
+				89A36A151CA1DDCA00997095 /* CreateViewController.h */,
+				89A36A161CA1DDCA00997095 /* CreateViewController.m */,
+				89A36A181CA1DDD500997095 /* InfoViewController.h */,
+				89A36A191CA1DDD500997095 /* InfoViewController.m */,
+				89A36A1B1CA1DDE200997095 /* ShareViewController.h */,
+				89A36A1C1CA1DDE200997095 /* ShareViewController.m */,
 			);
 			path = SmartCard;
 			sourceTree = "<group>";
@@ -152,9 +172,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89A36A141CA1DDBC00997095 /* TemplateViewController.m in Sources */,
 				894B5AF91CA0C0E300DD2BFD /* ViewController.m in Sources */,
+				89A36A1D1CA1DDE200997095 /* ShareViewController.m in Sources */,
+				89A36A171CA1DDCA00997095 /* CreateViewController.m in Sources */,
 				894B5AF61CA0C0E300DD2BFD /* AppDelegate.m in Sources */,
 				894B5AF31CA0C0E300DD2BFD /* main.m in Sources */,
+				89A36A1A1CA1DDD500997095 /* InfoViewController.m in Sources */,
 				894B5AFF1CA0C0E300DD2BFD /* SmartCard.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +328,7 @@
 				894B5B0A1CA0C0E300DD2BFD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
