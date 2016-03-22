@@ -16,9 +16,12 @@
 #import "TemplateF.h"
 #import "TemplateG.h"
 
+#import "savedImageObject.h"
+
 @interface TemplateStore : NSObject
 
 @property(strong, nonatomic)NSArray *templates;
+@property(strong, nonatomic)NSMutableArray *savedImages;
 
 +(instancetype)shared;
 

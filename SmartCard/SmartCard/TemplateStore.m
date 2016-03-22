@@ -27,6 +27,8 @@
         TemplateG *templateG = [[TemplateG alloc]init];
         
         _templates = @[templateA, templateB, templateC, templateD, templateE, templateF, templateG];
+        
+        _savedImages = [[NSMutableArray alloc]init];
 
     }
     
@@ -41,6 +43,8 @@
     dispatch_once(&onceToken, ^{
     
         shared = [[[self class]alloc]init];
+        
+        
     });
     
         return shared;

@@ -11,7 +11,8 @@
 
 @interface BaseTemplate : NSObject
 
-@property(strong, nonatomic)NSString *name;
+@property(strong, nonatomic)NSString *firstName;
+@property(strong, nonatomic)NSString *lastName;
 @property(strong, nonatomic)NSString *email;
 @property(strong, nonatomic)NSString *phone;
 @property(strong, nonatomic)NSString *webSite;

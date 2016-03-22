@@ -16,6 +16,7 @@
 		0B7B57541CA0E88500CD05F9 /* TemplateE.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B57531CA0E88500CD05F9 /* TemplateE.m */; };
 		0B7B57571CA0E89400CD05F9 /* TemplateF.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B57561CA0E89400CD05F9 /* TemplateF.m */; };
 		0B7B575A1CA0EB5000CD05F9 /* TemplateG.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B57591CA0EB5000CD05F9 /* TemplateG.m */; };
+		0B7B575D1CA1876400CD05F9 /* savedImageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B575C1CA1876400CD05F9 /* savedImageObject.m */; };
 		894B5AF31CA0C0E300DD2BFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 894B5AF21CA0C0E300DD2BFD /* main.m */; };
 		894B5AF61CA0C0E300DD2BFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 894B5AF51CA0C0E300DD2BFD /* AppDelegate.m */; };
 		894B5AF91CA0C0E300DD2BFD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 894B5AF81CA0C0E300DD2BFD /* ViewController.m */; };
@@ -44,6 +45,8 @@
 		0B7B57561CA0E89400CD05F9 /* TemplateF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateF.m; sourceTree = "<group>"; };
 		0B7B57581CA0EB5000CD05F9 /* TemplateG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateG.h; sourceTree = "<group>"; };
 		0B7B57591CA0EB5000CD05F9 /* TemplateG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateG.m; sourceTree = "<group>"; };
+		0B7B575B1CA1876400CD05F9 /* savedImageObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = savedImageObject.h; sourceTree = "<group>"; };
+		0B7B575C1CA1876400CD05F9 /* savedImageObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = savedImageObject.m; sourceTree = "<group>"; };
 		894B5AEE1CA0C0E300DD2BFD /* SmartCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		894B5AF21CA0C0E300DD2BFD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		894B5AF41CA0C0E300DD2BFD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 				0B7B57411CA0E5A700CD05F9 /* BaseTemplate.m */,
 				0B7B57431CA0E74F00CD05F9 /* TemplateStore.h */,
 				0B7B57441CA0E74F00CD05F9 /* TemplateStore.m */,
+				0B7B575B1CA1876400CD05F9 /* savedImageObject.h */,
+				0B7B575C1CA1876400CD05F9 /* savedImageObject.m */,
 				0B7B57461CA0E85500CD05F9 /* TemplateA.h */,
 				0B7B57471CA0E85500CD05F9 /* TemplateA.m */,
 				0B7B57491CA0E86500CD05F9 /* TemplateB.h */,
@@ -231,6 +236,7 @@
 			files = (
 				0B7B57571CA0E89400CD05F9 /* TemplateF.m in Sources */,
 				0B7B57481CA0E85500CD05F9 /* TemplateA.m in Sources */,
+				0B7B575D1CA1876400CD05F9 /* savedImageObject.m in Sources */,
 				894B5AF91CA0C0E300DD2BFD /* ViewController.m in Sources */,
 				0B7B57421CA0E5A700CD05F9 /* BaseTemplate.m in Sources */,
 				894B5AF61CA0C0E300DD2BFD /* AppDelegate.m in Sources */,
