@@ -24,6 +24,10 @@
 		894B5AFF1CA0C0E300DD2BFD /* SmartCard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 894B5AFD1CA0C0E300DD2BFD /* SmartCard.xcdatamodeld */; };
 		894B5B011CA0C0E300DD2BFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 894B5B001CA0C0E300DD2BFD /* Assets.xcassets */; };
 		894B5B041CA0C0E300DD2BFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 894B5B021CA0C0E300DD2BFD /* LaunchScreen.storyboard */; };
+		89A36A201CA1E6D200997095 /* TemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A36A1F1CA1E6D200997095 /* TemplateViewController.m */; };
+		89A36A231CA1E6DC00997095 /* CreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A36A221CA1E6DC00997095 /* CreateViewController.m */; };
+		89A36A261CA1E6E300997095 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A36A251CA1E6E300997095 /* InfoViewController.m */; };
+		89A36A291CA1E6EA00997095 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A36A281CA1E6EA00997095 /* ShareViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +62,14 @@
 		894B5B001CA0C0E300DD2BFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		894B5B031CA0C0E300DD2BFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		894B5B051CA0C0E300DD2BFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89A36A1E1CA1E6D200997095 /* TemplateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateViewController.h; sourceTree = "<group>"; };
+		89A36A1F1CA1E6D200997095 /* TemplateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateViewController.m; sourceTree = "<group>"; };
+		89A36A211CA1E6DC00997095 /* CreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateViewController.h; sourceTree = "<group>"; };
+		89A36A221CA1E6DC00997095 /* CreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateViewController.m; sourceTree = "<group>"; };
+		89A36A241CA1E6E300997095 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		89A36A251CA1E6E300997095 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		89A36A271CA1E6EA00997095 /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
+		89A36A281CA1E6EA00997095 /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +98,14 @@
 			children = (
 				894B5AF71CA0C0E300DD2BFD /* ViewController.h */,
 				894B5AF81CA0C0E300DD2BFD /* ViewController.m */,
+				89A36A1E1CA1E6D200997095 /* TemplateViewController.h */,
+				89A36A1F1CA1E6D200997095 /* TemplateViewController.m */,
+				89A36A211CA1E6DC00997095 /* CreateViewController.h */,
+				89A36A221CA1E6DC00997095 /* CreateViewController.m */,
+				89A36A241CA1E6E300997095 /* InfoViewController.h */,
+				89A36A251CA1E6E300997095 /* InfoViewController.m */,
+				89A36A271CA1E6EA00997095 /* ShareViewController.h */,
+				89A36A281CA1E6EA00997095 /* ShareViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -237,8 +257,11 @@
 				0B7B57571CA0E89400CD05F9 /* TemplateF.m in Sources */,
 				0B7B57481CA0E85500CD05F9 /* TemplateA.m in Sources */,
 				0B7B575D1CA1876400CD05F9 /* savedImageObject.m in Sources */,
+				89A36A261CA1E6E300997095 /* InfoViewController.m in Sources */,
 				894B5AF91CA0C0E300DD2BFD /* ViewController.m in Sources */,
+				89A36A231CA1E6DC00997095 /* CreateViewController.m in Sources */,
 				0B7B57421CA0E5A700CD05F9 /* BaseTemplate.m in Sources */,
+				89A36A201CA1E6D200997095 /* TemplateViewController.m in Sources */,
 				894B5AF61CA0C0E300DD2BFD /* AppDelegate.m in Sources */,
 				0B7B57511CA0E87C00CD05F9 /* TemplateD.m in Sources */,
 				0B7B57541CA0E88500CD05F9 /* TemplateE.m in Sources */,
@@ -247,6 +270,7 @@
 				0B7B574E1CA0E86F00CD05F9 /* TemplateC.m in Sources */,
 				894B5AF31CA0C0E300DD2BFD /* main.m in Sources */,
 				894B5AFF1CA0C0E300DD2BFD /* SmartCard.xcdatamodeld in Sources */,
+				89A36A291CA1E6EA00997095 /* ShareViewController.m in Sources */,
 				0B7B575A1CA0EB5000CD05F9 /* TemplateG.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
