@@ -10,4 +10,6 @@
 
 @interface TemplateF : BaseTemplate
 
+//create custom initializer that creates default values for selected properties
+
 @end
