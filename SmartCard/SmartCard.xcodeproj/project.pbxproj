@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B7B57421CA0E5A700CD05F9 /* BaseTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B57411CA0E5A700CD05F9 /* BaseTemplate.m */; };
+		0B7B57451CA0E74F00CD05F9 /* TemplateStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B57441CA0E74F00CD05F9 /* TemplateStore.m */; };
+		0B7B57481CA0E85500CD05F9 /* TemplateA.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B57471CA0E85500CD05F9 /* TemplateA.m */; };
+		0B7B574B1CA0E86500CD05F9 /* TemplateB.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B574A1CA0E86500CD05F9 /* TemplateB.m */; };
+		0B7B574E1CA0E86F00CD05F9 /* TemplateC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B574D1CA0E86F00CD05F9 /* TemplateC.m */; };
+		0B7B57511CA0E87C00CD05F9 /* TemplateD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B57501CA0E87C00CD05F9 /* TemplateD.m */; };
+		0B7B57541CA0E88500CD05F9 /* TemplateE.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B57531CA0E88500CD05F9 /* TemplateE.m */; };
+		0B7B57571CA0E89400CD05F9 /* TemplateF.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B57561CA0E89400CD05F9 /* TemplateF.m */; };
+		0B7B575A1CA0EB5000CD05F9 /* TemplateG.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B57591CA0EB5000CD05F9 /* TemplateG.m */; };
 		894B5AF31CA0C0E300DD2BFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 894B5AF21CA0C0E300DD2BFD /* main.m */; };
 		894B5AF61CA0C0E300DD2BFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 894B5AF51CA0C0E300DD2BFD /* AppDelegate.m */; };
 		894B5AF91CA0C0E300DD2BFD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 894B5AF81CA0C0E300DD2BFD /* ViewController.m */; };
@@ -17,6 +26,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B7B57401CA0E5A700CD05F9 /* BaseTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTemplate.h; sourceTree = "<group>"; };
+		0B7B57411CA0E5A700CD05F9 /* BaseTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTemplate.m; sourceTree = "<group>"; };
+		0B7B57431CA0E74F00CD05F9 /* TemplateStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateStore.h; sourceTree = "<group>"; };
+		0B7B57441CA0E74F00CD05F9 /* TemplateStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateStore.m; sourceTree = "<group>"; };
+		0B7B57461CA0E85500CD05F9 /* TemplateA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateA.h; sourceTree = "<group>"; };
+		0B7B57471CA0E85500CD05F9 /* TemplateA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateA.m; sourceTree = "<group>"; };
+		0B7B57491CA0E86500CD05F9 /* TemplateB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateB.h; sourceTree = "<group>"; };
+		0B7B574A1CA0E86500CD05F9 /* TemplateB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateB.m; sourceTree = "<group>"; };
+		0B7B574C1CA0E86F00CD05F9 /* TemplateC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateC.h; sourceTree = "<group>"; };
+		0B7B574D1CA0E86F00CD05F9 /* TemplateC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateC.m; sourceTree = "<group>"; };
+		0B7B574F1CA0E87C00CD05F9 /* TemplateD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateD.h; sourceTree = "<group>"; };
+		0B7B57501CA0E87C00CD05F9 /* TemplateD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateD.m; sourceTree = "<group>"; };
+		0B7B57521CA0E88500CD05F9 /* TemplateE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateE.h; sourceTree = "<group>"; };
+		0B7B57531CA0E88500CD05F9 /* TemplateE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateE.m; sourceTree = "<group>"; };
+		0B7B57551CA0E89400CD05F9 /* TemplateF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateF.h; sourceTree = "<group>"; };
+		0B7B57561CA0E89400CD05F9 /* TemplateF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateF.m; sourceTree = "<group>"; };
+		0B7B57581CA0EB5000CD05F9 /* TemplateG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateG.h; sourceTree = "<group>"; };
+		0B7B57591CA0EB5000CD05F9 /* TemplateG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateG.m; sourceTree = "<group>"; };
 		894B5AEE1CA0C0E300DD2BFD /* SmartCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		894B5AF21CA0C0E300DD2BFD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		894B5AF41CA0C0E300DD2BFD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -41,6 +68,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B7B573C1CA0E55600CD05F9 /* AppGlobal */ = {
+			isa = PBXGroup;
+			children = (
+				894B5AF41CA0C0E300DD2BFD /* AppDelegate.h */,
+				894B5AF51CA0C0E300DD2BFD /* AppDelegate.m */,
+				894B5B051CA0C0E300DD2BFD /* Info.plist */,
+			);
+			name = AppGlobal;
+			sourceTree = "<group>";
+		};
+		0B7B573D1CA0E56600CD05F9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				894B5AF71CA0C0E300DD2BFD /* ViewController.h */,
+				894B5AF81CA0C0E300DD2BFD /* ViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		0B7B573E1CA0E57500CD05F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				894B5AFA1CA0C0E300DD2BFD /* Main.storyboard */,
+				894B5B001CA0C0E300DD2BFD /* Assets.xcassets */,
+				894B5B021CA0C0E300DD2BFD /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		0B7B573F1CA0E57E00CD05F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				894B5AFD1CA0C0E300DD2BFD /* SmartCard.xcdatamodeld */,
+				0B7B57401CA0E5A700CD05F9 /* BaseTemplate.h */,
+				0B7B57411CA0E5A700CD05F9 /* BaseTemplate.m */,
+				0B7B57431CA0E74F00CD05F9 /* TemplateStore.h */,
+				0B7B57441CA0E74F00CD05F9 /* TemplateStore.m */,
+				0B7B57461CA0E85500CD05F9 /* TemplateA.h */,
+				0B7B57471CA0E85500CD05F9 /* TemplateA.m */,
+				0B7B57491CA0E86500CD05F9 /* TemplateB.h */,
+				0B7B574A1CA0E86500CD05F9 /* TemplateB.m */,
+				0B7B574C1CA0E86F00CD05F9 /* TemplateC.h */,
+				0B7B574D1CA0E86F00CD05F9 /* TemplateC.m */,
+				0B7B574F1CA0E87C00CD05F9 /* TemplateD.h */,
+				0B7B57501CA0E87C00CD05F9 /* TemplateD.m */,
+				0B7B57521CA0E88500CD05F9 /* TemplateE.h */,
+				0B7B57531CA0E88500CD05F9 /* TemplateE.m */,
+				0B7B57551CA0E89400CD05F9 /* TemplateF.h */,
+				0B7B57561CA0E89400CD05F9 /* TemplateF.m */,
+				0B7B57581CA0EB5000CD05F9 /* TemplateG.h */,
+				0B7B57591CA0EB5000CD05F9 /* TemplateG.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		894B5AE51CA0C0E300DD2BFD = {
 			isa = PBXGroup;
 			children = (
@@ -60,15 +142,10 @@
 		894B5AF01CA0C0E300DD2BFD /* SmartCard */ = {
 			isa = PBXGroup;
 			children = (
-				894B5AF41CA0C0E300DD2BFD /* AppDelegate.h */,
-				894B5AF51CA0C0E300DD2BFD /* AppDelegate.m */,
-				894B5AF71CA0C0E300DD2BFD /* ViewController.h */,
-				894B5AF81CA0C0E300DD2BFD /* ViewController.m */,
-				894B5AFA1CA0C0E300DD2BFD /* Main.storyboard */,
-				894B5B001CA0C0E300DD2BFD /* Assets.xcassets */,
-				894B5B021CA0C0E300DD2BFD /* LaunchScreen.storyboard */,
-				894B5B051CA0C0E300DD2BFD /* Info.plist */,
-				894B5AFD1CA0C0E300DD2BFD /* SmartCard.xcdatamodeld */,
+				0B7B573C1CA0E55600CD05F9 /* AppGlobal */,
+				0B7B573D1CA0E56600CD05F9 /* Controller */,
+				0B7B573E1CA0E57500CD05F9 /* View */,
+				0B7B573F1CA0E57E00CD05F9 /* Model */,
 				894B5AF11CA0C0E300DD2BFD /* Supporting Files */,
 			);
 			path = SmartCard;
@@ -152,10 +229,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B7B57571CA0E89400CD05F9 /* TemplateF.m in Sources */,
+				0B7B57481CA0E85500CD05F9 /* TemplateA.m in Sources */,
 				894B5AF91CA0C0E300DD2BFD /* ViewController.m in Sources */,
+				0B7B57421CA0E5A700CD05F9 /* BaseTemplate.m in Sources */,
 				894B5AF61CA0C0E300DD2BFD /* AppDelegate.m in Sources */,
+				0B7B57511CA0E87C00CD05F9 /* TemplateD.m in Sources */,
+				0B7B57541CA0E88500CD05F9 /* TemplateE.m in Sources */,
+				0B7B574B1CA0E86500CD05F9 /* TemplateB.m in Sources */,
+				0B7B57451CA0E74F00CD05F9 /* TemplateStore.m in Sources */,
+				0B7B574E1CA0E86F00CD05F9 /* TemplateC.m in Sources */,
 				894B5AF31CA0C0E300DD2BFD /* main.m in Sources */,
 				894B5AFF1CA0C0E300DD2BFD /* SmartCard.xcdatamodeld in Sources */,
+				0B7B575A1CA0EB5000CD05F9 /* TemplateG.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +390,7 @@
 				894B5B0A1CA0C0E300DD2BFD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
