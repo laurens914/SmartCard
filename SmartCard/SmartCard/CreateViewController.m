@@ -10,6 +10,8 @@
 
 @interface CreateViewController ()
 
+- (IBAction)enterInfo:(UIButton *)sender;
+
 @end
 
 @implementation CreateViewController
@@ -34,4 +36,6 @@
 }
 */
 
+- (IBAction)enterInfo:(UIButton *)sender {
+}
 @end

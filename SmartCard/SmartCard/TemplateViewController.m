@@ -9,6 +9,7 @@
 #import "TemplateViewController.h"
 
 @interface TemplateViewController ()
+- (IBAction)cancelButton:(UIButton *)sender;
 
 @end
 
@@ -34,4 +35,6 @@
 }
 */
 
+- (IBAction)cancelButton:(UIButton *)sender {
+}
 @end
