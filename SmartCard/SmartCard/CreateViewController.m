@@ -9,32 +9,37 @@
 #import "CreateViewController.h"
 
 @interface CreateViewController ()
+- (IBAction)dismissButton:(id)sender;
 
 - (IBAction)enterInfo:(UIButton *)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *dismiss;
 @end
 
 @implementation CreateViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self setupButton];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)setupButton
+{
+    self.dismiss.layer.cornerRadius = 20;
+    self.dismiss.layer.borderColor = [UIColor whiteColor].CGColor;
+    
 }
-*/
+
+
+- (IBAction)dismissButton:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+}
 
 - (IBAction)enterInfo:(UIButton *)sender {
 }
