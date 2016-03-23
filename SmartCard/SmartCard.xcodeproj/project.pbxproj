@@ -17,6 +17,8 @@
 		0B7B57571CA0E89400CD05F9 /* TemplateF.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B57561CA0E89400CD05F9 /* TemplateF.m */; };
 		0B7B575A1CA0EB5000CD05F9 /* TemplateG.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B57591CA0EB5000CD05F9 /* TemplateG.m */; };
 		0B7B575D1CA1876400CD05F9 /* savedImageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B575C1CA1876400CD05F9 /* savedImageObject.m */; };
+		891A5A9C1CA3280A00D42A47 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 891A5A9A1CA3280A00D42A47 /* Fabric.framework */; };
+		891A5A9D1CA3280A00D42A47 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 891A5A9B1CA3280A00D42A47 /* Crashlytics.framework */; };
 		894B5AF31CA0C0E300DD2BFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 894B5AF21CA0C0E300DD2BFD /* main.m */; };
 		894B5AF61CA0C0E300DD2BFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 894B5AF51CA0C0E300DD2BFD /* AppDelegate.m */; };
 		894B5AF91CA0C0E300DD2BFD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 894B5AF81CA0C0E300DD2BFD /* ViewController.m */; };
@@ -51,6 +53,8 @@
 		0B7B57591CA0EB5000CD05F9 /* TemplateG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateG.m; sourceTree = "<group>"; };
 		0B7B575B1CA1876400CD05F9 /* savedImageObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = savedImageObject.h; sourceTree = "<group>"; };
 		0B7B575C1CA1876400CD05F9 /* savedImageObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = savedImageObject.m; sourceTree = "<group>"; };
+		891A5A9A1CA3280A00D42A47 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		891A5A9B1CA3280A00D42A47 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		894B5AEE1CA0C0E300DD2BFD /* SmartCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		894B5AF21CA0C0E300DD2BFD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		894B5AF41CA0C0E300DD2BFD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				891A5A9D1CA3280A00D42A47 /* Crashlytics.framework in Frameworks */,
+				891A5A9C1CA3280A00D42A47 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +173,8 @@
 		894B5AF01CA0C0E300DD2BFD /* SmartCard */ = {
 			isa = PBXGroup;
 			children = (
+				891A5A9A1CA3280A00D42A47 /* Fabric.framework */,
+				891A5A9B1CA3280A00D42A47 /* Crashlytics.framework */,
 				0B7B573C1CA0E55600CD05F9 /* AppGlobal */,
 				0B7B573D1CA0E56600CD05F9 /* Controller */,
 				0B7B573E1CA0E57500CD05F9 /* View */,
@@ -194,6 +202,7 @@
 				894B5AEA1CA0C0E300DD2BFD /* Sources */,
 				894B5AEB1CA0C0E300DD2BFD /* Frameworks */,
 				894B5AEC1CA0C0E300DD2BFD /* Resources */,
+				891A5A991CA327DD00D42A47 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -248,6 +257,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		891A5A991CA327DD00D42A47 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 044ab976dfe8424d943175ee241fd79bc734649f 76765040cc9c79982a97bc51c4722001a10545ba803200f5d92035a2f044da5a";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		894B5AEA1CA0C0E300DD2BFD /* Sources */ = {
@@ -383,6 +408,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SmartCard",
+				);
 				INFOPLIST_FILE = SmartCard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.laurenspatz.SmartCard;
@@ -394,6 +423,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SmartCard",
+				);
 				INFOPLIST_FILE = SmartCard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.laurenspatz.SmartCard;
