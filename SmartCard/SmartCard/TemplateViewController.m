@@ -10,31 +10,33 @@
 
 @interface TemplateViewController ()
 - (IBAction)cancelButton:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *dismiss;
 
 @end
 
 @implementation TemplateViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self setupButton];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)setupButton
+{
+    self.dismiss.layer.cornerRadius = 20;
+    self.dismiss.clipsToBounds = YES;
+    self.dismiss.layer.borderWidth = 2;
+    self.dismiss.layer.borderColor = [UIColor whiteColor].CGColor;
 }
-*/
 
-- (IBAction)cancelButton:(UIButton *)sender {
+- (IBAction)cancelButton:(UIButton *)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

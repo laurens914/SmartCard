@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -78,8 +78,35 @@
                     <view key="view" contentMode="scaleToFill" id="Gwr-IS-eS0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iNA-q7-l0d">
+                                <rect key="frame" x="8" y="0.0" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="DHJ-4J-y9t"/>
+                                    <constraint firstAttribute="height" constant="40" id="dDw-KB-UaG"/>
+                                </constraints>
+                                <state key="normal" title="X"/>
+                                <connections>
+                                    <action selector="dismissButton:" destination="TnR-uG-kdb" eventType="touchUpInside" id="UlV-a5-vqh"/>
+                                </connections>
+                            </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kGO-NM-JQG">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <barButtonItem title="Item" systemItem="action" id="dAE-1s-VeV"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.71372549019607845" green="0.76078431372549016" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="iNA-q7-l0d" firstAttribute="top" secondItem="Gwr-IS-eS0" secondAttribute="top" id="sYb-uE-a60"/>
+                            <constraint firstItem="iNA-q7-l0d" firstAttribute="leading" secondItem="Gwr-IS-eS0" secondAttribute="leading" constant="8" id="x1j-II-5f3"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="iNA-q7-l0d" id="gKP-uE-CUc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MMk-nl-C4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -137,7 +164,9 @@
                                     <constraint firstAttribute="height" constant="40" id="OAJ-Zd-kEp"/>
                                     <constraint firstAttribute="width" constant="40" id="j84-Gz-mn3"/>
                                 </constraints>
-                                <state key="normal" title="X"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" red="0.30196078431372547" green="0.49411764705882355" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="cancelButton:" destination="dJh-lH-oZO" eventType="touchUpInside" id="qyQ-4q-Ta4"/>
                                 </connections>
@@ -154,6 +183,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="RPr-27-eNM"/>
+                    <connections>
+                        <outlet property="dismiss" destination="Zm8-dO-ex6" id="8WS-8v-1bH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ze2-rK-nTu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -178,6 +210,9 @@
                                     <constraint firstAttribute="height" constant="40" id="p2V-Mu-N4z"/>
                                 </constraints>
                                 <state key="normal" title="x"/>
+                                <connections>
+                                    <action selector="dismissButton:" destination="ks4-Nt-Itf" eventType="touchUpInside" id="Dy8-su-STF"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ti3-0g-WFP">
                                 <rect key="frame" x="267" y="481" width="66" height="30"/>
@@ -187,7 +222,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.71372549019607845" green="0.76078431372549016" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="87b-0x-aVF" firstAttribute="leading" secondItem="Y93-xV-2FL" secondAttribute="leading" id="Iyw-nV-HHV"/>
                             <constraint firstItem="XE8-lX-oOc" firstAttribute="top" secondItem="ti3-0g-WFP" secondAttribute="bottom" constant="89" id="bnm-Oe-gzi"/>
@@ -195,6 +230,9 @@
                             <constraint firstItem="ti3-0g-WFP" firstAttribute="centerX" secondItem="Y93-xV-2FL" secondAttribute="centerX" id="vxl-gV-XAF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dismiss" destination="87b-0x-aVF" id="2m4-fx-pyO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JKe-zX-Dlp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -217,6 +255,7 @@
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GGS-R4-T3R">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="ueL-WB-CmW"/>
                                         </constraints>
@@ -225,6 +264,7 @@
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gSK-ij-6BJ">
                                         <rect key="frame" x="0.0" y="30" width="300" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="05z-4v-kXz"/>
                                         </constraints>
@@ -238,6 +278,7 @@
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="765-4B-gdG">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="Vjv-rC-G76"/>
                                         </constraints>
@@ -246,6 +287,7 @@
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mEp-e5-UEf">
                                         <rect key="frame" x="0.0" y="30" width="300" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="Cfl-Bc-HMI"/>
                                         </constraints>
@@ -254,6 +296,7 @@
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Website" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kH9-Kw-0Sf">
                                         <rect key="frame" x="0.0" y="60" width="300" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="P4r-9A-rmd"/>
                                         </constraints>
@@ -267,6 +310,7 @@
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ADv-s4-Gt4">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="pWl-ca-0dQ"/>
                                         </constraints>
@@ -275,6 +319,7 @@
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Hr-TM-RjY">
                                         <rect key="frame" x="0.0" y="30" width="300" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="6Q7-r5-EKG"/>
                                         </constraints>
@@ -283,6 +328,7 @@
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Website" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Thr-VX-eVP">
                                         <rect key="frame" x="0.0" y="60" width="300" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="5Qa-0U-akQ"/>
                                         </constraints>
@@ -293,6 +339,7 @@
                             </stackView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hEl-VE-OfN">
                                 <rect key="frame" x="150" y="377" width="300" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="kdA-40-7fz"/>
                                 </constraints>
@@ -304,6 +351,7 @@
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ef1-Ss-505">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="06W-HI-BUL"/>
                                         </constraints>
@@ -312,6 +360,7 @@
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Postition" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nRe-Np-HJG">
                                         <rect key="frame" x="0.0" y="30" width="300" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="7sh-54-vVg"/>
                                         </constraints>
@@ -340,7 +389,7 @@
                                 <state key="normal" title="Add"/>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.71372549019607845" green="0.76078431372549016" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="fJc-tg-U2I" firstAttribute="centerY" secondItem="Ovw-zy-uvl" secondAttribute="centerY" id="2Sx-qg-kNf"/>
                             <constraint firstItem="0uY-UN-l72" firstAttribute="centerX" secondItem="gn5-rN-jQt" secondAttribute="centerX" id="4Oc-Os-KdA"/>
@@ -361,6 +410,10 @@
                             <constraint firstItem="o9K-Fy-6Dt" firstAttribute="centerX" secondItem="gn5-rN-jQt" secondAttribute="centerX" id="xiv-ju-Df8"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="saveButton" destination="cZl-Vg-EY9" id="hC4-u8-lfj"/>
+                        <outlet property="uploadImage" destination="2Sx-qg-kNf" id="3f7-s7-0kL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WBp-M1-jrn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
