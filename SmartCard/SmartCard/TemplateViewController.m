@@ -11,7 +11,9 @@
 #import "BaseTemplate.h"
 #import "TemplateCollectionViewCell.h"
 
-@interface TemplateViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
+#define Y_POS targetContentOffset->y
+
+@interface TemplateViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 - (IBAction)cancelButton:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UIButton *dismiss;
 @property (weak, nonatomic) IBOutlet UICollectionView *templateCollectionView;
@@ -24,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor colorWithRed:0.71 green:0.76 blue:0.85 alpha:1.0]];
     [self setupButton];
     [self setupCollectionView];
 }
@@ -66,8 +69,9 @@
 {
     BaseTemplate *templates = [[BaseTemplate alloc]init];
     self.dataSource = [templates templateImages];
-    return self.dataSource.count-1;
+    return self.dataSource.count;
 }
+
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     TemplateCollectionViewCell *templateCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"templateCell" forIndexPath:indexPath];
@@ -81,4 +85,74 @@
     return templateCell;
     
 }
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    UIImage * currImage = [self.dataSource objectAtIndex:indexPath.row];
+    
+    CGSize size = currImage.size;
+    
+    if (size.width > size.height) {
+        //Landscape Card
+        
+        return CGSizeMake(350.0, 200.0);
+    } else {
+        //Portrait Card
+        
+        return CGSizeMake(300.0, 600.0);
+    }
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if ([scrollView isEqual:self.templateCollectionView]) {
+
+        CGFloat y = scrollView.contentOffset.y;
+        NSLog(@"View is scrolling... %f", y);
+        NSLog(@" ");
+        
+        
+    }
+}
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    if ([scrollView isEqual:self.templateCollectionView]) {
+    
+        
+        NSLog(@"------Finished scrolling! Y = %f", Y_POS);
+        
+        if (Y_POS < 115) {
+            Y_POS = 0;
+        } else if (Y_POS < 335) {
+            Y_POS = 225;
+        } else if (Y_POS < 555) {
+            Y_POS = 445;
+        } else if (Y_POS < 775) {
+            Y_POS = 665;
+        } else if (Y_POS < 995) {
+            Y_POS = 885;
+        } else if (Y_POS < 1595) {
+            Y_POS = 1295;
+        } else if (Y_POS < 2195) {
+            Y_POS = 1895;
+        }
+        
+    }
+}
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

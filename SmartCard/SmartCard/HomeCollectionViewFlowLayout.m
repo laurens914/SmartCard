@@ -20,7 +20,7 @@
         self.scrollDirection = UICollectionViewScrollDirectionVertical;
         self.itemSize = CGSizeMake(350.0, 200.0);
         self.minimumLineSpacing = 20.0;
-        self.sectionInset = UIEdgeInsetsMake(60.0, 10.0, 0, 10.0);
+        self.sectionInset = UIEdgeInsetsMake(200.0, 10.0, 0, 10.0);
     }
     
     return self;
