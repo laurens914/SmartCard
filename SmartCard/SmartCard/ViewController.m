@@ -21,21 +21,25 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *savedCollectionView;
 
+@property (nonatomic) BOOL isSavedShowing;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUpHeightConstrains];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    
-    [self setUpHeightConstrains];
     [self setupCollectionView];
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
 
 
 - (void)didReceiveMemoryWarning {
@@ -46,6 +50,7 @@
 -(void)setUpHeightConstrains{
     _createHeight.constant = self.view.frame.size.height / 2;
     _savedHeight.constant = self.view.frame.size.height / 2;
+    self.isSavedShowing = NO;
 }
 
 -(void)setupCollectionView
@@ -63,13 +68,16 @@
 }
 
 -(void)animateConstraints{
-    [UIView animateWithDuration:1.0 delay:0.2 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        
-        _createHeight.constant = 60.0;
+    if (self.isSavedShowing) {
+        [self setUpHeightConstrains];
+    } else {
+        _createHeight.constant = 0.0;
         _savedHeight.constant = 60.0;
-        
-    } completion:^(BOOL finished) {
-        //
+        self.isSavedShowing = YES;
+    }
+    
+    [UIView animateWithDuration:1.0 animations:^{
+        [self.view layoutIfNeeded];
     }];
 }
 
