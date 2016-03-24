@@ -7,10 +7,15 @@
 //
 
 #import "TemplateViewController.h"
+#import "HomeCollectionViewFlowLayout.h"
+#import "BaseTemplate.h"
+#import "TemplateCollectionViewCell.h"
 
-@interface TemplateViewController ()
+@interface TemplateViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 - (IBAction)cancelButton:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UIButton *dismiss;
+@property (weak, nonatomic) IBOutlet UICollectionView *templateCollectionView;
+@property (strong,nonatomic) NSArray *dataSource;
 
 @end
 
@@ -20,6 +25,7 @@
 {
     [super viewDidLoad];
     [self setupButton];
+    [self setupCollectionView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,5 +44,34 @@
 - (IBAction)cancelButton:(UIButton *)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)setupCollectionView
+{
+    HomeCollectionViewFlowLayout *templateCollectionViewLayout = [[HomeCollectionViewFlowLayout alloc]init];
+    self.templateCollectionView.delegate = self;
+    self.templateCollectionView.dataSource = self;
+    self.templateCollectionView.collectionViewLayout = templateCollectionViewLayout;
+}
+
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    BaseTemplate *templates = [[BaseTemplate alloc]init];
+    self.dataSource = [templates templateImages];
+    return self.dataSource.count-1;
+}
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    TemplateCollectionViewCell *templateCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"templateCell" forIndexPath:indexPath];
+    UIImage *templateImage = self.dataSource[indexPath.row];
+    NSLog(@"%@", self.dataSource[indexPath.row]);
+    NSLog(@"%@",templateImage);
+    templateCell.timage = templateImage;
+    NSLog(@"%@", templateCell.timage);
+
+    
+    return templateCell;
+    
 }
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "HomeCollectionViewFlowLayout.h"
 @import UIKit;
 
 @interface ViewController ()
@@ -15,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *createHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *savedHeight;
 
+@property (weak, nonatomic) IBOutlet UICollectionView *savedCollectionView;
 
 @end
 
@@ -66,5 +68,12 @@
 
 - (IBAction)save:(UIButton *)sender {
     [self animateConstraints];
+}
+
+
+-(void)setupCollectionViewFlowLayout
+{
+    HomeCollectionViewFlowLayout *homeViewCollectionLayout = [[HomeCollectionViewFlowLayout alloc]init];
+    _savedCollectionView.collectionViewLayout = homeViewCollectionLayout;
 }
 @end

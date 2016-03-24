@@ -10,4 +10,10 @@
 
 @implementation BaseTemplate
 
+-(NSArray *)templateImages
+{
+    _templateImages = @[[UIImage imageNamed:@"TemplateA.png"], [UIImage imageNamed:@"TemplateB.png"],[UIImage imageNamed:@"TemplateC.png"], [UIImage imageNamed:@"TemplateD.png"], [UIImage imageNamed:@"TemplateE"], [UIImage imageNamed:@"TemplateF"], [UIImage imageNamed:@"TemplateG.png"]];
+    
+    return _templateImages;
+}
 @end
