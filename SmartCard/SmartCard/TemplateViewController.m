@@ -52,6 +52,9 @@
     self.templateCollectionView.delegate = self;
     self.templateCollectionView.dataSource = self;
     self.templateCollectionView.collectionViewLayout = templateCollectionViewLayout;
+    UIColor *colorTwo = [UIColor colorWithRed:0.71 green:0.76 blue:0.85 alpha:0.5];
+    
+    [_templateCollectionView setBackgroundColor:colorTwo];
 }
 
 
@@ -64,12 +67,12 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     TemplateCollectionViewCell *templateCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"templateCell" forIndexPath:indexPath];
+    
     UIImage *templateImage = self.dataSource[indexPath.row];
-    NSLog(@"%@", self.dataSource[indexPath.row]);
-    NSLog(@"%@",templateImage);
-    templateCell.timage = templateImage;
-    NSLog(@"%@", templateCell.timage);
+    
+    templateCell.imageView.image = templateImage;
 
+    
     
     return templateCell;
     

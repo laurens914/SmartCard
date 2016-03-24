@@ -12,6 +12,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *uploadImage;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 
+- (IBAction)dismiss:(UIButton *)sender;
+
 @end
 
 @implementation InfoViewController
@@ -28,4 +30,8 @@
 
 
 
+- (IBAction)dismiss:(UIButton *)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

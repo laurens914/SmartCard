@@ -8,11 +8,14 @@
 
 #import "ViewController.h"
 #import "HomeCollectionViewFlowLayout.h"
+#import "SavedCollectionViewFlowLayout.h"
+#import "SavedCollectionViewCell.h"
 @import UIKit;
 
-@interface ViewController ()
+@interface ViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 - (IBAction)create:(UIButton *)sender;
 - (IBAction)save:(UIButton *)sender;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *createHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *savedHeight;
 
@@ -24,24 +27,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-   
 }
+
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
     [self setUpHeightConstrains];
+    [self setupCollectionView];
 }
 
-//-(void)setUpColors{
-//    UIColor *colorOne = [UIColor colorWithRed:0.71 green:0.76 blue:0.85 alpha:1.0];
-//    UIColor *colorTwo = [UIColor colorWithRed:0.71 green:0.76 blue:0.85 alpha:0.5];
-//    
-//    UIColor *colorThree = [UIColor colorWithRed:0.51 green:0.52 blue:0.54 alpha:1.0];
-//    
-//   
-//    
-//}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -52,6 +47,21 @@
     _createHeight.constant = self.view.frame.size.height / 2;
     _savedHeight.constant = self.view.frame.size.height / 2;
 }
+
+-(void)setupCollectionView
+{
+    SavedCollectionViewFlowLayout *savedCollectionViewFlow = [[SavedCollectionViewFlowLayout alloc]init];
+    
+    self.savedCollectionView.delegate = self;
+    self.savedCollectionView.dataSource = self;
+    
+    self.savedCollectionView.collectionViewLayout = savedCollectionViewFlow;
+    
+    UIColor *colorTwo = [UIColor colorWithRed:0.71 green:0.76 blue:0.85 alpha:0.5];
+    
+    [_savedCollectionView setBackgroundColor:colorTwo];
+}
+
 -(void)animateConstraints{
     [UIView animateWithDuration:1.0 delay:0.2 options:UIViewAnimationOptionCurveEaseIn animations:^{
         
@@ -76,4 +86,22 @@
     HomeCollectionViewFlowLayout *homeViewCollectionLayout = [[HomeCollectionViewFlowLayout alloc]init];
     _savedCollectionView.collectionViewLayout = homeViewCollectionLayout;
 }
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 10;
+}
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    SavedCollectionViewCell *savedCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"savedCell" forIndexPath:indexPath];
+    
+//    UIImage *savedImage = self.dataSource[indexPath.row];
+    
+//    savedCell.imageView.image = savedImage;
+    savedCell.backgroundColor = [UIColor blackColor];
+    
+    return savedCell;
+    
+}
+
 @end
