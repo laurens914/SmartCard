@@ -28,6 +28,9 @@
     [super didReceiveMemoryWarning];
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
 
 
 - (IBAction)dismiss:(UIButton *)sender {

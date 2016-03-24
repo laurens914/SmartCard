@@ -27,6 +27,10 @@
     [super didReceiveMemoryWarning];
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 -(void)setupButton
 {
     self.dismiss.layer.cornerRadius = 20;
