@@ -27,4 +27,6 @@
 
 @property(strong, nonatomic)UIImage *backgroundImage;
 
+
+@property(strong, nonatomic)NSArray *templateImages;
 @end

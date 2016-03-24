@@ -26,6 +26,9 @@
 		0BF1BC411CA340B600EEEEF7 /* TemplateG.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BF1BC3A1CA340B600EEEEF7 /* TemplateG.png */; };
 		891A5A9C1CA3280A00D42A47 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 891A5A9A1CA3280A00D42A47 /* Fabric.framework */; };
 		891A5A9D1CA3280A00D42A47 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 891A5A9B1CA3280A00D42A47 /* Crashlytics.framework */; };
+		891A5A9F1CA343D700D42A47 /* TemplateA.xib in Resources */ = {isa = PBXBuildFile; fileRef = 891A5A9E1CA343D700D42A47 /* TemplateA.xib */; };
+		891A5AA21CA349B100D42A47 /* HomeCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 891A5AA11CA349B100D42A47 /* HomeCollectionViewFlowLayout.m */; };
+		891A5AA51CA3577600D42A47 /* TemplateCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 891A5AA41CA3577600D42A47 /* TemplateCollectionViewCell.m */; };
 		894B5AF31CA0C0E300DD2BFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 894B5AF21CA0C0E300DD2BFD /* main.m */; };
 		894B5AF61CA0C0E300DD2BFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 894B5AF51CA0C0E300DD2BFD /* AppDelegate.m */; };
 		894B5AF91CA0C0E300DD2BFD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 894B5AF81CA0C0E300DD2BFD /* ViewController.m */; };
@@ -69,6 +72,11 @@
 		0BF1BC3A1CA340B600EEEEF7 /* TemplateG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TemplateG.png; path = templateImages/TemplateG.png; sourceTree = SOURCE_ROOT; };
 		891A5A9A1CA3280A00D42A47 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		891A5A9B1CA3280A00D42A47 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		891A5A9E1CA343D700D42A47 /* TemplateA.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TemplateA.xib; sourceTree = "<group>"; };
+		891A5AA01CA349B100D42A47 /* HomeCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		891A5AA11CA349B100D42A47 /* HomeCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		891A5AA31CA3577600D42A47 /* TemplateCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateCollectionViewCell.h; sourceTree = "<group>"; };
+		891A5AA41CA3577600D42A47 /* TemplateCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateCollectionViewCell.m; sourceTree = "<group>"; };
 		894B5AEE1CA0C0E300DD2BFD /* SmartCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		894B5AF21CA0C0E300DD2BFD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		894B5AF41CA0C0E300DD2BFD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -134,9 +142,14 @@
 			isa = PBXGroup;
 			children = (
 				894B5AFA1CA0C0E300DD2BFD /* Main.storyboard */,
+				891A5AA31CA3577600D42A47 /* TemplateCollectionViewCell.h */,
+				891A5AA41CA3577600D42A47 /* TemplateCollectionViewCell.m */,
+				891A5A9E1CA343D700D42A47 /* TemplateA.xib */,
 				0BF1BC421CA340C100EEEEF7 /* TemplateImages */,
 				894B5B001CA0C0E300DD2BFD /* Assets.xcassets */,
 				894B5B021CA0C0E300DD2BFD /* LaunchScreen.storyboard */,
+				891A5AA01CA349B100D42A47 /* HomeCollectionViewFlowLayout.h */,
+				891A5AA11CA349B100D42A47 /* HomeCollectionViewFlowLayout.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -280,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				894B5B041CA0C0E300DD2BFD /* LaunchScreen.storyboard in Resources */,
+				891A5A9F1CA343D700D42A47 /* TemplateA.xib in Resources */,
 				0BF1BC3F1CA340B600EEEEF7 /* TemplateE.png in Resources */,
 				0BF1BC3B1CA340B600EEEEF7 /* TemplateA.png in Resources */,
 				0BF1BC401CA340B600EEEEF7 /* TemplateF.png in Resources */,
@@ -320,10 +334,12 @@
 				0B7B575D1CA1876400CD05F9 /* savedImageObject.m in Sources */,
 				89A36A261CA1E6E300997095 /* InfoViewController.m in Sources */,
 				894B5AF91CA0C0E300DD2BFD /* ViewController.m in Sources */,
+				891A5AA21CA349B100D42A47 /* HomeCollectionViewFlowLayout.m in Sources */,
 				89A36A231CA1E6DC00997095 /* CreateViewController.m in Sources */,
 				0B7B57421CA0E5A700CD05F9 /* BaseTemplate.m in Sources */,
 				89A36A201CA1E6D200997095 /* TemplateViewController.m in Sources */,
 				894B5AF61CA0C0E300DD2BFD /* AppDelegate.m in Sources */,
+				891A5AA51CA3577600D42A47 /* TemplateCollectionViewCell.m in Sources */,
 				0B7B57511CA0E87C00CD05F9 /* TemplateD.m in Sources */,
 				0B7B57541CA0E88500CD05F9 /* TemplateE.m in Sources */,
 				0B7B574B1CA0E86500CD05F9 /* TemplateB.m in Sources */,
