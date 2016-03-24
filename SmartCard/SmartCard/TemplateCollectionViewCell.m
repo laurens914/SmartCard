@@ -8,20 +8,6 @@
 
 #import "TemplateCollectionViewCell.h"
 
-
-@interface TemplateCollectionViewCell ()
-
-@property (weak, nonatomic) IBOutlet UIImageView *templateImageView;
-
-@end
-
 @implementation TemplateCollectionViewCell
-
--(void)setTimage:(UIImage *)timage
-{
-    timage = self.templateImageView.image;
-    
-    _timage = timage;
-}
 
 @end
