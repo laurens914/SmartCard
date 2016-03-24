@@ -130,13 +130,6 @@
                                     <action selector="dismissButton:" destination="TnR-uG-kdb" eventType="touchUpInside" id="UlV-a5-vqh"/>
                                 </connections>
                             </button>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kGO-NM-JQG">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <barButtonItem title="Item" systemItem="action" id="dAE-1s-VeV"/>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.71372549019607845" green="0.76078431372549016" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -165,7 +158,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qYv-He-bF1">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="10" width="600" height="590"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Eta-96-i4f">
                                     <size key="itemSize" width="356" height="252"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -200,7 +193,7 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zm8-dO-ex6">
-                                <rect key="frame" x="0.0" y="20" width="40" height="40"/>
+                                <rect key="frame" x="5" y="5" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="OAJ-Zd-kEp"/>
                                     <constraint firstAttribute="width" constant="40" id="j84-Gz-mn3"/>
@@ -215,11 +208,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Zm8-dO-ex6" firstAttribute="top" secondItem="C5h-BT-6wV" secondAttribute="top" constant="20" id="BgF-NW-5fi"/>
-                            <constraint firstItem="Zm8-dO-ex6" firstAttribute="leading" secondItem="C5h-BT-6wV" secondAttribute="leading" id="JlZ-UV-48w"/>
+                            <constraint firstItem="Zm8-dO-ex6" firstAttribute="top" secondItem="C5h-BT-6wV" secondAttribute="top" constant="5" id="BgF-NW-5fi"/>
+                            <constraint firstItem="Zm8-dO-ex6" firstAttribute="leading" secondItem="C5h-BT-6wV" secondAttribute="leading" constant="5" id="JlZ-UV-48w"/>
                             <constraint firstItem="aUu-9P-ty1" firstAttribute="top" secondItem="qYv-He-bF1" secondAttribute="bottom" id="RNq-Ec-GUA"/>
                             <constraint firstItem="qYv-He-bF1" firstAttribute="leading" secondItem="C5h-BT-6wV" secondAttribute="leading" id="Tcl-ex-duU"/>
-                            <constraint firstItem="qYv-He-bF1" firstAttribute="top" secondItem="CN8-WM-ehE" secondAttribute="bottom" id="dH7-hC-v4L"/>
+                            <constraint firstItem="qYv-He-bF1" firstAttribute="top" secondItem="CN8-WM-ehE" secondAttribute="bottom" constant="-10" id="dH7-hC-v4L"/>
                             <constraint firstAttribute="trailing" secondItem="qYv-He-bF1" secondAttribute="trailing" id="fIy-9u-1Da"/>
                         </constraints>
                     </view>
