@@ -76,7 +76,7 @@
         self.isSavedShowing = YES;
     }
     
-    [UIView animateWithDuration:1.0 animations:^{
+    [UIView animateWithDuration:0.5 animations:^{
         [self.view layoutIfNeeded];
     }];
 }
