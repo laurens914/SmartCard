@@ -157,8 +157,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zm8-dO-ex6">
+                                <rect key="frame" x="5" y="5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="OAJ-Zd-kEp"/>
+                                    <constraint firstAttribute="width" constant="40" id="j84-Gz-mn3"/>
+                                </constraints>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButton:" destination="dJh-lH-oZO" eventType="touchUpInside" id="qyQ-4q-Ta4"/>
+                                </connections>
+                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qYv-He-bF1">
-                                <rect key="frame" x="0.0" y="10" width="600" height="590"/>
+                                <rect key="frame" x="0.0" y="70" width="600" height="530"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Eta-96-i4f">
                                     <size key="itemSize" width="356" height="252"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -173,7 +186,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="356" height="252"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K9I-Ir-GhR">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K9I-Ir-GhR">
                                                     <rect key="frame" x="0.0" y="0.0" width="356" height="252"/>
                                                 </imageView>
                                             </subviews>
@@ -192,27 +205,23 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zm8-dO-ex6">
-                                <rect key="frame" x="5" y="5" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="OAJ-Zd-kEp"/>
-                                    <constraint firstAttribute="width" constant="40" id="j84-Gz-mn3"/>
-                                </constraints>
-                                <state key="normal" title="X">
-                                    <color key="titleColor" red="0.30196078431372547" green="0.49411764705882355" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelButton:" destination="dJh-lH-oZO" eventType="touchUpInside" id="qyQ-4q-Ta4"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a Template" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ch3-Zr-jWY">
+                                <rect key="frame" x="53" y="13" width="495" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Zm8-dO-ex6" firstAttribute="top" secondItem="C5h-BT-6wV" secondAttribute="top" constant="5" id="BgF-NW-5fi"/>
+                            <constraint firstAttribute="trailing" secondItem="Ch3-Zr-jWY" secondAttribute="trailing" constant="52" id="Ibk-DS-F0e"/>
                             <constraint firstItem="Zm8-dO-ex6" firstAttribute="leading" secondItem="C5h-BT-6wV" secondAttribute="leading" constant="5" id="JlZ-UV-48w"/>
+                            <constraint firstItem="Ch3-Zr-jWY" firstAttribute="top" secondItem="C5h-BT-6wV" secondAttribute="top" constant="13" id="LfK-T1-B8D"/>
+                            <constraint firstItem="Ch3-Zr-jWY" firstAttribute="leading" secondItem="Zm8-dO-ex6" secondAttribute="trailing" constant="8" id="Mer-M9-Olc"/>
                             <constraint firstItem="aUu-9P-ty1" firstAttribute="top" secondItem="qYv-He-bF1" secondAttribute="bottom" id="RNq-Ec-GUA"/>
                             <constraint firstItem="qYv-He-bF1" firstAttribute="leading" secondItem="C5h-BT-6wV" secondAttribute="leading" id="Tcl-ex-duU"/>
-                            <constraint firstItem="qYv-He-bF1" firstAttribute="top" secondItem="CN8-WM-ehE" secondAttribute="bottom" constant="-10" id="dH7-hC-v4L"/>
+                            <constraint firstItem="qYv-He-bF1" firstAttribute="top" secondItem="CN8-WM-ehE" secondAttribute="bottom" constant="50" id="dH7-hC-v4L"/>
                             <constraint firstAttribute="trailing" secondItem="qYv-He-bF1" secondAttribute="trailing" id="fIy-9u-1Da"/>
                         </constraints>
                     </view>
