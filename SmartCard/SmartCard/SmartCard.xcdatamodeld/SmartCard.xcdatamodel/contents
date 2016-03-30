@@ -1,4 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15D21" minimumToolsVersion="Automatic">
+    <entity name="CardImage" representedClassName="CardImage" syncable="YES">
+        <attribute name="buisnessCard" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
+    <entity name="ContactData" representedClassName="ContactData" syncable="YES">
+        <attribute name="addressCity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="addressPostalCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="addressState" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="addressStreet" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="buinessName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="emailAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="positionTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="ContactData" positionX="-63" positionY="-18" width="128" height="225"/>
+        <element name="CardImage" positionX="-54" positionY="-9" width="128" height="60"/>
+    </elements>
 </model>
