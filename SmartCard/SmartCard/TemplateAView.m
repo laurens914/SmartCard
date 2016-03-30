@@ -11,7 +11,7 @@
 @implementation TemplateAView
 
 
-+(void)setUpViewWithView:(UIView *)view{
++(void)setUpViewWithView:(UIView*)view website:(NSString*)website{
     
     UIView *viewX = [[UIView alloc]init];
     viewX.translatesAutoresizingMaskIntoConstraints = NO;
@@ -54,7 +54,7 @@
     UILabel *websiteLabel = [[UILabel alloc ]init];
     websiteLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    websiteLabel.text = @"www.fullName.com";
+    websiteLabel.text = website;
     UIFont *font = [UIFont fontWithName:@"GeezaPro" size:20.0];
     websiteLabel.font = font;
     websiteLabel.textAlignment = NSTextAlignmentCenter;

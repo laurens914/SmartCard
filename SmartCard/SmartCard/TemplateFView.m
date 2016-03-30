@@ -10,7 +10,7 @@
 
 @implementation TemplateFView
 
-+(void)setUpViewWithView:(UIView*)view{
++(void)setUpViewWithView:(UIView*)view name:(NSString*)name email:(NSString*)email phone:(NSString*)phone logo:(UIImage*)logo{
     
     UIView *viewX = [[UIView alloc]init];
     viewX.translatesAutoresizingMaskIntoConstraints = NO;
@@ -74,7 +74,7 @@
     UILabel *nameLabel = [[UILabel alloc ]init];
     nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    nameLabel.text = @"Full Name";
+    nameLabel.text = name;
     UIFont *font = [UIFont fontWithName:@"Avenir-Book" size:20.0];
     nameLabel.font = font;
     nameLabel.textAlignment = NSTextAlignmentCenter;
@@ -98,7 +98,7 @@
     UILabel *numberLabel = [[UILabel alloc ]init];
     numberLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    numberLabel.text = @"123 666-1234";
+    numberLabel.text = phone;
     UIFont *smallerFont = [UIFont fontWithName:@"Avenir-Book" size:18.0];
     numberLabel.font = smallerFont;
     numberLabel.textAlignment = NSTextAlignmentCenter;
@@ -122,7 +122,7 @@
     UILabel *emailLabel = [[UILabel alloc ]init];
     emailLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    emailLabel.text = @"yourName@email.com";
+    emailLabel.text = email;
     emailLabel.font = smallerFont;
     emailLabel.textAlignment = NSTextAlignmentCenter;
     

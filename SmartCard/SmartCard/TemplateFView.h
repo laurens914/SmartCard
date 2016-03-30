@@ -10,6 +10,6 @@
 
 @interface TemplateFView : UIView
 
-+(void)setUpViewWithView:(UIView*)view;
++(void)setUpViewWithView:(UIView*)view name:(NSString*)name email:(NSString*)email phone:(NSString*)phone logo:(UIImage*)logo;
 
 @end

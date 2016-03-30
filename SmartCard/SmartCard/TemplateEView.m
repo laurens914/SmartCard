@@ -10,7 +10,7 @@
 
 @implementation TemplateEView
 
-+(void)setUpViewWithView:(UIView*)view{
++(void)setUpViewWithView:(UIView*)view name:(NSString*)name phone:(NSString*)phone  logo:(UIImage*)logo{
     
     
     UIView *viewX = [[UIView alloc]init];
@@ -56,6 +56,7 @@
     UIImageView *imageView = [[UIImageView alloc]init];
     imageView.translatesAutoresizingMaskIntoConstraints = NO;
     imageView.backgroundColor = [UIColor redColor];
+    imageView.image = logo;
     
     NSLayoutConstraint *IVLeading = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeLeading multiplier:1.0 constant: 42];
     
@@ -78,7 +79,7 @@
     UILabel *nameLabel = [[UILabel alloc ]init];
     nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    nameLabel.text = @"Full Name";
+    nameLabel.text = name;
     UIFont *font = [UIFont fontWithName:@"BanglaSamgamMN-Bold" size:21.0];
     nameLabel.font = font;
     nameLabel.textAlignment = NSTextAlignmentCenter;
@@ -98,7 +99,7 @@
     UILabel *phoneNumberLabel = [[UILabel alloc ]init];
     phoneNumberLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    phoneNumberLabel.text = @"123 666-1234";
+    phoneNumberLabel.text = phone;
     UIFont *smallFont= [UIFont fontWithName:@"BanglaSamgamMN-Bold" size:14.0];
     phoneNumberLabel.font = smallFont;
     phoneNumberLabel.textAlignment = NSTextAlignmentCenter;

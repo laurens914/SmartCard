@@ -10,7 +10,7 @@
 
 @implementation TemplateDView
 
-+(void)setUpViewWithView:(UIView*)view{
++(void)setUpViewWithView:(UIView*)view name:(NSString*)name phone:(NSString*)phone website:(NSString*)website jobTitle:(NSString*)title company:(NSString*)company logo:(UIImage*)logo{
     
     
     UIView *viewX = [[UIView alloc]init];
@@ -57,6 +57,7 @@
     UIImageView *imageView = [[UIImageView alloc]init];
     imageView.translatesAutoresizingMaskIntoConstraints = NO;
     imageView.backgroundColor = [UIColor redColor];
+    imageView.image = logo;
     
     NSLayoutConstraint *IVLeading = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeLeading multiplier:1.0 constant: 25];
     
@@ -76,7 +77,7 @@
     UILabel *companyLabel = [[UILabel alloc ]init];
     companyLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    companyLabel.text = @"Company Name";
+    companyLabel.text = company;
     UIFont *font = [UIFont fontWithName:@"Copperplate" size:22.0];
     companyLabel.font = font;
     companyLabel.textAlignment = NSTextAlignmentCenter;
@@ -99,7 +100,7 @@
     UILabel *nameLabel = [[UILabel alloc ]init];
     nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    nameLabel.text = @"Full Name";
+    nameLabel.text = name;
     UIFont *smallFont = [UIFont fontWithName:@"Baskerville" size:18.0];
     nameLabel.font = smallFont;
     nameLabel.textAlignment = NSTextAlignmentCenter;
@@ -122,7 +123,7 @@
     UILabel *titleLabel = [[UILabel alloc ]init];
     titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    titleLabel.text = @"Current Title";
+    titleLabel.text = title;
     titleLabel.font = smallFont;
     titleLabel.textAlignment = NSTextAlignmentCenter;
     
@@ -143,7 +144,7 @@
     UILabel *phoneLabel = [[UILabel alloc ]init];
     phoneLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    phoneLabel.text = @"123 666-1234";
+    phoneLabel.text = phone;
     phoneLabel.font = smallFont;
     phoneLabel.textAlignment = NSTextAlignmentCenter;
     

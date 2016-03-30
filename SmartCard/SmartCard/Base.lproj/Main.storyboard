@@ -333,6 +333,9 @@
                                     <constraint firstAttribute="height" constant="30" id="TOf-nP-MRp"/>
                                 </constraints>
                                 <state key="normal" title="Enter"/>
+                                <connections>
+                                    <action selector="saveInfo:" destination="Iy0-6k-exG" eventType="touchUpInside" id="qbA-7a-JhT"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ovw-zy-uvl">
                                 <rect key="frame" x="150" y="20" width="80" height="80"/>
@@ -502,8 +505,19 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="aptNumLabel" destination="VJ2-YR-ixz" id="leD-gA-bcL"/>
+                        <outlet property="cityLabel" destination="Je6-Gp-3vd" id="pVS-IU-7hz"/>
+                        <outlet property="companyLabel" destination="ef1-Ss-505" id="ka3-qW-wKT"/>
+                        <outlet property="emailLabel" destination="765-4B-gdG" id="9os-g1-FjE"/>
+                        <outlet property="firstNameLabel" destination="GGS-R4-T3R" id="wie-BN-h6X"/>
+                        <outlet property="imageView" destination="Ovw-zy-uvl" id="zD8-YE-K1l"/>
+                        <outlet property="lastNameLabel" destination="gSK-ij-6BJ" id="XGs-mb-lzO"/>
+                        <outlet property="phoneLabel" destination="mEp-e5-UEf" id="MZ0-0K-SFS"/>
+                        <outlet property="postitionLable" destination="nRe-Np-HJG" id="RA0-Yg-lTv"/>
                         <outlet property="saveButton" destination="cZl-Vg-EY9" id="hC4-u8-lfj"/>
+                        <outlet property="streetAddressLabel" destination="hEl-VE-OfN" id="k61-28-mAV"/>
                         <outlet property="uploadImage" destination="2Sx-qg-kNf" id="3f7-s7-0kL"/>
+                        <outlet property="webSiteLabel" destination="kH9-Kw-0Sf" id="pso-E4-KCR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WBp-M1-jrn" userLabel="First Responder" sceneMemberID="firstResponder"/>

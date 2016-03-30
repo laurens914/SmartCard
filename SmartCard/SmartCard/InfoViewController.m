@@ -32,8 +32,14 @@
     return YES;
 }
 
-
 - (IBAction)dismiss:(UIButton *)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)saveInfo:(UIButton *)sender {
+    
+    self.completion(_firstNameLabel.text, _lastNameLabel.text, _emailLabel.text, _phoneLabel.text, _webSiteLabel.text, _streetAddressLabel.text, _cityLabel.text, _imageView.image, _companyLabel.text, _postitionLable.text);
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
