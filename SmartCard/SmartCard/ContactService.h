@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BaseTemplate.h"
+#import "ContactData.h"
 @import UIKit;
 @import Contacts;
 
@@ -17,7 +17,7 @@
 
 +(instancetype)sharedContact;
 
--(void)saveNewContact:(BaseTemplate *)contact;
+-(void)saveNewContact:(ContactData *)contact;
 
 
 

@@ -22,33 +22,33 @@
 }
 
 
--(void)saveNewContact:(BaseTemplate *)contact
+-(void)saveNewContact:(ContactData *)contact
 {
     CNContactStore *store = [[CNContactStore alloc]init];
     [store requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
         if(granted){
             CNMutableContact *newContact = [[CNMutableContact alloc]init];
             CNMutablePostalAddress *postalAddress = [[CNMutablePostalAddress alloc]init];
-            postalAddress.street = @"123";
-            postalAddress.state = @"WA";
-            postalAddress.city = @"Seattle";
-            postalAddress.postalCode = @"98199";
+            postalAddress.street = contact.addressStreet;
+            postalAddress.state = contact.addressState;
+            postalAddress.city = contact.addressCity;
+            postalAddress.postalCode = contact.addressPostalCode;
             CNLabeledValue *workAddress = [CNLabeledValue labeledValueWithLabel:CNLabelHome value:postalAddress];
             
             
-            CNLabeledValue *emailContactHome = [CNLabeledValue labeledValueWithLabel:CNLabelHome value:@"test@gmail.com"];
-            CNLabeledValue *emailContactiCloud = [CNLabeledValue labeledValueWithLabel:CNLabelEmailiCloud value:@"test@gmail.com"];
+            CNLabeledValue *emailContactHome = [CNLabeledValue labeledValueWithLabel:CNLabelHome value:contact.emailAddress];
+
             
             
             
-            CNLabeledValue *phoneContact = [CNLabeledValue labeledValueWithLabel:CNLabelPhoneNumberMain value:[CNPhoneNumber phoneNumberWithStringValue:(@"206-999-7654")]];
-            CNLabeledValue *phoneContactCell = [CNLabeledValue labeledValueWithLabel:CNLabelPhoneNumberMobile value:[CNPhoneNumber phoneNumberWithStringValue:(@"206-999-7654")]];
+            CNLabeledValue *phoneContact = [CNLabeledValue labeledValueWithLabel:CNLabelPhoneNumberMain value:[CNPhoneNumber phoneNumberWithStringValue:(contact.phoneNumber)]];
+     
             
-            newContact.givenName = @"Lauren";
-            newContact.familyName = @"Spatz";
-            newContact.emailAddresses = @[emailContactHome, emailContactiCloud];
+            newContact.givenName = contact.firstName;
+            newContact.familyName = contact.lastName;
+            newContact.emailAddresses = @[emailContactHome];
             newContact.postalAddresses = @[workAddress];
-            newContact.phoneNumbers = @[phoneContact, phoneContactCell];
+            newContact.phoneNumbers = @[phoneContact];
             
             
             CNSaveRequest *saveContact = [[CNSaveRequest alloc]init];
