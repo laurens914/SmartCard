@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+#import "ContactService.h"
+#import "ContactData.h"
+
 
 @interface AppDelegate ()
 
@@ -20,7 +23,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [Fabric with:@[[Crashlytics class]]];
-    
+//    [self bootstrappin];
+    [self saveFromCDToContact];
     return YES;
 }
 
@@ -36,6 +40,7 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+
 - (NSManagedObjectModel *)managedObjectModel {
     // The managed object model for the application. It is a fatal error for the application not to be able to find and load its model.
     if (_managedObjectModel != nil) {
@@ -47,7 +52,8 @@
 }
 
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
-    // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it.
+
+    
     if (_persistentStoreCoordinator != nil) {
         return _persistentStoreCoordinator;
     }
@@ -72,6 +78,46 @@
     }
     
     return _persistentStoreCoordinator;
+}
+
+-(void)bootstrappin
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"ContactData"];
+    NSError *error;
+    NSInteger count = [self.managedObjectContext countForFetchRequest:request error:&error];
+    if (count == 0 && !error)
+    {
+        ContactData *newContact = [NSEntityDescription insertNewObjectForEntityForName:@"ContactData" inManagedObjectContext:self.managedObjectContext];
+        newContact.firstName = @"Russell";
+        newContact.lastName = @"Wilson";
+        newContact.addressStreet = @"1212";
+        newContact.addressState = @"WA";
+        newContact.addressCity = @"Seattle";
+        newContact.addressPostalCode = @"98199";
+        newContact.emailAddress = @"dangeruss@seahawks.com";
+        newContact.phoneNumber = @"206-550-1212";
+        newContact.website = @"www.russellwilson.com";
+        
+        NSError *error;
+        BOOL isSaved = [self.managedObjectContext save:&error];
+        if (!isSaved)
+        {
+            NSLog(@"%@", error.localizedDescription);
+        } else {
+            NSLog(@"YAYYYYYYYYYY");
+        }
+    }
+}
+
+-(void)saveFromCDToContact
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"ContactData"];
+    NSError *error;
+    
+    NSArray *contacts = [self.managedObjectContext executeFetchRequest:request error:&error];
+    for (ContactData *contact in contacts) {
+        [[ContactService sharedContact]saveNewContact:contact];
+    }
 }
 
 
