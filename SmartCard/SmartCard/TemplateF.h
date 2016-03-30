@@ -10,6 +10,8 @@
 
 @interface TemplateF : BaseTemplate
 
+@property NSInteger idx;
+
 //create custom initializer that creates default values for selected properties
 
 @end
