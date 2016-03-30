@@ -10,6 +10,6 @@
 
 @interface TemplateBView : UIView
 
-+(void)setUpViewWithView:(UIView*)view;
++(void)setUpViewWithView:(UIView*)view name:(NSString*)name firstAddress:(NSString*)firstAddress secondaryAddress:(NSString*)secondaryAddress email:(NSString*)email phone:(NSString*)phone website:(NSString*)website jobTitle:(NSString*)title company:(NSString*)company logo:(UIImage*)logo;
 
 @end

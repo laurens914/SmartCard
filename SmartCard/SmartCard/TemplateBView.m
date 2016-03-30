@@ -10,7 +10,7 @@
 
 @implementation TemplateBView
 
-+(void)setUpViewWithView:(UIView*)view{
++(void)setUpViewWithView:(UIView*)view name:(NSString*)name firstAddress:(NSString*)firstAddress secondaryAddress:(NSString*)secondaryAddress email:(NSString*)email phone:(NSString*)phone website:(NSString*)website jobTitle:(NSString*)title company:(NSString*)company logo:(UIImage*)logo{
     
     UIView *viewX = [[UIView alloc]init];
     viewX.translatesAutoresizingMaskIntoConstraints = NO;
@@ -53,6 +53,7 @@
     
     UIImageView *imageView = [[UIImageView alloc]init];
     imageView.translatesAutoresizingMaskIntoConstraints = NO;
+    imageView.image = logo;
     imageView.backgroundColor = [UIColor redColor];
     
     NSLayoutConstraint *IVLeading = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeLeading multiplier:1.0 constant: 20];
@@ -74,7 +75,7 @@
     UILabel *companyLabel = [[UILabel alloc ]init];
     companyLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    companyLabel.text = @"CompanyName";
+    companyLabel.text = company;
     UIFont *font = [UIFont fontWithName:@"Avenir-Book" size:20.0];
     companyLabel.font = font;
     companyLabel.textAlignment = NSTextAlignmentCenter;
@@ -101,7 +102,7 @@
     UILabel *addressLabel = [[UILabel alloc ]init];
     addressLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    addressLabel.text = @"123 54th Street";
+    addressLabel.text = firstAddress;
     UIFont *smallFont = [UIFont fontWithName:@"ArialHebrew-Light" size:14.0];
     addressLabel.font = smallFont;
     addressLabel.textAlignment = NSTextAlignmentCenter;
@@ -121,7 +122,7 @@
     UILabel *secondAddressLabel = [[UILabel alloc ]init];
     secondAddressLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    secondAddressLabel.text = @"City, State 66666";
+    secondAddressLabel.text = secondaryAddress;
     UIFont *smallerFont = [UIFont fontWithName:@"ArialHebrew-Light" size:12.0];
     
     secondAddressLabel.font = smallerFont;
@@ -143,7 +144,7 @@
     UILabel *nameLabel = [[UILabel alloc ]init];
     nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    nameLabel.text = @"Full Name";
+    nameLabel.text = name;
     UIFont *nameFont = [UIFont fontWithName:@"Arial-BoldMT" size:16.0];
     nameLabel.font = nameFont;
     nameLabel.textAlignment = NSTextAlignmentCenter;
@@ -161,7 +162,7 @@
     UILabel *titleLabel = [[UILabel alloc ]init];
     titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    titleLabel.text = @"Job Title";
+    titleLabel.text = title;
     
     titleLabel.font = smallFont;
     titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -180,7 +181,7 @@
     UILabel *phoneLabel = [[UILabel alloc]init];
     phoneLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    phoneLabel.text = @"123-666-1111";
+    phoneLabel.text = phone;
     
     phoneLabel.font = smallFont;
     phoneLabel.textAlignment = NSTextAlignmentCenter;
@@ -202,7 +203,7 @@
     UILabel *emailLabel = [[UILabel alloc]init];
     emailLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    emailLabel.text = @"fullName@email.com";
+    emailLabel.text = email;
     
     emailLabel.font = smallerFont;
     emailLabel.textAlignment = NSTextAlignmentCenter;

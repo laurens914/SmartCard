@@ -12,7 +12,6 @@
 
 @property NSInteger selectedIndex;
 
-//+(void)selectView:(NSInteger)index;
-
+@property BOOL isInfo;
 
 @end

@@ -10,6 +10,5 @@
 
 @interface TemplateEView : UIView
 
-+(void)setUpViewWithView:(UIView*)view;
-
++(void)setUpViewWithView:(UIView*)view name:(NSString*)name phone:(NSString*)phone  logo:(UIImage*)logo;
 @end

@@ -10,7 +10,7 @@
 
 @implementation TemplateCView
 
-+(void)setUpViewWithView:(UIView*)view{
++(void)setUpViewWithView:(UIView*)view name:(NSString*)name firstAddress:(NSString*)firstAddress secondaryAddress:(NSString*)secondaryAddress email:(NSString*)email phone:(NSString*)phone website:(NSString*)website jobTitle:(NSString*)title company:(NSString*)company{
     
     UIView *viewX = [[UIView alloc]init];
     viewX.translatesAutoresizingMaskIntoConstraints = NO;
@@ -54,7 +54,7 @@
     UILabel *companyLabel = [[UILabel alloc ]init];
     companyLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    companyLabel.text = @"Company Name";
+    companyLabel.text = company;
     UIFont *font = [UIFont fontWithName:@"Damascus" size:15.0];
     companyLabel.font = font;
     companyLabel.textAlignment = NSTextAlignmentCenter;
@@ -80,7 +80,7 @@
     UILabel *positionLabel = [[UILabel alloc ]init];
     positionLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    positionLabel.text = @"Job Title";
+    positionLabel.text = title;
     UIFont *smallFont = [UIFont fontWithName:@"Damascus" size:13.0];
     positionLabel.font = smallFont;
     positionLabel.textAlignment = NSTextAlignmentCenter;
@@ -105,7 +105,7 @@
     UILabel *websiteLabel = [[UILabel alloc ]init];
     websiteLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    websiteLabel.text = @"www.company.com";
+    websiteLabel.text = website;
     websiteLabel.font = smallFont;
     websiteLabel.textAlignment = NSTextAlignmentCenter;
     
@@ -126,7 +126,7 @@
     UILabel *nameLabel = [[UILabel alloc ]init];
     nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    nameLabel.text = @"Full Name";
+    nameLabel.text = name;
     nameLabel.font = font;
     nameLabel.textAlignment = NSTextAlignmentCenter;
     
@@ -150,7 +150,7 @@
     UILabel *phoneLabel = [[UILabel alloc ]init];
     phoneLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    phoneLabel.text = @"123 666-1234";
+    phoneLabel.text = phone;
     phoneLabel.font = smallFont;
     phoneLabel.textAlignment = NSTextAlignmentCenter;
     
@@ -173,7 +173,7 @@
     UILabel *emailLabel = [[UILabel alloc ]init];
     emailLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    emailLabel.text = @"yourName@email.com";
+    emailLabel.text = email;
     
     UIFont *smallestFont = [UIFont fontWithName:@"Damascus" size:10.0];
     emailLabel.font = smallestFont;
