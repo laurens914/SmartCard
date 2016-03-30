@@ -10,14 +10,22 @@
 #import "HomeCollectionViewFlowLayout.h"
 #import "BaseTemplate.h"
 #import "TemplateCollectionViewCell.h"
+#import "CreateViewController.h"
 
 #define Y_POS targetContentOffset->y
 
 @interface TemplateViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+
 - (IBAction)cancelButton:(UIButton *)sender;
+
 @property (weak, nonatomic) IBOutlet UIButton *dismiss;
+
 @property (weak, nonatomic) IBOutlet UICollectionView *templateCollectionView;
+
 @property (strong,nonatomic) NSArray *dataSource;
+
+@property NSUInteger selectedIndex;
+
 
 @end
 
@@ -36,9 +44,28 @@
     [super didReceiveMemoryWarning];
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    sender = _templateCollectionView;
+    
+    if ([segue.identifier isEqualToString:@"createVC"]) {
+        
+        CreateViewController *destinationVC = segue.destinationViewController;
+        
+        NSIndexPath *path = [[_templateCollectionView indexPathsForSelectedItems]objectAtIndex:0];
+        
+        _selectedIndex = path.row;
+        
+        destinationVC.selectedIndex = self.selectedIndex;
+        
+    }
+}
+
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
+
+
 
 -(void)setupButton
 {
@@ -75,18 +102,27 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     TemplateCollectionViewCell *templateCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"templateCell" forIndexPath:indexPath];
+    
     UIImage *templateImage = self.dataSource[indexPath.row];
+    
     templateCell.imageView.image = templateImage;
 
     templateCell.transform = CGAffineTransformMakeScale(0.0, 0.0);
     
     [UIView animateWithDuration:0.2 animations:^(void){
+        
         templateCell.transform = CGAffineTransformMakeScale(1, 1);
     }];
     
     return templateCell;
     
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+
+ 
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath

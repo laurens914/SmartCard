@@ -10,4 +10,9 @@
 
 @interface CreateViewController : UIViewController
 
+@property NSInteger selectedIndex;
+
+//+(void)selectView:(NSInteger)index;
+
+
 @end
