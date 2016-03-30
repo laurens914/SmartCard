@@ -103,13 +103,13 @@
     nameLabel.text = name;
     UIFont *smallFont = [UIFont fontWithName:@"Baskerville" size:18.0];
     nameLabel.font = smallFont;
-    nameLabel.textAlignment = NSTextAlignmentCenter;
+    nameLabel.textAlignment = NSTextAlignmentLeft;
     
     nameLabel.textColor = [UIColor blackColor];
     
     NSLayoutConstraint *nLTrailing = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: -75];
     
-    NSLayoutConstraint *nLLeading = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: imageView attribute:NSLayoutAttributeLeading multiplier:1.0 constant: 60];
+    NSLayoutConstraint *nLLeading = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: imageView attribute:NSLayoutAttributeLeading multiplier:1.0 constant: 110];
     
     NSLayoutConstraint *nLTop = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTopMargin multiplier:1.0 constant: 30];
     
@@ -125,13 +125,13 @@
     
     titleLabel.text = title;
     titleLabel.font = smallFont;
-    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.textAlignment = NSTextAlignmentLeft;
     
     titleLabel.textColor = [UIColor blackColor];
     
     NSLayoutConstraint *tLTrailing = [NSLayoutConstraint constraintWithItem: titleLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: -75];
     
-    NSLayoutConstraint *tLLeading = [NSLayoutConstraint constraintWithItem:titleLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: imageView attribute:NSLayoutAttributeLeading multiplier:1.0 constant: 80];
+    NSLayoutConstraint *tLLeading = [NSLayoutConstraint constraintWithItem:titleLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: imageView attribute:NSLayoutAttributeLeading multiplier:1.0 constant: 110];
     
     NSLayoutConstraint *tLTop = [NSLayoutConstraint constraintWithItem:titleLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTopMargin multiplier:1.0 constant: 65];
     
@@ -146,13 +146,13 @@
     
     phoneLabel.text = phone;
     phoneLabel.font = smallFont;
-    phoneLabel.textAlignment = NSTextAlignmentCenter;
+    phoneLabel.textAlignment = NSTextAlignmentLeft;
     
     phoneLabel.textColor = [UIColor blackColor];
     
     NSLayoutConstraint *pLTrailing = [NSLayoutConstraint constraintWithItem:phoneLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: -75];
     
-    NSLayoutConstraint *pLLeading = [NSLayoutConstraint constraintWithItem:phoneLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: imageView attribute:NSLayoutAttributeLeading multiplier:1.0 constant: 80];
+    NSLayoutConstraint *pLLeading = [NSLayoutConstraint constraintWithItem:phoneLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: imageView attribute:NSLayoutAttributeLeading multiplier:1.0 constant: 110];
     
     NSLayoutConstraint *pLTop = [NSLayoutConstraint constraintWithItem:phoneLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTopMargin multiplier:1.0 constant: 105];
     
