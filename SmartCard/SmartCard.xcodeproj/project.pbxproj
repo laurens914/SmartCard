@@ -48,6 +48,7 @@
 		895B210C1CAC69F400CC8610 /* CardImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 895B21061CAC69F400CC8610 /* CardImage.m */; };
 		895B210D1CAC69F400CC8610 /* ContactData+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 895B21081CAC69F400CC8610 /* ContactData+CoreDataProperties.m */; };
 		895B210E1CAC69F400CC8610 /* ContactData.m in Sources */ = {isa = PBXBuildFile; fileRef = 895B210A1CAC69F400CC8610 /* ContactData.m */; };
+		895B21111CAC6EE000CC8610 /* ContactService.m in Sources */ = {isa = PBXBuildFile; fileRef = 895B21101CAC6EE000CC8610 /* ContactService.m */; };
 		89A36A201CA1E6D200997095 /* TemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A36A1F1CA1E6D200997095 /* TemplateViewController.m */; };
 		89A36A231CA1E6DC00997095 /* CreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A36A221CA1E6DC00997095 /* CreateViewController.m */; };
 		89A36A261CA1E6E300997095 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A36A251CA1E6E300997095 /* InfoViewController.m */; };
@@ -125,6 +126,8 @@
 		895B21081CAC69F400CC8610 /* ContactData+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ContactData+CoreDataProperties.m"; sourceTree = "<group>"; };
 		895B21091CAC69F400CC8610 /* ContactData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactData.h; sourceTree = "<group>"; };
 		895B210A1CAC69F400CC8610 /* ContactData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactData.m; sourceTree = "<group>"; };
+		895B210F1CAC6EE000CC8610 /* ContactService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactService.h; sourceTree = "<group>"; };
+		895B21101CAC6EE000CC8610 /* ContactService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactService.m; sourceTree = "<group>"; };
 		89A36A1E1CA1E6D200997095 /* TemplateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateViewController.h; sourceTree = "<group>"; };
 		89A36A1F1CA1E6D200997095 /* TemplateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateViewController.m; sourceTree = "<group>"; };
 		89A36A211CA1E6DC00997095 /* CreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateViewController.h; sourceTree = "<group>"; };
@@ -316,6 +319,8 @@
 				0B7B573E1CA0E57500CD05F9 /* View */,
 				0B7B573F1CA0E57E00CD05F9 /* Model */,
 				894B5AF11CA0C0E300DD2BFD /* Supporting Files */,
+				895B210F1CAC6EE000CC8610 /* ContactService.h */,
+				895B21101CAC6EE000CC8610 /* ContactService.m */,
 			);
 			path = SmartCard;
 			sourceTree = "<group>";
@@ -422,6 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				895B21111CAC6EE000CC8610 /* ContactService.m in Sources */,
 				0BF1BC461CA38CC700EEEEF7 /* SavedCollectionViewCell.m in Sources */,
 				0B98A7741CAB7DB60057D3BE /* TemplateCView.m in Sources */,
 				0B7B57571CA0E89400CD05F9 /* TemplateF.m in Sources */,

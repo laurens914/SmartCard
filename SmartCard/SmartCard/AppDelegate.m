@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+@import Contacts;
 
 @interface AppDelegate ()
 
@@ -20,6 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [Fabric with:@[[Crashlytics class]]];
+    [self bootstrappin];
     
     return YES;
 }
@@ -36,6 +38,7 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+
 - (NSManagedObjectModel *)managedObjectModel {
     // The managed object model for the application. It is a fatal error for the application not to be able to find and load its model.
     if (_managedObjectModel != nil) {
@@ -47,7 +50,8 @@
 }
 
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
-    // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it.
+
+    
     if (_persistentStoreCoordinator != nil) {
         return _persistentStoreCoordinator;
     }
@@ -72,6 +76,17 @@
     }
     
     return _persistentStoreCoordinator;
+}
+
+-(void)bootstrappin
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"ContactData"];
+    NSError *error;
+    NSInteger count = [self.managedObjectContext countForFetchRequest:request error:&error];
+    if (count == 0 && !error)
+    {
+ 
+    }
 }
 
 
