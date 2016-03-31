@@ -39,6 +39,11 @@
     [self setupCollectionView];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.templateCollectionView setContentOffset:CGPointMake(1.0, 1.0) animated:YES];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -106,15 +111,9 @@
     TemplateCollectionViewCell *templateCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"templateCell" forIndexPath:indexPath];
     
     UIImage *templateImage = self.dataSource[indexPath.row];
-    
     templateCell.imageView.image = templateImage;
-
-    templateCell.transform = CGAffineTransformMakeScale(0.0, 0.0);
     
-    [UIView animateWithDuration:0.2 animations:^(void){
-        
-        templateCell.transform = CGAffineTransformMakeScale(1, 1);
-    }];
+    [self carouselAlgorithm:templateCell];
     
     return templateCell;
     
@@ -127,18 +126,15 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     UIImage * currImage = [self.dataSource objectAtIndex:indexPath.row];
     
     CGSize size = currImage.size;
     
     if (size.width > size.height) {
-        //Landscape Card
-        
+//        Landscape Card
         return CGSizeMake(350.0, 200.0);
     } else {
 //        Portrait Card
-        
         return CGSizeMake(300.0, 600.0);
     }
 }
@@ -146,36 +142,26 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if ([scrollView isEqual:self.templateCollectionView]) {
         
-        /*
-         //    CGFloat y = scrollView.contentOffset.y;
-         //        NSLog(@"View is scrolling... %f", y);
-         //        NSLog(@" ");
-         
-         //NSArray * currentCellIndexPaths = self.templateCollectionView.indexPathsForVisibleItems;
-         
-         //        CGFloat formula = (y/230)+0.5; // Vertical Content offset (y) Point of no return (115), constant (0.5)
-         
-         //        for (NSIndexPath *indexPath in currentCellIndexPaths) {
-         
-         NSIndexPath *indexPath = currentCellIndexPaths[0];
-         UICollectionViewCell * cell = [self.templateCollectionView cellForItemAtIndexPath:indexPath];
-         CGRect position = [self.templateCollectionView convertRect:cell.frame toView:self.view];
-         
-         CGFloat pointOfNoReturn = (self.view.frame.size.height - position.origin.y);
-         
-         NSLog(@"%f", self.view.frame.size.height);
-         NSLog(@"%f", position.origin.y);
-         
-         
-         CGFloat formula = y/100;
-         
-         cell.transform = CGAffineTransformMakeScale(formula, formula);
-         //        }
-         
-         
-        */
+        NSArray * currentVisisbleCells = [self.templateCollectionView visibleCells];
+        
+        for (TemplateCollectionViewCell *visibleCell in currentVisisbleCells) {
+            [self carouselAlgorithm:visibleCell];
+        }
         
     }
+}
+
+-(void)carouselAlgorithm:(UICollectionViewCell *)cell {
+    CGPoint viewCenter = self.view.center;
+    CGFloat viewHeight = self.view.frame.size.height;
+    CGPoint cellCenter = [self.templateCollectionView convertPoint:cell.center toView:self.view];
+    
+    CGFloat startingSize = 0.5;
+    CGFloat scale = cellCenter.y >= viewCenter.y ? ((viewHeight-cellCenter.y)/viewHeight)+startingSize
+    : (cellCenter.y/viewHeight)+startingSize;
+    
+    cell.transform = CGAffineTransformMakeScale(scale, scale);
+
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
