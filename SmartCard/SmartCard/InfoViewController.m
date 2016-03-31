@@ -8,7 +8,7 @@
 
 #import "InfoViewController.h"
 
-@interface InfoViewController ()
+@interface InfoViewController () <UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *uploadImage;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 
@@ -45,6 +45,17 @@
 }
 
 - (IBAction)add:(UIButton *)sender {
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
+    imagePicker.allowsEditing = YES;
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePicker.delegate =self;
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    UIImage *newImage = info[UIImagePickerControllerEditedImage];
+    self.imageView.image = newImage;
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
