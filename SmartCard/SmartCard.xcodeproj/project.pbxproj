@@ -128,6 +128,7 @@
 		895B210A1CAC69F400CC8610 /* ContactData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactData.m; sourceTree = "<group>"; };
 		895B210F1CAC6EE000CC8610 /* ContactService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactService.h; sourceTree = "<group>"; };
 		895B21101CAC6EE000CC8610 /* ContactService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactService.m; sourceTree = "<group>"; };
+		895B21121CADA80800CC8610 /* SmartCard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SmartCard.entitlements; sourceTree = "<group>"; };
 		89A36A1E1CA1E6D200997095 /* TemplateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateViewController.h; sourceTree = "<group>"; };
 		89A36A1F1CA1E6D200997095 /* TemplateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateViewController.m; sourceTree = "<group>"; };
 		89A36A211CA1E6DC00997095 /* CreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateViewController.h; sourceTree = "<group>"; };
@@ -312,6 +313,7 @@
 		894B5AF01CA0C0E300DD2BFD /* SmartCard */ = {
 			isa = PBXGroup;
 			children = (
+				895B21121CADA80800CC8610 /* SmartCard.entitlements */,
 				891A5A9A1CA3280A00D42A47 /* Fabric.framework */,
 				891A5A9B1CA3280A00D42A47 /* Crashlytics.framework */,
 				0B7B573C1CA0E55600CD05F9 /* AppGlobal */,
@@ -365,6 +367,12 @@
 				TargetAttributes = {
 					894B5AED1CA0C0E300DD2BFD = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = ZQNLBX5CZ8;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -572,6 +580,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SmartCard/SmartCard.entitlements;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -588,6 +597,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SmartCard/SmartCard.entitlements;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
