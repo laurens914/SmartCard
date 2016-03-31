@@ -11,7 +11,11 @@
 @interface TemplateAView : UIView
 
 
-+(void)setUpViewWithView:(UIView*)view website:(NSString*)website;
++(UIImageView*)setUpViewWithView:(UIView*)view website:(NSString*)website;
 //-(void)setUpViewWithView:(UIView *)view withWebSiteLabel:(NSString*)websiteLabel;
+
+
+
+
 
 @end
