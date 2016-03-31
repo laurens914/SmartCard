@@ -55,6 +55,7 @@
     UIImageView *imageView = [[UIImageView alloc]init];
     imageView.translatesAutoresizingMaskIntoConstraints = NO;
     imageView.backgroundColor = [UIColor redColor];
+    imageView.image = logo;
     
     NSLayoutConstraint *IVLeading = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeLeading multiplier:1.0 constant: 65];
     

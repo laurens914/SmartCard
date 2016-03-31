@@ -16,6 +16,7 @@
 #import "TemplateEView.h"
 #import "TemplateFView.h"
 #import "TemplateGView.h"
+#import "ContactService.h"
 
 @import UIKit;
 #import <QuartzCore/QuartzCore.h>
@@ -177,35 +178,38 @@
     
     UIImage* screenShot = UIGraphicsGetImageFromCurrentImageContext();
     
+     NSData *imgData = UIImagePNGRepresentation(screenShot);
+    
     UIGraphicsEndImageContext();
 
-    [self saveToDesktopFolder:screenShot];
+    
     
     return screenShot;
 }
 
-
--(void)saveToDesktopFolder: (UIImage*)image {
-    
-    NSData *imgData = UIImagePNGRepresentation(image);
-    
-    NSString* path = @"/Users/VinceentSmithers/Desktop/templateImages/";
-    
-    NSString *formatedString = [NSString stringWithFormat:@"%@ image.png", [NSDate date]];
-    
-    path = [path stringByAppendingString:formatedString];
-    
-    BOOL success = [imgData writeToFile:path atomically:YES];
-    
-    if (success) {
-        
-        NSLog(@"success");
-        
-        NSData *retrievedD = [NSData dataWithContentsOfFile:path];
-        
-    }
-}
-
+//
+//-(void)saveToDesktopFolder: (UIImage*)image {
+//    
+//   
+//    
+//    [self saveToDesktopFolder:screenShot];
+//    NSString* path = @"/Users/VinceentSmithers/Desktop/templateImages/";
+//    
+//    NSString *formatedString = [NSString stringWithFormat:@"%@ image.png", [NSDate date]];
+//    
+//    path = [path stringByAppendingString:formatedString];
+//    
+////    BOOL success = [imgData writeToFile:path atomically:YES];
+//    
+//    if (success) {
+//        
+//        NSLog(@"success");
+//        
+//        NSData *retrievedD = [NSData dataWithContentsOfFile:path];
+//        
+//    }
+//}
+//
 
 
 - (IBAction)dismissButton:(id)sender
