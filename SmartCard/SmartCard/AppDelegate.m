@@ -11,9 +11,14 @@
 #import <Crashlytics/Crashlytics.h>
 #import "ContactService.h"
 #import "ContactData.h"
+#import "TemplateViewController.h"
+#import "ViewController.h"
+
 
 
 @interface AppDelegate ()
+@property (strong,nonatomic) TemplateViewController *templateVC;
+@property (strong,nonatomic) ViewController *mainVC;
 
 @end
 
@@ -25,9 +30,30 @@
     [Fabric with:@[[Crashlytics class]]];
 //    [self bootstrappin];
     [self saveFromCDToContact];
+    
+    BOOL launchedWithShortcut = NO;
+    UIApplicationShortcutItem *shortCut = [launchOptions objectForKey:UIApplicationLaunchOptionsShortcutItemKey];
+    if (launchedWithShortcut == YES){
+        [self shortCutItems:shortCut];
+    }
     return YES;
 }
 
+-(void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler
+{
+    [self shortCutItems:shortcutItem];
+}
+
+-(void)shortCutItems:(UIApplicationShortcutItem *)shortcutItem
+{
+    if ([shortcutItem.type isEqualToString:@"com.laurenspatz.SmartCard.openCreate"])
+    {
+        NSLog(@"open create");
+        TemplateViewController *templateVC = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"TemplateViewController"];
+        [self.window.rootViewController presentViewController:templateVC animated:YES completion:nil];
+
+    }
+}
 
 #pragma mark - Core Data stack
 
@@ -64,8 +90,8 @@
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"SmartCard.sqlite"];
     NSError *error = nil;
     NSString *failureReason = @"There was an error creating or loading the application's saved data.";
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
-        // Report any error we got.
+    NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption : @YES, NSInferMappingModelAutomaticallyOption : @YES, NSPersistentStoreUbiquitousContainerIdentifierKey : @"SmartCard"};
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         dict[NSLocalizedDescriptionKey] = @"Failed to initialize the application's saved data";
         dict[NSLocalizedFailureReasonErrorKey] = failureReason;
