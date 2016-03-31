@@ -11,7 +11,7 @@
 @implementation TemplateAView
 
 
-+(void)setUpViewWithView:(UIView*)view website:(NSString*)website{
++(UIImageView*)setUpViewWithView:(UIView*)view website:(NSString*)website{
     
     UIView *viewX = [[UIView alloc]init];
     viewX.translatesAutoresizingMaskIntoConstraints = NO;
@@ -32,7 +32,7 @@
     centerX.active = YES;
     centerY.active = YES;
     
-    UIImageView *backgroundImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"TemplateA.png"]];
+    UIImageView *backgroundImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"TempA.png"]];
     backgroundImage.translatesAutoresizingMaskIntoConstraints = NO;
     
     NSLayoutConstraint *BGILeading = [NSLayoutConstraint constraintWithItem:backgroundImage attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: viewX attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0];
@@ -75,8 +75,10 @@
     MlTrailing.active = YES;
     MlTop.active = YES;
     
+    return backgroundImage;
 
 }
+
 
 
 

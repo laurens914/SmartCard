@@ -10,7 +10,7 @@
 
 @implementation TemplateGView
 
-+(void)setUpViewWithView:(UIView*)view name:(NSString*)name firstAddress:(NSString*)firstAddress secondaryAddress:(NSString*)secondaryAddress email:(NSString*)email phone:(NSString*)phone website:(NSString*)website jobTitle:(NSString*)title company:(NSString*)company logo:(UIImage*)logo;
++(UIImageView*)setUpViewWithView:(UIView*)view name:(NSString*)name firstAddress:(NSString*)firstAddress secondaryAddress:(NSString*)secondaryAddress email:(NSString*)email phone:(NSString*)phone website:(NSString*)website jobTitle:(NSString*)title company:(NSString*)company logo:(UIImage*)logo;
 {
     
     UIView *viewX = [[UIView alloc]init];
@@ -33,7 +33,7 @@
     centerY.active = YES;
     
     
-    UIImageView *backgroundImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"TemplateG.png"]];
+    UIImageView *backgroundImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"TempG.png"]];
     backgroundImage.translatesAutoresizingMaskIntoConstraints = NO;
     
     NSLayoutConstraint *BGILeading = [NSLayoutConstraint constraintWithItem:backgroundImage attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: viewX attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0];
@@ -214,7 +214,8 @@
     nxxLLeading.active = YES;
     nxxLTrailing.active = YES;
     nxxLTop.active = YES;
-
+    
+    return backgroundImage;
 }
 
 @end

@@ -44,6 +44,11 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+<<<<<<< HEAD
+=======
+- (IBAction)add:(UIButton *)sender {
+}
+>>>>>>> fa03e30c703b7bb74aa97b369cec5ba6f40e8b84
 
 
 @end
