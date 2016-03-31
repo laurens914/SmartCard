@@ -10,7 +10,7 @@
 
 @implementation TemplateFView
 
-+(void)setUpViewWithView:(UIView*)view name:(NSString*)name email:(NSString*)email phone:(NSString*)phone logo:(UIImage*)logo{
++(UIImageView*)setUpViewWithView:(UIView*)view name:(NSString*)name email:(NSString*)email phone:(NSString*)phone logo:(UIImage*)logo{
     
     UIView *viewX = [[UIView alloc]init];
     viewX.translatesAutoresizingMaskIntoConstraints = NO;
@@ -32,7 +32,7 @@
     centerY.active = YES;
     
     
-    UIImageView *backgroundImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"TemplateF.png"]];
+    UIImageView *backgroundImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"TempF.png"]];
     backgroundImage.translatesAutoresizingMaskIntoConstraints = NO;
     
     NSLayoutConstraint *BGILeading = [NSLayoutConstraint constraintWithItem:backgroundImage attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: viewX attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0];
@@ -140,6 +140,8 @@
     eLLeading.active = YES;
     eLTrailing.active = YES;
     eLTop.active = YES;
+    
+    return backgroundImage;
 }
 
 @end
