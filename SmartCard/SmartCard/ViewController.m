@@ -12,6 +12,10 @@
 #import "SavedCollectionViewCell.h"
 @import UIKit;
 
+CGFloat const kSavedMenuFinishLineMultipler = 0.28;
+NSTimeInterval const kAnimationDurationOPEN = 0.3;
+NSTimeInterval const kAnimationDurationCLOSE = 0.3;
+
 @interface ViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 - (IBAction)create:(UIButton *)sender;
 - (IBAction)save:(UIButton *)sender;
