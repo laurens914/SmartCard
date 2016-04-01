@@ -9,7 +9,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="homeViewController" storyboardIdentifier="homeViewController" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -149,7 +149,7 @@
         <!--Template View Controller-->
         <scene sceneID="2Vs-Tm-2Xk">
             <objects>
-                <viewController storyboardIdentifier="templateVC" id="dJh-lH-oZO" customClass="TemplateViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="templateVC" storyboardIdentifier="templateVC" id="dJh-lH-oZO" customClass="TemplateViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CN8-WM-ehE"/>
                         <viewControllerLayoutGuide type="bottom" id="aUu-9P-ty1"/>

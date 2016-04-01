@@ -10,6 +10,7 @@
 
 @interface ViewController : UIViewController
 
+-(void)showSavedTemplatesAnimated:(BOOL)animated;
 
 @end
 

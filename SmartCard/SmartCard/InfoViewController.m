@@ -8,7 +8,7 @@
 
 #import "InfoViewController.h"
 
-@interface InfoViewController () <UIImagePickerControllerDelegate>
+@interface InfoViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *uploadImage;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 
