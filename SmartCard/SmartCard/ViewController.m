@@ -183,5 +183,5 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
     savedCell.backgroundColor = [UIColor blackColor];
     return savedCell;
 }
-
+ 
 @end
