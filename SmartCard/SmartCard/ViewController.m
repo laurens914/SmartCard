@@ -36,7 +36,9 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setUpHeightConstrains];
+    self.halfScreenHeight = (self.view.frame.size.height/2)-0.1;
+    [self hideSavedTemplatesAnimated:NO];
+    [self setupPanGesture];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -54,39 +56,106 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
     // Dispose of any resources that can be recreated.
 }
 
--(void)setUpHeightConstrains{
-    _createHeight.constant = self.view.frame.size.height / 2;
-    _savedHeight.constant = self.view.frame.size.height / 2;
-    self.isSavedShowing = NO;
-}
-
 -(void)setupCollectionView
 {
     SavedCollectionViewFlowLayout *savedCollectionViewFlow = [[SavedCollectionViewFlowLayout alloc]init];
-    
     self.savedCollectionView.delegate = self;
     self.savedCollectionView.dataSource = self;
-    
     self.savedCollectionView.collectionViewLayout = savedCollectionViewFlow;
-    
     UIColor *colorTwo = [UIColor colorWithRed:0.71 green:0.76 blue:0.85 alpha:0.5];
-    
-    [_savedCollectionView setBackgroundColor:colorTwo];
+    [self.savedCollectionView setBackgroundColor:colorTwo];
 }
+
+#pragma mark - Animations for saved button
 
 -(void)animateConstraints{
     if (self.isSavedShowing) {
-        [self setUpHeightConstrains];
+        [self hideSavedTemplatesAnimated:YES];
     } else {
-        _createHeight.constant = 0.0;
-        _savedHeight.constant = 60.0;
-        self.isSavedShowing = YES;
+        [self showSavedTemplatesAnimated:YES];
+    }
+}
+
+-(void)hideSavedTemplatesAnimated:(BOOL)animated {
+    self.createHeight.constant = self.halfScreenHeight;
+    self.savedHeight.constant = self.halfScreenHeight;
+    self.isSavedShowing = NO;
+    if (animated) {
+        __weak typeof(self) weakSelf = self;
+        [UIView animateWithDuration:kAnimationDurationCLOSE animations:^{
+            [self.view layoutIfNeeded];
+        }]; return;
+    }
+    [self.view layoutIfNeeded];
+}
+
+-(void)showSavedTemplatesAnimated:(BOOL)animated {
+    self.createHeight.constant = 0.0;
+    self.savedHeight.constant = 60.0;
+    self.isSavedShowing = YES;
+    if (animated) {
+        __weak typeof(self) weakSelf = self;
+        [UIView animateWithDuration:kAnimationDurationOPEN animations:^{
+            [weakSelf.view layoutIfNeeded];
+        }]; return;
+    }
+    [self.view layoutIfNeeded];
+}
+
+#pragma mark - Pan Gesture
+
+- (void)setupPanGesture {
+    UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(tvcPanned:)];
+    [self.saveButton addGestureRecognizer:pan];
+    self.panGesture=pan;
+}
+
+- (void)tvcPanned:(UIPanGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateChanged) {
+        [self panGestureStateChangedWithSender:sender];
+    } else if (sender.state == UIGestureRecognizerStateEnded) {
+        [self panGestureStateEndedWithSender:sender];
+    }
+}
+
+- (void)panGestureStateChangedWithSender:(UIPanGestureRecognizer *)sender {
+    CGPoint velocity = [sender velocityInView:self.view];
+    CGPoint translation = [sender translationInView:self.view];
+    
+    NSLog(@"%f", translation.y);
+    
+    if (self.savedHeight.constant >= 60 && self.savedHeight.constant <= self.halfScreenHeight) {
+        
+        if (self.savedHeight.constant >= self.halfScreenHeight && velocity.y>0) {
+            self.createHeight.constant += translation.y;
+            self.savedHeight.constant -= translation.y;
+        } else {
+            self.createHeight.constant += translation.y;
+            self.savedHeight.constant += translation.y*0.82;
+        }
+        
+        [self setLastKnownTranslation:translation];
     }
     
-    [UIView animateWithDuration:0.5 animations:^{
-        [self.view layoutIfNeeded];
-    }];
+    [sender setTranslation:CGPointZero inView:self.view];
 }
+
+- (void)panGestureStateEndedWithSender:(UIPanGestureRecognizer *)sender {
+    CGFloat finishLine = self.view.frame.size.height * kSavedMenuFinishLineMultipler;
+    CGFloat currentHeight = self.savedHeight.constant;
+    
+    if (self.lastKnownTranslation.y > 0) {
+        [self hideSavedTemplatesAnimated:YES];
+    } else if (self.lastKnownTranslation.y < 0) {
+        [self showSavedTemplatesAnimated:YES];
+    } else if (currentHeight > finishLine) {
+        [self hideSavedTemplatesAnimated:YES];
+    } else {
+        [self showSavedTemplatesAnimated:YES];
+    }
+}
+
+#pragma mark - Buttons
 
 - (IBAction)create:(UIButton *)sender {
 }
@@ -95,28 +164,24 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
     [self animateConstraints];
 }
 
+#pragma mark - CollectionView Stuff
 
 -(void)setupCollectionViewFlowLayout
 {
     HomeCollectionViewFlowLayout *homeViewCollectionLayout = [[HomeCollectionViewFlowLayout alloc]init];
-    _savedCollectionView.collectionViewLayout = homeViewCollectionLayout;
+    [self savedCollectionView].collectionViewLayout = homeViewCollectionLayout;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return 10;
 }
+
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     SavedCollectionViewCell *savedCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"savedCell" forIndexPath:indexPath];
-    
-//    UIImage *savedImage = self.dataSource[indexPath.row];
-    
-//    savedCell.imageView.image = savedImage;
     savedCell.backgroundColor = [UIColor blackColor];
-    
     return savedCell;
-    
 }
 
 @end
