@@ -83,7 +83,7 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
     if (animated) {
         __weak typeof(self) weakSelf = self;
         [UIView animateWithDuration:kAnimationDurationCLOSE animations:^{
-            [self.view layoutIfNeeded];
+            [weakSelf.view layoutIfNeeded];
         }]; return;
     }
     [self.view layoutIfNeeded];
