@@ -16,12 +16,15 @@
 - (IBAction)create:(UIButton *)sender;
 - (IBAction)save:(UIButton *)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *createHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *savedHeight;
-
 @property (weak, nonatomic) IBOutlet UICollectionView *savedCollectionView;
-
+@property (strong, nonatomic) UIPanGestureRecognizer *panGesture;
 @property (nonatomic) BOOL isSavedShowing;
+@property (nonatomic) CGFloat halfScreenHeight;
+@property (nonatomic) CGPoint lastKnownTranslation;
+
 
 @end
 
