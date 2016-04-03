@@ -7,6 +7,8 @@
 //
 
 #import "ContactService.h"
+#import "AppDelegate.h"
+#import "CardImage.h"
 
 @implementation ContactService
 
@@ -64,6 +66,52 @@
             //
         }
     }];
+    
+}
+
+
+-(void)saveCardImage:(NSData*)imageData{
+    
+    AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+    NSManagedObjectContext *context = delegate.managedObjectContext;
+    
+    CardImage *card = [NSEntityDescription insertNewObjectForEntityForName:@"CardImage" inManagedObjectContext:context];
+    card.buisnessCard = imageData;
+    
+    NSError* saveError;
+    
+    [context save: &saveError];
+    
+    if (saveError == nil) {
+        NSLog(@"saving");
+    }
+    
+}
+
+-(NSArray* _Nullable)returnCardImages{
+    
+    NSFetchRequest *fetch = [[NSFetchRequest alloc]initWithEntityName:@"CardImage"];
+    
+    AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+    NSManagedObjectContext *context = delegate.managedObjectContext;
+    
+    NSError *fetchError;
+    
+    NSArray *images = [NSArray new];
+    
+    images = [context executeFetchRequest:fetch error:&fetchError];
+    
+    if (fetchError == nil) {
+        
+        for (CardImage *imgData in images) {
+            
+            NSLog(@"imgData: %@",imgData.buisnessCard);
+            
+        }
+        
+    }
+    
+    return images;
     
 }
 

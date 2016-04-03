@@ -17,6 +17,7 @@
 #import "TemplateFView.h"
 #import "TemplateGView.h"
 #import "ContactService.h"
+#import "AppDelegate.h"
 
 @import UIKit;
 #import <QuartzCore/QuartzCore.h>
@@ -167,8 +168,6 @@
 -(UIImage*)takeScreenShot:(UIImageView*)selectedView{
     
     
-    NSLog(@"%f %f", selectedView.frame.size.width, selectedView.frame.size.height);
-    
     CGSize size = CGSizeMake(selectedView.frame.size.width, selectedView.bounds.size.height);
    
     UIGraphicsBeginImageContextWithOptions(size, selectedView.opaque, 0.0f);
@@ -178,38 +177,20 @@
     
     UIImage* screenShot = UIGraphicsGetImageFromCurrentImageContext();
     
-     NSData *imgData = UIImagePNGRepresentation(screenShot);
+    NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(screenShot)];
     
     UIGraphicsEndImageContext();
-
     
+    //Saving Image Data
+
+    [[ContactService sharedContact]saveCardImage:imageData];
+
     
     return screenShot;
 }
 
-//
-//-(void)saveToDesktopFolder: (UIImage*)image {
-//    
-//   
-//    
-//    [self saveToDesktopFolder:screenShot];
-//    NSString* path = @"/Users/VinceentSmithers/Desktop/templateImages/";
-//    
-//    NSString *formatedString = [NSString stringWithFormat:@"%@ image.png", [NSDate date]];
-//    
-//    path = [path stringByAppendingString:formatedString];
-//    
-////    BOOL success = [imgData writeToFile:path atomically:YES];
-//    
-//    if (success) {
-//        
-//        NSLog(@"success");
-//        
-//        NSData *retrievedD = [NSData dataWithContentsOfFile:path];
-//        
-//    }
-//}
-//
+
+
 
 
 - (IBAction)dismissButton:(id)sender
@@ -222,6 +203,7 @@
 }
 
 - (IBAction)save:(UIButton *)sender {
+    NSLog(@"current image ivw%@", _currentImageView);
     
     [self takeScreenShot: _currentImageView];
 }

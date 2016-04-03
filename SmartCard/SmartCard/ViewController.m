@@ -10,6 +10,9 @@
 #import "HomeCollectionViewFlowLayout.h"
 #import "SavedCollectionViewFlowLayout.h"
 #import "SavedCollectionViewCell.h"
+#import "CardImage.h"
+#import "ContactService.h"
+
 @import UIKit;
 
 CGFloat const kSavedMenuFinishLineMultipler = 0.28;
@@ -29,6 +32,8 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 @property (nonatomic) CGFloat halfScreenHeight;
 @property (nonatomic) CGPoint lastKnownTranslation;
 
+@property (strong, nonatomic)NSArray* dataSource;
+
 
 @end
 
@@ -39,6 +44,8 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
     self.halfScreenHeight = (self.view.frame.size.height/2)-0.1;
     [self hideSavedTemplatesAnimated:NO];
     [self setupPanGesture];
+    
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -102,6 +109,15 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
     [self.view layoutIfNeeded];
 }
 
+#pragma mark - Get Saved Images
+
+-(void)setDataSourceWithSavedImages{
+    _dataSource = [[ContactService sharedContact]returnCardImages];
+    NSLog(@"datasource count %lu", (unsigned long)_dataSource.count);
+    [_savedCollectionView reloadData];
+    
+}
+
 #pragma mark - Pan Gesture
 
 - (void)setupPanGesture {
@@ -162,6 +178,7 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 
 - (IBAction)save:(UIButton *)sender {
     [self animateConstraints];
+    [self setDataSourceWithSavedImages];
 }
 
 #pragma mark - CollectionView Stuff
@@ -173,14 +190,20 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    return 10;
+{   NSLog(@"what about here %lu", (unsigned long)_dataSource.count);
+    return _dataSource.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     SavedCollectionViewCell *savedCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"savedCell" forIndexPath:indexPath];
+    
     savedCell.backgroundColor = [UIColor blackColor];
+    CardImage *card = _dataSource[indexPath.row];
+    UIImage *cardImage = [UIImage imageWithData:card.buisnessCard];
+
+    savedCell.imageView.image = cardImage;
+    
     return savedCell;
 }
  
