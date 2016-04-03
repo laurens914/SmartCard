@@ -10,8 +10,8 @@
 #import "CardImage.h"
 
 @interface ShareViewController : UIViewController
-@property(strong, nonatomic)CardImage* selectedCard;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property(strong, nonatomic)UIImage* selectedImage;
 
 @end

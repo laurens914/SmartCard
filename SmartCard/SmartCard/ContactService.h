@@ -13,15 +13,8 @@
 
 @interface ContactService : NSObject
 
-
-
 +(instancetype)sharedContact;
 
 -(void)saveNewContact:(ContactData *)contact;
-
--(void)saveCardImage:(NSData*)imageData;
-
--(NSArray* _Nullable)returnCardImages;
-
 
 @end

@@ -130,16 +130,16 @@
                                     <action selector="dismissButton:" destination="TnR-uG-kdb" eventType="touchUpInside" id="UlV-a5-vqh"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7hB-g4-bZt">
-                                <rect key="frame" x="40" y="120" width="520" height="460"/>
-                                <color key="backgroundColor" red="1" green="0.79217623633453649" blue="0.50397317006744768" alpha="1" colorSpace="calibratedRGB"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7hB-g4-bZt">
+                                <rect key="frame" x="20" y="120" width="560" height="460"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.71372549019607845" green="0.76078431372549016" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="7hB-g4-bZt" secondAttribute="bottom" constant="20" symbolic="YES" id="6qY-4Y-GwV"/>
                             <constraint firstItem="iNA-q7-l0d" firstAttribute="leading" secondItem="Gwr-IS-eS0" secondAttribute="leadingMargin" constant="-12" id="PZG-Rq-dur"/>
-                            <constraint firstItem="7hB-g4-bZt" firstAttribute="leading" secondItem="Gwr-IS-eS0" secondAttribute="leadingMargin" constant="20" id="aef-14-Jlf"/>
+                            <constraint firstItem="7hB-g4-bZt" firstAttribute="leading" secondItem="Gwr-IS-eS0" secondAttribute="leadingMargin" id="aef-14-Jlf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7hB-g4-bZt" secondAttribute="trailing" id="ckr-8d-pqh"/>
                             <constraint firstItem="iNA-q7-l0d" firstAttribute="top" secondItem="ovI-1C-xiW" secondAttribute="bottom" id="dHv-j7-qH9"/>
                             <constraint firstItem="7hB-g4-bZt" firstAttribute="centerX" secondItem="Gwr-IS-eS0" secondAttribute="centerX" id="pmF-XH-mbj"/>
                             <constraint firstItem="7hB-g4-bZt" firstAttribute="top" secondItem="ovI-1C-xiW" secondAttribute="bottom" constant="100" id="rGb-B3-trB"/>

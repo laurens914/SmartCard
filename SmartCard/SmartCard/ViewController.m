@@ -13,6 +13,7 @@
 #import "SavedCollectionViewCell.h"
 #import "CardImage.h"
 #import "ContactService.h"
+#import "CardStore.h"
 
 @import UIKit;
 
@@ -114,16 +115,23 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 #pragma mark - Get Saved Images & Prepare For Segue
 
 -(void)setDataSourceWithSavedImages{
-    _dataSource = [[ContactService sharedContact]returnCardImages];
-    NSLog(@"datasource count %lu", (unsigned long)_dataSource.count);
+    _dataSource = [[CardStore shared]returnCardImages];
     [_savedCollectionView reloadData];
     
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    
     if ([segue.identifier  isEqual: @"shareViewController"]) {
+        
+        NSIndexPath *path = [[_savedCollectionView indexPathsForSelectedItems]objectAtIndex:0];
+            
+        _selectedCard = _dataSource[path.row];
+        
+        UIImage *selectedImage = [UIImage imageWithData:_selectedCard.buisnessCard];
+        
+        ShareViewController *shareVC = segue.destinationViewController;
+        shareVC.selectedImage = selectedImage;
         
     }
 }
@@ -200,7 +208,7 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{   NSLog(@"what about here %lu", (unsigned long)_dataSource.count);
+{
     return _dataSource.count;
 }
 
@@ -218,12 +226,6 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"index roW: %.2ld", (long)indexPath.row);
-    CardImage *card = _dataSource[indexPath.row];
-    
-    ShareViewController *shareVC = [[ShareViewController alloc]init];
-    shareVC.imageView.image = [UIImage imageWithData:card.buisnessCard];
-    
 }
  
 @end

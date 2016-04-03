@@ -16,7 +16,7 @@
 #import "TemplateEView.h"
 #import "TemplateFView.h"
 #import "TemplateGView.h"
-#import "ContactService.h"
+#import "CardStore.h"
 #import "AppDelegate.h"
 
 @import UIKit;
@@ -183,14 +183,10 @@
     
     //Saving Image Data
 
-    [[ContactService sharedContact]saveCardImage:imageData];
+    [[CardStore shared]saveCardImage:imageData];
 
-    
     return screenShot;
 }
-
-
-
 
 
 - (IBAction)dismissButton:(id)sender
@@ -203,7 +199,6 @@
 }
 
 - (IBAction)save:(UIButton *)sender {
-    NSLog(@"current image ivw%@", _currentImageView);
     
     [self takeScreenShot: _currentImageView];
 }
