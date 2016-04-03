@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ShareViewController.h"
 #import "HomeCollectionViewFlowLayout.h"
 #import "SavedCollectionViewFlowLayout.h"
 #import "SavedCollectionViewCell.h"
@@ -33,6 +34,7 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 @property (nonatomic) CGPoint lastKnownTranslation;
 
 @property (strong, nonatomic)NSArray* dataSource;
+@property (strong, nonatomic)CardImage* selectedCard;
 
 
 @end
@@ -109,13 +111,21 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
     [self.view layoutIfNeeded];
 }
 
-#pragma mark - Get Saved Images
+#pragma mark - Get Saved Images & Prepare For Segue
 
 -(void)setDataSourceWithSavedImages{
     _dataSource = [[ContactService sharedContact]returnCardImages];
     NSLog(@"datasource count %lu", (unsigned long)_dataSource.count);
     [_savedCollectionView reloadData];
     
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    
+    if ([segue.identifier  isEqual: @"shareViewController"]) {
+        
+    }
 }
 
 #pragma mark - Pan Gesture
@@ -205,6 +215,15 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
     savedCell.imageView.image = cardImage;
     
     return savedCell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"index roW: %.2ld", (long)indexPath.row);
+    CardImage *card = _dataSource[indexPath.row];
+    
+    ShareViewController *shareVC = [[ShareViewController alloc]init];
+    shareVC.imageView.image = [UIImage imageWithData:card.buisnessCard];
+    
 }
  
 @end

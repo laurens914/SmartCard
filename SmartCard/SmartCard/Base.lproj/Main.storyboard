@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -123,23 +123,32 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iNA-q7-l0d">
                                 <rect key="frame" x="8" y="20" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="DHJ-4J-y9t"/>
-                                    <constraint firstAttribute="height" constant="40" id="dDw-KB-UaG"/>
+                                    <constraint firstAttribute="width" constant="40" id="ecJ-d1-OlY"/>
                                 </constraints>
                                 <state key="normal" title="X"/>
                                 <connections>
                                     <action selector="dismissButton:" destination="TnR-uG-kdb" eventType="touchUpInside" id="UlV-a5-vqh"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7hB-g4-bZt">
+                                <rect key="frame" x="40" y="120" width="520" height="460"/>
+                                <color key="backgroundColor" red="1" green="0.79217623633453649" blue="0.50397317006744768" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.71372549019607845" green="0.76078431372549016" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="iNA-q7-l0d" firstAttribute="top" secondItem="Gwr-IS-eS0" secondAttribute="top" constant="20" id="sYb-uE-a60"/>
-                            <constraint firstItem="iNA-q7-l0d" firstAttribute="leading" secondItem="Gwr-IS-eS0" secondAttribute="leading" constant="8" id="x1j-II-5f3"/>
+                            <constraint firstAttribute="bottom" secondItem="7hB-g4-bZt" secondAttribute="bottom" constant="20" symbolic="YES" id="6qY-4Y-GwV"/>
+                            <constraint firstItem="iNA-q7-l0d" firstAttribute="leading" secondItem="Gwr-IS-eS0" secondAttribute="leadingMargin" constant="-12" id="PZG-Rq-dur"/>
+                            <constraint firstItem="7hB-g4-bZt" firstAttribute="leading" secondItem="Gwr-IS-eS0" secondAttribute="leadingMargin" constant="20" id="aef-14-Jlf"/>
+                            <constraint firstItem="iNA-q7-l0d" firstAttribute="top" secondItem="ovI-1C-xiW" secondAttribute="bottom" id="dHv-j7-qH9"/>
+                            <constraint firstItem="7hB-g4-bZt" firstAttribute="centerX" secondItem="Gwr-IS-eS0" secondAttribute="centerX" id="pmF-XH-mbj"/>
+                            <constraint firstItem="7hB-g4-bZt" firstAttribute="top" secondItem="ovI-1C-xiW" secondAttribute="bottom" constant="100" id="rGb-B3-trB"/>
+                            <constraint firstItem="TG0-eW-Iip" firstAttribute="top" secondItem="iNA-q7-l0d" secondAttribute="bottom" constant="540" id="rad-EM-wpZ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="iNA-q7-l0d" id="gKP-uE-CUc"/>
+                        <outlet property="imageView" destination="7hB-g4-bZt" id="KgU-PY-jbf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MMk-nl-C4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
