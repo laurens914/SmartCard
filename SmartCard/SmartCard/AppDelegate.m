@@ -28,7 +28,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [Fabric with:@[[Crashlytics class]]];
-//    [self bootstrappin];
     [self saveFromCDToContact];
     
     BOOL launchedWithShortcut = NO;
@@ -49,9 +48,15 @@
     if ([shortcutItem.type isEqualToString:@"com.laurenspatz.SmartCard.openCreate"])
     {
         NSLog(@"open create");
-        TemplateViewController *templateVC = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"TemplateViewController"];
+        TemplateViewController *templateVC = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"templateVC"];
         [self.window.rootViewController presentViewController:templateVC animated:YES completion:nil];
 
+    } else if ([shortcutItem.type isEqualToString:@"com.laurenspatz.SmartCard.openSaved"]) {
+        NSLog(@"open saved");
+        ViewController *mainVCwithShared = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"homeViewController"];
+        [self.window.rootViewController presentViewController:mainVCwithShared animated:YES completion:^{
+            [mainVCwithShared showSavedTemplatesAnimated:NO];
+        }];
     }
 }
 
