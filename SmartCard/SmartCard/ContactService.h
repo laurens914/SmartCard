@@ -13,12 +13,8 @@
 
 @interface ContactService : NSObject
 
-
-
 +(instancetype)sharedContact;
 
 -(void)saveNewContact:(ContactData *)contact;
-
-
 
 @end

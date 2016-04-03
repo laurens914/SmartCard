@@ -22,6 +22,11 @@
     [self setupButton];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self setUpImageView];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -31,6 +36,9 @@
     return YES;
 }
 
+-(void)setUpImageView{
+    _imageView.image = _selectedImage;
+}
 
 - (IBAction)dismissButton:(id)sender
 {

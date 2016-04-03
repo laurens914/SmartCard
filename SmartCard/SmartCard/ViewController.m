@@ -7,9 +7,14 @@
 //
 
 #import "ViewController.h"
+#import "ShareViewController.h"
 #import "HomeCollectionViewFlowLayout.h"
 #import "SavedCollectionViewFlowLayout.h"
 #import "SavedCollectionViewCell.h"
+#import "CardImage.h"
+#import "ContactService.h"
+#import "CardStore.h"
+
 @import UIKit;
 
 CGFloat const kSavedMenuFinishLineMultipler = 0.28;
@@ -29,6 +34,9 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 @property (nonatomic) CGFloat halfScreenHeight;
 @property (nonatomic) CGPoint lastKnownTranslation;
 
+@property (strong, nonatomic)NSArray* dataSource;
+@property (strong, nonatomic)CardImage* selectedCard;
+
 
 @end
 
@@ -39,6 +47,8 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
     self.halfScreenHeight = (self.view.frame.size.height/2)-0.1;
     [self hideSavedTemplatesAnimated:NO];
     [self setupPanGesture];
+    
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -102,6 +112,30 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
     [self.view layoutIfNeeded];
 }
 
+#pragma mark - Get Saved Images & Prepare For Segue
+
+-(void)setDataSourceWithSavedImages{
+    _dataSource = [[CardStore shared]returnCardImages];
+    [_savedCollectionView reloadData];
+    
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier  isEqual: @"shareViewController"]) {
+        
+        NSIndexPath *path = [[_savedCollectionView indexPathsForSelectedItems]objectAtIndex:0];
+            
+        _selectedCard = _dataSource[path.row];
+        
+        UIImage *selectedImage = [UIImage imageWithData:_selectedCard.buisnessCard];
+        
+        ShareViewController *shareVC = segue.destinationViewController;
+        shareVC.selectedImage = selectedImage;
+        
+    }
+}
+
 #pragma mark - Pan Gesture
 
 - (void)setupPanGesture {
@@ -162,6 +196,7 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 
 - (IBAction)save:(UIButton *)sender {
     [self animateConstraints];
+    [self setDataSourceWithSavedImages];
 }
 
 #pragma mark - CollectionView Stuff
@@ -174,14 +209,23 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 10;
+    return _dataSource.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     SavedCollectionViewCell *savedCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"savedCell" forIndexPath:indexPath];
+    
     savedCell.backgroundColor = [UIColor blackColor];
+    CardImage *card = _dataSource[indexPath.row];
+    UIImage *cardImage = [UIImage imageWithData:card.buisnessCard];
+
+    savedCell.imageView.image = cardImage;
+    
     return savedCell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 }
  
 @end

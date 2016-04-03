@@ -22,6 +22,7 @@
 		0BB4C1DC1CADC99B00B17D6B /* TempC.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BB4C1D51CADC99B00B17D6B /* TempC.png */; };
 		0BB4C1DD1CADC99B00B17D6B /* TempB.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BB4C1D61CADC99B00B17D6B /* TempB.png */; };
 		0BB4C1DE1CADC99B00B17D6B /* tempA.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BB4C1D71CADC99B00B17D6B /* tempA.png */; };
+		0BCA11AB1CB1ADDE006A757F /* CardStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BCA11AA1CB1ADDE006A757F /* CardStore.m */; };
 		0BF1BC3B1CA340B600EEEEF7 /* TemplateA.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BF1BC341CA340B600EEEEF7 /* TemplateA.png */; };
 		0BF1BC3C1CA340B600EEEEF7 /* TemplateB.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BF1BC351CA340B600EEEEF7 /* TemplateB.png */; };
 		0BF1BC3D1CA340B600EEEEF7 /* TemplateC.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BF1BC361CA340B600EEEEF7 /* TemplateC.png */; };
@@ -77,6 +78,8 @@
 		0BB4C1D51CADC99B00B17D6B /* TempC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TempC.png; path = templateImages/TempC.png; sourceTree = SOURCE_ROOT; };
 		0BB4C1D61CADC99B00B17D6B /* TempB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TempB.png; path = templateImages/TempB.png; sourceTree = SOURCE_ROOT; };
 		0BB4C1D71CADC99B00B17D6B /* tempA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tempA.png; path = templateImages/tempA.png; sourceTree = SOURCE_ROOT; };
+		0BCA11A91CB1ADDE006A757F /* CardStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardStore.h; sourceTree = "<group>"; };
+		0BCA11AA1CB1ADDE006A757F /* CardStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardStore.m; sourceTree = "<group>"; };
 		0BF1BC341CA340B600EEEEF7 /* TemplateA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TemplateA.png; path = templateImages/TemplateA.png; sourceTree = SOURCE_ROOT; };
 		0BF1BC351CA340B600EEEEF7 /* TemplateB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TemplateB.png; path = templateImages/TemplateB.png; sourceTree = SOURCE_ROOT; };
 		0BF1BC361CA340B600EEEEF7 /* TemplateC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TemplateC.png; path = templateImages/TemplateC.png; sourceTree = SOURCE_ROOT; };
@@ -195,6 +198,8 @@
 				895B210F1CAC6EE000CC8610 /* ContactService.h */,
 				895B21101CAC6EE000CC8610 /* ContactService.m */,
 				894B5AFD1CA0C0E300DD2BFD /* SmartCard.xcdatamodeld */,
+				0BCA11A91CB1ADDE006A757F /* CardStore.h */,
+				0BCA11AA1CB1ADDE006A757F /* CardStore.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -425,6 +430,7 @@
 				895B210E1CAC69F400CC8610 /* ContactData.m in Sources */,
 				89A36A261CA1E6E300997095 /* InfoViewController.m in Sources */,
 				0B98A77D1CAB7F080057D3BE /* TemplateFView.m in Sources */,
+				0BCA11AB1CB1ADDE006A757F /* CardStore.m in Sources */,
 				894B5AF91CA0C0E300DD2BFD /* ViewController.m in Sources */,
 				891A5AA21CA349B100D42A47 /* HomeCollectionViewFlowLayout.m in Sources */,
 				89A36A231CA1E6DC00997095 /* CreateViewController.m in Sources */,
