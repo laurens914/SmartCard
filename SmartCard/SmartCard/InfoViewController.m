@@ -8,11 +8,23 @@
 
 #import "InfoViewController.h"
 
-@interface InfoViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface InfoViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *uploadImage;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 
 - (IBAction)dismiss:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UITextField *firstName;
+@property (weak, nonatomic) IBOutlet UITextField *lastName;
+@property (weak, nonatomic) IBOutlet UITextField *emailAddress;
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
+@property (weak, nonatomic) IBOutlet UITextField *website;
+@property (weak, nonatomic) IBOutlet UITextField *addressStreet;
+@property (weak, nonatomic) IBOutlet UITextField *addressStreetTwo;
+@property (weak, nonatomic) IBOutlet UITextField *adressCity;
+@property (weak, nonatomic) IBOutlet UITextField *addressState;
+@property (weak, nonatomic) IBOutlet UITextField *addressZip;
+@property (weak, nonatomic) IBOutlet UITextField *company;
+@property (weak, nonatomic) IBOutlet UITextField *position;
 
 @end
 
@@ -29,6 +41,12 @@
 }
 
 - (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
     return YES;
 }
 
@@ -57,6 +75,7 @@
     self.imageView.image = newImage;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 
 @end

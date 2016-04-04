@@ -201,6 +201,7 @@
 - (IBAction)save:(UIButton *)sender {
     
     [self takeScreenShot: _currentImageView];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
