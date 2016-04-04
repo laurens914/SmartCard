@@ -28,6 +28,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
+@property (strong, nonatomic) IBOutlet UIView *superView;
 
 @end
 
@@ -36,13 +37,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setKeyBoardDelegate];
 
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
-//    [self setupSelectedTextFields:_index];
+
+ 
+    
 }
 -(void)loadView
 {
@@ -58,6 +62,22 @@
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
+
+-(void)setKeyBoardDelegate{
+    
+    _textFieldOne.delegate = self;
+    _textFieldTwo.delegate = self;
+    _textFieldThree.delegate = self;
+    _textFieldFour.delegate = self;
+    _textFieldFive.delegate = self;
+    _textFieldSix.delegate = self;
+    _textFieldSeven.delegate = self;
+    _textFieldEight.delegate = self;
+    _textFieldNine.delegate = self;
+    _textFieldTen.delegate = self;
+    _textFeildEleven.delegate = self;
+}
+
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -83,12 +103,27 @@
     imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     imagePicker.delegate =self;
     [self presentViewController:imagePicker animated:YES completion:nil];
+    
 }
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
     UIImage *newImage = info[UIImagePickerControllerEditedImage];
     self.imageView.image = newImage;
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)hideView{
+    
+    CGRect toBE = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height / 2);
+    
+    __weak typeof(self)weak = self;
+    
+    [UIView animateWithDuration:1.0 animations:^{
+    
+       
+        [weak.view layoutIfNeeded];
+        
+    }];
 }
 
 -(void)templateATextFeilds
@@ -105,6 +140,8 @@
     [_textFieldTen setHidden:YES];
     [_textFeildEleven setHidden:YES];
     [self.imageButton setHidden:YES];
+    
+    [self hideView];
 }
 
 -(void)templateBTextFeilds
@@ -202,6 +239,7 @@
 -(void)setupSelectedTextFields:(NSInteger)index
 {
     switch (index) {
+            
         case 0:
             [self templateATextFeilds];
             break;
