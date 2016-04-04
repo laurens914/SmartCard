@@ -11,6 +11,8 @@
 @interface ShareViewController ()
 - (IBAction)dismissButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+@property (weak, nonatomic) IBOutlet UIButton *shareButton;
+- (IBAction)shareButton:(id)sender;
 
 @end
 
@@ -51,4 +53,11 @@
     self.cancelButton.layer.borderColor = [UIColor whiteColor].CGColor;
 }
 
+- (IBAction)shareButton:(id)sender {
+    
+    UIImage *shared = _selectedImage;
+    NSArray *sharedItems = @[shared];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:sharedItems applicationActivities:nil];
+    [self presentViewController:activityVC animated:YES completion:nil];
+}
 @end
