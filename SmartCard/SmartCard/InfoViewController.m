@@ -13,18 +13,19 @@
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 
 - (IBAction)dismiss:(UIButton *)sender;
-@property (weak, nonatomic) IBOutlet UITextField *firstName;
-@property (weak, nonatomic) IBOutlet UITextField *lastName;
-@property (weak, nonatomic) IBOutlet UITextField *emailAddress;
-@property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
-@property (weak, nonatomic) IBOutlet UITextField *website;
-@property (weak, nonatomic) IBOutlet UITextField *addressStreet;
-@property (weak, nonatomic) IBOutlet UITextField *addressStreetTwo;
-@property (weak, nonatomic) IBOutlet UITextField *adressCity;
-@property (weak, nonatomic) IBOutlet UITextField *addressState;
-@property (weak, nonatomic) IBOutlet UITextField *addressZip;
-@property (weak, nonatomic) IBOutlet UITextField *company;
-@property (weak, nonatomic) IBOutlet UITextField *position;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldOne;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldTwo;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldThree;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldFour;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldFive;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldSix;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldSeven;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldEight;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldNine;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldTen;
+@property (weak, nonatomic) IBOutlet UITextField *textFeildEleven;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldTwelvee;
+
 
 @end
 
@@ -33,6 +34,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self templateCTextFields];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,6 +78,121 @@
     self.imageView.image = newImage;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+-(void)templateATextFeilds
+{
+    [_textFieldOne setPlaceholder:@"Website"];
+    [_textFieldTwo setHidden:YES];
+    [_textFieldThree setHidden:YES];
+    [_textFieldFour setHidden:YES];
+    [_textFieldFive setHidden:YES];
+    [_textFieldSix setHidden:YES];
+    [_textFieldSeven setHidden:YES];
+    [_textFieldEight setHidden:YES];
+    [_textFieldNine setHidden:YES];
+    [_textFieldTen setHidden:YES];
+    [_textFeildEleven setHidden:YES];
+    [_textFieldTwelvee setHidden:YES];
+}
+
+-(void)templateBTextFeilds
+{
+    [_textFieldOne setPlaceholder:@"First Name"];
+    [_textFieldTwo setPlaceholder:@"Last Name"];
+    [_textFieldThree setPlaceholder:@"Email Address"];
+    [_textFieldFour setPlaceholder:@"Phone Number"];
+    [_textFieldFive setPlaceholder:@"Street"];
+    [_textFieldSix setPlaceholder:@"City"];
+    [_textFieldSeven setPlaceholder:@"State"];
+    [_textFieldEight setPlaceholder:@"Zip"];
+    [_textFieldNine setPlaceholder:@"Position"];
+    [_textFieldTen setPlaceholder:@"Company"];
+    [_textFeildEleven setHidden:YES];
+    [_textFieldTwelvee setHidden:YES];
+}
+
+-(void)templateCTextFields
+{
+    [_textFieldOne setPlaceholder:@"First Name"];
+    [_textFieldTwo setPlaceholder:@"Last Name"];
+    [_textFieldThree setPlaceholder:@"Email Address"];
+    [_textFieldFour setPlaceholder:@"Phone Number"];
+    [_textFieldFive setPlaceholder:@"Webiste"];
+    [_textFieldSix setPlaceholder:@"Position"];
+    [_textFieldSeven setPlaceholder:@"Company"];
+    [_textFieldEight setHidden:YES];
+    [_textFieldNine setHidden:YES];
+    [_textFieldTen setHidden:YES];
+    [_textFeildEleven setHidden:YES];
+    [_textFieldTwelvee setHidden:YES];
+}
+
+-(void)templateDTextFields
+{
+    [_textFieldOne setPlaceholder:@"First Name"];
+    [_textFieldTwo setPlaceholder:@"Last Name"];
+    [_textFieldThree setPlaceholder:@"Phone Number"];
+    [_textFieldFour setPlaceholder:@"Company"];
+    [_textFieldFive setPlaceholder:@"Position"];
+    [_textFieldSix setHidden:YES];
+    [_textFieldSeven setHidden:YES];
+    [_textFieldEight setHidden:YES];
+    [_textFieldNine setHidden:YES];
+    [_textFieldTen setHidden:YES];
+    [_textFeildEleven setHidden:YES];
+    [_textFieldTwelvee setHidden:YES];
+}
+
+-(void)templateETextFields
+{
+    [_textFieldOne setPlaceholder:@"First Name"];
+    [_textFieldTwo setPlaceholder:@"Last Name"];
+    [_textFieldThree setPlaceholder:@"Phone Number"];
+    [_textFieldFour setHidden:YES];
+    [_textFieldFive setHidden:YES];
+    [_textFieldSix setHidden:YES];
+    [_textFieldSeven setHidden:YES];
+    [_textFieldEight setHidden:YES];
+    [_textFieldNine setHidden:YES];
+    [_textFieldTen setHidden:YES];
+    [_textFeildEleven setHidden:YES];
+    [_textFieldTwelvee setHidden:YES];
+}
+
+-(void)templateFTextFields
+{
+    [_textFieldOne setPlaceholder:@"First Name"];
+    [_textFieldTwo setPlaceholder:@"Last Name"];
+    [_textFieldThree setPlaceholder:@"Phone Number"];
+    [_textFieldFour setPlaceholder:@"Email Address"];
+    [_textFieldFive setHidden:YES];
+    [_textFieldSix setHidden:YES];
+    [_textFieldSeven setHidden:YES];
+    [_textFieldEight setHidden:YES];
+    [_textFieldNine setHidden:YES];
+    [_textFieldTen setHidden:YES];
+    [_textFeildEleven setHidden:YES];
+    [_textFieldTwelvee setHidden:YES];
+}
+
+-(void)templateGTextFields
+{
+    [_textFieldOne setPlaceholder:@"First Name"];
+    [_textFieldTwo setPlaceholder:@"Last Name"];
+    [_textFieldThree setPlaceholder:@"Phone Number"];
+    [_textFieldFour setPlaceholder:@"Email Address"];
+    [_textFieldFive setPlaceholder:@"Company"];
+    [_textFieldSix setPlaceholder:@"Position"];
+    [_textFieldSeven setPlaceholder:@"Website"];
+    [_textFieldEight setHidden:YES];
+    [_textFieldNine setHidden:YES];
+    [_textFieldTen setHidden:YES];
+    [_textFeildEleven setHidden:YES];
+    [_textFieldTwelvee setHidden:YES];
+}
+
+
+
 
 
 

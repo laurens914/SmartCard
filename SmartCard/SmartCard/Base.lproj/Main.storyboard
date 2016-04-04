@@ -541,31 +541,30 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addressState" destination="roy-Ya-gU6" id="WQV-Jw-Ec0"/>
-                        <outlet property="addressStreet" destination="hEl-VE-OfN" id="ROP-EO-5HK"/>
-                        <outlet property="addressStreetTwo" destination="VJ2-YR-ixz" id="V2f-DW-uwN"/>
-                        <outlet property="addressZip" destination="qTo-Zn-Zdn" id="Syb-qh-yTe"/>
-                        <outlet property="adressCity" destination="Je6-Gp-3vd" id="qSa-T1-XOy"/>
                         <outlet property="aptNumLabel" destination="VJ2-YR-ixz" id="leD-gA-bcL"/>
                         <outlet property="cityLabel" destination="Je6-Gp-3vd" id="pVS-IU-7hz"/>
-                        <outlet property="company" destination="ef1-Ss-505" id="pqj-RR-xFW"/>
                         <outlet property="companyLabel" destination="ef1-Ss-505" id="ka3-qW-wKT"/>
-                        <outlet property="emailAddress" destination="765-4B-gdG" id="xp8-ZU-3te"/>
                         <outlet property="emailLabel" destination="765-4B-gdG" id="9os-g1-FjE"/>
-                        <outlet property="firstName" destination="GGS-R4-T3R" id="mI4-kO-B42"/>
-                        <outlet property="firstNameLabel" destination="GGS-R4-T3R" id="wie-BN-h6X"/>
                         <outlet property="imageView" destination="Ovw-zy-uvl" id="zD8-YE-K1l"/>
-                        <outlet property="lastName" destination="gSK-ij-6BJ" id="Kt1-t7-2CG"/>
                         <outlet property="lastNameLabel" destination="gSK-ij-6BJ" id="XGs-mb-lzO"/>
                         <outlet property="phoneLabel" destination="mEp-e5-UEf" id="MZ0-0K-SFS"/>
-                        <outlet property="phoneNumber" destination="mEp-e5-UEf" id="qBc-4s-gcN"/>
-                        <outlet property="position" destination="nRe-Np-HJG" id="Zbs-xb-c1F"/>
                         <outlet property="postitionLable" destination="nRe-Np-HJG" id="RA0-Yg-lTv"/>
                         <outlet property="saveButton" destination="cZl-Vg-EY9" id="hC4-u8-lfj"/>
                         <outlet property="streetAddressLabel" destination="hEl-VE-OfN" id="k61-28-mAV"/>
+                        <outlet property="textFeildEleven" destination="ef1-Ss-505" id="ndj-Xd-2bN"/>
+                        <outlet property="textFieldEight" destination="Je6-Gp-3vd" id="3fI-5Q-bvh"/>
+                        <outlet property="textFieldFive" destination="kH9-Kw-0Sf" id="nDy-NH-1HT"/>
+                        <outlet property="textFieldFour" destination="mEp-e5-UEf" id="edt-eT-YCU"/>
+                        <outlet property="textFieldNine" destination="roy-Ya-gU6" id="54N-am-iy7"/>
+                        <outlet property="textFieldOne" destination="GGS-R4-T3R" id="2N1-6E-Nnk"/>
+                        <outlet property="textFieldSeven" destination="VJ2-YR-ixz" id="AAw-KW-68w"/>
+                        <outlet property="textFieldSix" destination="hEl-VE-OfN" id="fbj-SR-w3q"/>
+                        <outlet property="textFieldTen" destination="qTo-Zn-Zdn" id="dRT-d3-hyd"/>
+                        <outlet property="textFieldThree" destination="765-4B-gdG" id="76k-u8-WkX"/>
+                        <outlet property="textFieldTwelvee" destination="nRe-Np-HJG" id="mna-WR-ryN"/>
+                        <outlet property="textFieldTwo" destination="gSK-ij-6BJ" id="LHj-xV-Ybq"/>
                         <outlet property="uploadImage" destination="2Sx-qg-kNf" id="3f7-s7-0kL"/>
                         <outlet property="webSiteLabel" destination="kH9-Kw-0Sf" id="pso-E4-KCR"/>
-                        <outlet property="website" destination="kH9-Kw-0Sf" id="Spz-by-RCu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WBp-M1-jrn" userLabel="First Responder" sceneMemberID="firstResponder"/>
