@@ -9,9 +9,12 @@
 #import "InfoViewController.h"
 
 @interface InfoViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
+
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *uploadImage;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UIButton *imageButton;
+@property (nonatomic)CGPoint selfCenter;
 
 - (IBAction)dismiss:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldOne;
@@ -28,7 +31,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
-@property (strong, nonatomic) IBOutlet UIView *superView;
+
 
 @end
 
@@ -37,16 +40,39 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyBoardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    
     [self setKeyBoardDelegate];
-
+    
 }
+
+-(void)keyBoardWillShow:(NSNotification*)sender{
+    
+    NSDictionary *userInfo = sender.userInfo;
+    
+    NSValue *keyboard = userInfo[UIKeyboardFrameBeginUserInfoKey];
+    
+    CGPoint center = self.view.center;
+    
+     self.selfCenter = center;
+    
+    center.y = [keyboard CGRectValue].size.height;
+
+    
+    NSNumber *keyboardDuration = userInfo[UIKeyboardAnimationDurationUserInfoKey];
+    
+    [UIView animateWithDuration:keyboardDuration.doubleValue animations:^{
+        
+            self.view.center = center;
+    }];
+    
+}
+
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
-
- 
-    
 }
 -(void)loadView
 {
@@ -63,6 +89,7 @@
     return YES;
 }
 
+
 -(void)setKeyBoardDelegate{
     
     _textFieldOne.delegate = self;
@@ -78,10 +105,15 @@
     _textFeildEleven.delegate = self;
 }
 
+-(void)dismiss{
+    
+    self.view.center = self.selfCenter;
+}
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
+    [self dismiss];
     return YES;
 }
 
@@ -112,19 +144,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)hideView{
-    
-    CGRect toBE = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height / 2);
-    
-    __weak typeof(self)weak = self;
-    
-    [UIView animateWithDuration:1.0 animations:^{
-    
-       
-        [weak.view layoutIfNeeded];
-        
-    }];
-}
+
 
 -(void)templateATextFeilds
 {
@@ -140,8 +160,6 @@
     [_textFieldTen setHidden:YES];
     [_textFeildEleven setHidden:YES];
     [self.imageButton setHidden:YES];
-    
-    [self hideView];
 }
 
 -(void)templateBTextFeilds
@@ -264,6 +282,7 @@
             break;
     }
 }
+
 
 
 
