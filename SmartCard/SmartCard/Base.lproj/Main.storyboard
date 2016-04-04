@@ -381,12 +381,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="State" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="roy-Ya-gU6">
-                                <rect key="frame" x="45" y="436" width="530" height="30"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Je6-Gp-3vd">
                                 <rect key="frame" x="45" y="398" width="530" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -429,6 +423,12 @@
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ef1-Ss-505">
                                 <rect key="frame" x="45" y="550" width="530" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="State" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="roy-Ya-gU6">
+                                <rect key="frame" x="45" y="436" width="530" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -480,29 +480,21 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cityLabel" destination="Je6-Gp-3vd" id="pVS-IU-7hz"/>
-                        <outlet property="companyLabel" destination="ef1-Ss-505" id="ka3-qW-wKT"/>
-                        <outlet property="emailLabel" destination="765-4B-gdG" id="9os-g1-FjE"/>
                         <outlet property="imageButton" destination="fJc-tg-U2I" id="92L-mB-pKK"/>
-                        <outlet property="imageView" destination="Ovw-zy-uvl" id="zD8-YE-K1l"/>
-                        <outlet property="lastNameLabel" destination="gSK-ij-6BJ" id="XGs-mb-lzO"/>
-                        <outlet property="phoneLabel" destination="mEp-e5-UEf" id="MZ0-0K-SFS"/>
-                        <outlet property="postitionLable" destination="nRe-Np-HJG" id="RA0-Yg-lTv"/>
+                        <outlet property="imageView" destination="Ovw-zy-uvl" id="F3u-xh-Mzd"/>
                         <outlet property="saveButton" destination="cZl-Vg-EY9" id="hC4-u8-lfj"/>
-                        <outlet property="streetAddressLabel" destination="hEl-VE-OfN" id="k61-28-mAV"/>
-                        <outlet property="textFeildEleven" destination="ef1-Ss-505" id="ndj-Xd-2bN"/>
-                        <outlet property="textFieldEight" destination="Je6-Gp-3vd" id="3fI-5Q-bvh"/>
-                        <outlet property="textFieldFive" destination="kH9-Kw-0Sf" id="nDy-NH-1HT"/>
-                        <outlet property="textFieldFour" destination="mEp-e5-UEf" id="edt-eT-YCU"/>
-                        <outlet property="textFieldNine" destination="roy-Ya-gU6" id="54N-am-iy7"/>
-                        <outlet property="textFieldOne" destination="GGS-R4-T3R" id="2N1-6E-Nnk"/>
-                        <outlet property="textFieldSix" destination="hEl-VE-OfN" id="fbj-SR-w3q"/>
-                        <outlet property="textFieldTen" destination="qTo-Zn-Zdn" id="dRT-d3-hyd"/>
-                        <outlet property="textFieldThree" destination="765-4B-gdG" id="76k-u8-WkX"/>
-                        <outlet property="textFieldTwelvee" destination="nRe-Np-HJG" id="mna-WR-ryN"/>
-                        <outlet property="textFieldTwo" destination="gSK-ij-6BJ" id="LHj-xV-Ybq"/>
+                        <outlet property="textFeildEleven" destination="ef1-Ss-505" id="O2a-CM-QCl"/>
+                        <outlet property="textFieldEight" destination="roy-Ya-gU6" id="hwd-69-bL2"/>
+                        <outlet property="textFieldFive" destination="765-4B-gdG" id="5ZS-oI-usF"/>
+                        <outlet property="textFieldFour" destination="mEp-e5-UEf" id="BO3-nF-gJ1"/>
+                        <outlet property="textFieldNine" destination="qTo-Zn-Zdn" id="Fso-V0-KKp"/>
+                        <outlet property="textFieldOne" destination="gSK-ij-6BJ" id="QRd-9o-Vyw"/>
+                        <outlet property="textFieldSeven" destination="Je6-Gp-3vd" id="SYO-dM-Y2t"/>
+                        <outlet property="textFieldSix" destination="hEl-VE-OfN" id="aax-6e-QiB"/>
+                        <outlet property="textFieldTen" destination="nRe-Np-HJG" id="ogx-2H-klw"/>
+                        <outlet property="textFieldThree" destination="kH9-Kw-0Sf" id="gZQ-Bb-U7m"/>
+                        <outlet property="textFieldTwo" destination="GGS-R4-T3R" id="YF5-XI-aZY"/>
                         <outlet property="uploadImage" destination="2Sx-qg-kNf" id="3f7-s7-0kL"/>
-                        <outlet property="webSiteLabel" destination="kH9-Kw-0Sf" id="pso-E4-KCR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WBp-M1-jrn" userLabel="First Responder" sceneMemberID="firstResponder"/>

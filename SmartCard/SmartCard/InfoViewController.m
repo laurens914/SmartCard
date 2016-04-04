@@ -25,7 +25,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *textFieldNine;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldTen;
 @property (weak, nonatomic) IBOutlet UITextField *textFeildEleven;
-@property (weak, nonatomic) IBOutlet UITextField *textFieldTwelvee;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 
 @end
@@ -41,6 +42,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
+//    [self setupSelectedTextFields:_index];
 }
 -(void)loadView
 {
@@ -70,7 +72,7 @@
 
 - (IBAction)saveInfo:(UIButton *)sender {
     
-    self.completion(_firstNameLabel.text, _lastNameLabel.text, _emailLabel.text, _phoneLabel.text, _webSiteLabel.text, _streetAddressLabel.text, _cityLabel.text, _imageView.image, _companyLabel.text, _postitionLable.text);
+    self.completion(_textFieldOne.text, _textFieldTwo.text, _textFieldThree.text,_textFieldFour.text, _textFieldFive.text, _textFieldSix.text, _textFieldSeven.text, _textFieldEight.text, _textFieldNine.text, _textFieldTen.text, _textFeildEleven.text, _imageView.image);
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -102,7 +104,6 @@
     [_textFieldNine setHidden:YES];
     [_textFieldTen setHidden:YES];
     [_textFeildEleven setHidden:YES];
-    [_textFieldTwelvee setHidden:YES];
     [self.imageButton setHidden:YES];
 }
 
@@ -119,7 +120,6 @@
     [_textFieldNine setPlaceholder:@"Position"];
     [_textFieldTen setPlaceholder:@"Company"];
     [_textFeildEleven setHidden:YES];
-    [_textFieldTwelvee setHidden:YES];
 }
 
 -(void)templateCTextFields
@@ -128,14 +128,13 @@
     [_textFieldTwo setPlaceholder:@"Last Name"];
     [_textFieldThree setPlaceholder:@"Email Address"];
     [_textFieldFour setPlaceholder:@"Phone Number"];
-    [_textFieldFive setPlaceholder:@"Webiste"];
+    [_textFieldFive setPlaceholder:@"Website"];
     [_textFieldSix setPlaceholder:@"Position"];
     [_textFieldSeven setPlaceholder:@"Company"];
     [_textFieldEight setHidden:YES];
     [_textFieldNine setHidden:YES];
     [_textFieldTen setHidden:YES];
     [_textFeildEleven setHidden:YES];
-    [_textFieldTwelvee setHidden:YES];
     [self.imageButton setHidden:YES];
 }
 
@@ -152,7 +151,6 @@
     [_textFieldNine setHidden:YES];
     [_textFieldTen setHidden:YES];
     [_textFeildEleven setHidden:YES];
-    [_textFieldTwelvee setHidden:YES];
 }
 
 -(void)templateETextFields
@@ -168,7 +166,6 @@
     [_textFieldNine setHidden:YES];
     [_textFieldTen setHidden:YES];
     [_textFeildEleven setHidden:YES];
-    [_textFieldTwelvee setHidden:YES];
 }
 
 -(void)templateFTextFields
@@ -184,7 +181,6 @@
     [_textFieldNine setHidden:YES];
     [_textFieldTen setHidden:YES];
     [_textFeildEleven setHidden:YES];
-    [_textFieldTwelvee setHidden:YES];
 }
 
 -(void)templateGTextFields
@@ -200,7 +196,6 @@
     [_textFieldNine setHidden:YES];
     [_textFieldTen setHidden:YES];
     [_textFeildEleven setHidden:YES];
-    [_textFieldTwelvee setHidden:YES];
 }
 
 

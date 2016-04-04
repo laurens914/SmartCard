@@ -124,36 +124,36 @@
         
          __weak typeof(self)weak = self;
         
-        destinationViewController.completion = ^(NSString *firstName, NSString* lastName, NSString* email, NSString*phone, NSString* website, NSString* firstAddress, NSString* secondaryAddress, UIImage* logoImage, NSString* companyName, NSString* postion){
+        destinationViewController.completion = ^(NSString *textBoxOne, NSString* textBoxTwo, NSString* textBoxThree, NSString*textBoxFour, NSString* textBoxFive, NSString* textBoxSix, NSString* textBoxSeven, NSString* textBoxEight, NSString* textBoxNine, NSString *textBoxTen, NSString *textBoxEleven, UIImage* logoImage){
             
             
             switch (weak.selectedIndex) {
                     
                 case 0:
-                    NSLog(@"%@",website);
+                    NSLog(@"%@",textBoxOne);
                     
                   
-                  _currentImageView = [TemplateAView setUpViewWithView:weak.view website:website];
+                  _currentImageView = [TemplateAView setUpViewWithView:weak.view website:textBoxOne];
                     
                     break;
                 case 1:
-                   _currentImageView = [TemplateBView setUpViewWithView:weak.view name:[NSString stringWithFormat:@"%@ %@", firstName, lastName] firstAddress: firstAddress secondaryAddress:secondaryAddress email:email phone:phone website:website jobTitle:postion company:companyName logo:logoImage];
+                    _currentImageView = [TemplateBView setUpViewWithView:weak.view name:[NSString stringWithFormat:@"%@ %@", textBoxOne, textBoxTwo] firstAddress: textBoxFive secondaryAddress: [NSString stringWithFormat:@"%@ %@ %@", textBoxSix, textBoxSeven, textBoxEight] email:textBoxThree phone:textBoxFour website:nil jobTitle:textBoxNine company:textBoxTen logo:logoImage];
                     break;
                 case 2:
                 
-                _currentImageView =[TemplateCView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", firstName, lastName] firstAddress:firstAddress secondaryAddress:secondaryAddress email:email phone:phone website:website jobTitle:postion company:companyName];
+                _currentImageView =[TemplateCView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", textBoxOne, textBoxTwo] firstAddress:nil secondaryAddress:nil email:textBoxThree phone:textBoxFour website:textBoxFive jobTitle:textBoxSix company:textBoxSeven];
                     break;
                 case 3:
-                  _currentImageView = [TemplateDView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", firstName, lastName] phone:phone website:website jobTitle:postion company:companyName logo:logoImage];
+                  _currentImageView = [TemplateDView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", textBoxOne, textBoxTwo] phone:textBoxThree website:nil jobTitle:textBoxFive company:textBoxFour logo:logoImage];
                     break;
                 case 4:
-                 _currentImageView = [TemplateEView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", firstName, lastName] phone:phone logo:logoImage];
+                 _currentImageView = [TemplateEView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", textBoxOne, textBoxTwo] phone:textBoxThree logo:logoImage];
                     break;
                 case 5:
-                  _currentImageView = [TemplateFView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", firstName, lastName] email:email phone:phone logo:logoImage];
+                  _currentImageView = [TemplateFView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", textBoxOne, textBoxTwo] email:textBoxFour phone:textBoxThree logo:logoImage];
                     break;
                 case 6:
-                   _currentImageView = [TemplateGView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", firstName, lastName] firstAddress:firstAddress secondaryAddress:secondaryAddress email:email phone: phone website:website jobTitle:postion company:companyName logo:logoImage];
+                   _currentImageView = [TemplateGView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", textBoxTwo, textBoxTwo] firstAddress:nil secondaryAddress:nil email:textBoxFour phone: textBoxThree website:textBoxSeven jobTitle:textBoxSix company:textBoxFive logo:logoImage];
                     break;
                     
                 default:
