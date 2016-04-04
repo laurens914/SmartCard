@@ -33,6 +33,7 @@ typedef void(^userInfoCompletion)(NSString *firstName, NSString* lastName, NSStr
 
 @property (weak, nonatomic) IBOutlet UITextField *postitionLable;
 
+@property NSUInteger index;
 
 @property(strong,nonatomic)userInfoCompletion completion;
 

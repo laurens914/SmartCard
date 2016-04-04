@@ -11,6 +11,7 @@
 @interface InfoViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *uploadImage;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
+@property (weak, nonatomic) IBOutlet UIButton *imageButton;
 
 - (IBAction)dismiss:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldOne;
@@ -34,8 +35,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self templateCTextFields];
 
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
+}
+-(void)loadView
+{
+    [super loadView];
+    [self setupSelectedTextFields:_index];
 }
 
 - (void)didReceiveMemoryWarning
@@ -93,6 +103,7 @@
     [_textFieldTen setHidden:YES];
     [_textFeildEleven setHidden:YES];
     [_textFieldTwelvee setHidden:YES];
+    [self.imageButton setHidden:YES];
 }
 
 -(void)templateBTextFeilds
@@ -125,6 +136,7 @@
     [_textFieldTen setHidden:YES];
     [_textFeildEleven setHidden:YES];
     [_textFieldTwelvee setHidden:YES];
+    [self.imageButton setHidden:YES];
 }
 
 -(void)templateDTextFields
@@ -192,7 +204,33 @@
 }
 
 
-
+-(void)setupSelectedTextFields:(NSInteger)index
+{
+    switch (index) {
+        case 0:
+            [self templateATextFeilds];
+            break;
+        case 1:
+            [self templateBTextFeilds];
+            break;
+        case 2:
+            [self templateCTextFields];
+            break;
+        case 3:
+            [self templateDTextFields];
+        case 4:
+            [self templateETextFields];
+            break;
+        case 5:
+            [self templateFTextFields];
+            break;
+        case 6:
+            [self templateGTextFields];
+            break;
+        default:
+            break;
+    }
+}
 
 
 

@@ -120,6 +120,7 @@
     if ([segue.identifier isEqualToString:@"infoViewController"]) {
         
         InfoViewController *destinationViewController = segue.destinationViewController;
+        destinationViewController.index = self.selectedIndex;
         
          __weak typeof(self)weak = self;
         
