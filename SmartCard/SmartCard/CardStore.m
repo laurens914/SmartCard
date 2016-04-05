@@ -65,6 +65,16 @@
     
 }
 
+-(void)removeCard:(CardImage*)card{
+    
+    AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+    NSManagedObjectContext *context = delegate.managedObjectContext;
+    NSError* saveError;
+    
+    [context deleteObject:card];
+    [context save:&saveError];
+    
+}
 
 
 
