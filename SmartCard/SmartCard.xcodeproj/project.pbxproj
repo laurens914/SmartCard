@@ -38,6 +38,7 @@
 		89A36A231CA1E6DC00997095 /* CreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A36A221CA1E6DC00997095 /* CreateViewController.m */; };
 		89A36A261CA1E6E300997095 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A36A251CA1E6E300997095 /* InfoViewController.m */; };
 		89A36A291CA1E6EA00997095 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A36A281CA1E6EA00997095 /* ShareViewController.m */; };
+		E94808781CB4482400AFF926 /* RegexService.m in Sources */ = {isa = PBXBuildFile; fileRef = E94808771CB4482400AFF926 /* RegexService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +100,8 @@
 		89A36A251CA1E6E300997095 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		89A36A271CA1E6EA00997095 /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
 		89A36A281CA1E6EA00997095 /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
+		E94808761CB4482400AFF926 /* RegexService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexService.h; sourceTree = "<group>"; };
+		E94808771CB4482400AFF926 /* RegexService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +169,8 @@
 				895B21081CAC69F400CC8610 /* ContactData+CoreDataProperties.m */,
 				895B21091CAC69F400CC8610 /* ContactData.h */,
 				895B210A1CAC69F400CC8610 /* ContactData.m */,
+				E94808761CB4482400AFF926 /* RegexService.h */,
+				E94808771CB4482400AFF926 /* RegexService.m */,
 				895B210F1CAC6EE000CC8610 /* ContactService.h */,
 				895B21101CAC6EE000CC8610 /* ContactService.m */,
 				894B5AFD1CA0C0E300DD2BFD /* SmartCard.xcdatamodeld */,
@@ -378,6 +383,7 @@
 				894B5AF61CA0C0E300DD2BFD /* AppDelegate.m in Sources */,
 				891A5AA51CA3577600D42A47 /* TemplateCollectionViewCell.m in Sources */,
 				0BF1BC4A1CA38D2400EEEEF7 /* SavedCollectionViewFlowLayout.m in Sources */,
+				E94808781CB4482400AFF926 /* RegexService.m in Sources */,
 				0B98A7801CAB7F550057D3BE /* TemplateGView.m in Sources */,
 				895B210D1CAC69F400CC8610 /* ContactData+CoreDataProperties.m in Sources */,
 				0B98A77A1CAB7EA10057D3BE /* TemplateEView.m in Sources */,
