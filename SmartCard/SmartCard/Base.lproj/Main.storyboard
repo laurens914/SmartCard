@@ -57,7 +57,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="savedCell" id="8n0-WU-lme" customClass="SavedCollectionViewCell">
-                                        <rect key="frame" x="103.5" y="0.0" width="393" height="228"/>
+                                        <rect key="frame" x="104" y="0.0" width="393" height="228"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="228"/>
@@ -65,19 +65,33 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AMn-7m-S0L">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="228"/>
+                                                    <gestureRecognizers/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFa-Qu-pXs">
+                                                    <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="Iyh-N7-K0Y"/>
+                                                        <constraint firstAttribute="width" constant="25" id="sgc-n5-34V"/>
+                                                    </constraints>
+                                                    <state key="normal" image="smallXbutton"/>
+                                                    <connections>
+                                                        <action selector="deleteCellButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rFD-kI-Z1V"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="eFa-Qu-pXs" firstAttribute="leading" secondItem="8n0-WU-lme" secondAttribute="leading" id="5VZ-DE-uOn"/>
                                             <constraint firstAttribute="trailing" secondItem="AMn-7m-S0L" secondAttribute="trailing" id="8UG-5W-Rmy"/>
+                                            <constraint firstItem="eFa-Qu-pXs" firstAttribute="top" secondItem="8n0-WU-lme" secondAttribute="top" id="I39-oQ-iOJ"/>
                                             <constraint firstItem="AMn-7m-S0L" firstAttribute="leading" secondItem="8n0-WU-lme" secondAttribute="leading" id="MyV-qY-7Rz"/>
                                             <constraint firstAttribute="bottom" secondItem="AMn-7m-S0L" secondAttribute="bottom" id="eHA-8L-t5u"/>
                                             <constraint firstItem="AMn-7m-S0L" firstAttribute="top" secondItem="8n0-WU-lme" secondAttribute="top" id="md9-Dk-eSN"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="deleteButton" destination="eFa-Qu-pXs" id="cYY-EE-nhb"/>
                                             <outlet property="imageView" destination="AMn-7m-S0L" id="BEp-fs-A0v"/>
-                                            <segue destination="TnR-uG-kdb" kind="show" identifier="shareViewController" id="BPv-U9-UAc"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -102,6 +116,7 @@
                         <outlet property="saveButton" destination="5cQ-jP-aj3" id="Bom-GA-TtN"/>
                         <outlet property="savedCollectionView" destination="Bwn-cm-aJI" id="vXP-5h-kv3"/>
                         <outlet property="savedHeight" destination="mtO-Ls-Tm0" id="DzT-95-O7V"/>
+                        <segue destination="TnR-uG-kdb" kind="show" identifier="sharedViewController" id="PRM-oQ-3zT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -163,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MMk-nl-C4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="240" y="1040"/>
+            <point key="canvasLocation" x="245" y="1025"/>
         </scene>
         <!--Template View Controller-->
         <scene sceneID="2Vs-Tm-2Xk">
@@ -502,4 +517,7 @@
             <point key="canvasLocation" x="2411" y="353"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="smallXbutton" width="25" height="25"/>
+    </resources>
 </document>

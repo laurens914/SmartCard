@@ -21,7 +21,7 @@ CGFloat const kSavedMenuFinishLineMultipler = 0.28;
 NSTimeInterval const kAnimationDurationOPEN = 0.3;
 NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 
-@interface ViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate>
 - (IBAction)create:(UIButton *)sender;
 - (IBAction)save:(UIButton *)sender;
 
@@ -33,10 +33,12 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 @property (nonatomic) BOOL isSavedShowing;
 @property (nonatomic) CGFloat halfScreenHeight;
 @property (nonatomic) CGPoint lastKnownTranslation;
+@property (nonatomic) BOOL editEnabled;
 
 @property (strong, nonatomic)NSArray* dataSource;
 @property (strong, nonatomic)CardImage* selectedCard;
 
+- (IBAction)deleteCellButton:(id)sender;
 
 @end
 
@@ -47,6 +49,7 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
     self.halfScreenHeight = (self.view.frame.size.height/2)-0.1;
     [self hideSavedTemplatesAnimated:NO];
     [self setupPanGesture];
+    [self setupLongPress];
     
     
 }
@@ -122,7 +125,7 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    if ([segue.identifier  isEqual: @"shareViewController"]) {
+    if ([segue.identifier  isEqual: @"sharedViewController"]) {
         
         NSIndexPath *path = [[_savedCollectionView indexPathsForSelectedItems]objectAtIndex:0];
             
@@ -218,14 +221,25 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
     
     savedCell.backgroundColor = [UIColor blackColor];
     CardImage *card = _dataSource[indexPath.row];
+    savedCell.selectedCellIndexPath = indexPath;
     UIImage *cardImage = [UIImage imageWithData:card.buisnessCard];
 
     savedCell.imageView.image = cardImage;
-    
+    if (self.editEnabled == NO){
+        savedCell.deleteButton.alpha = 0.0;
+        savedCell.deleteButton.enabled = NO;
+    }
+    if(self.editEnabled == YES){
+    savedCell.deleteButton.alpha = 1.0;
+    savedCell.deleteButton.enabled = YES;
+    }
     return savedCell;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (!self.editEnabled){
+    [self performSegueWithIdentifier:@"sharedViewController" sender:nil];
+    }
 }
 
 
@@ -246,5 +260,53 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
     }
 }
 
- 
+
+- (IBAction)deleteCellButton:(id)sender {
+    UIButton * button = (UIButton *)sender;
+    NSIndexPath *indexPath = [self.savedCollectionView indexPathForItemAtPoint:button.frame.origin];
+    //    UICollectionViewCell *cell = [self.savedCollectionView cellForItemAtIndexPath:indexPath];
+    NSArray *itemsToDelete = [[NSArray alloc]initWithObjects:indexPath, nil];
+    [self.savedCollectionView deleteItemsAtIndexPaths:itemsToDelete];
+}
+
+
+
+-(void)setupLongPress
+{
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressGesture:)];
+    longPress.delegate = self;
+    [self.savedCollectionView addGestureRecognizer:longPress];
+    longPress.minimumPressDuration = 0.2;
+    longPress.delaysTouchesBegan = YES;
+    
+}
+
+
+-(void)longPressGesture:(UILongPressGestureRecognizer *)sender
+{
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        self.editEnabled = YES;
+        [self.savedCollectionView reloadData];
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @end
