@@ -100,7 +100,7 @@
            [TemplateDView setUpViewWithView:self.view name:@"Full Name" phone:@"123 666-1234" website:@"www.company.com" jobTitle:@"Job Title" company:@"Company" logo:nil];
             break;
         case 4:
-           [TemplateEView setUpViewWithView:self.view name:@"Full Name" phone:@"123 666-1234" logo:nil];
+         [TemplateEView setUpViewWithView:self.view name:@"Full Name" phone:@"123 666-1234" logo:nil];
             break;
         case 5:
             [TemplateFView setUpViewWithView:self.view name:@"Full Name" email:@"fullName@email.com" phone:@"123 666-1234" logo:nil];
@@ -188,7 +188,8 @@
     //Saving Image Data
 
     [[CardStore shared]saveCardImage:imageData];
-
+    
+   
     return screenShot;
 }
 
