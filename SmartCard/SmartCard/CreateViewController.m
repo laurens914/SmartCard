@@ -73,7 +73,10 @@
 -(void)setupButton
 {
     self.dismiss.layer.cornerRadius = 20;
+    self.dismiss.clipsToBounds = YES;
+    self.dismiss.layer.borderWidth = 2;
     self.dismiss.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.dismiss.tintColor = [UIColor blackColor];
 }
 
 -(UIView*)selectView:(NSInteger)index{

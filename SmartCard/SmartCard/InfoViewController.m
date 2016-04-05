@@ -14,6 +14,7 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
 
 @interface InfoViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
 
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *uploadImage;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UIButton *imageButton;
@@ -33,6 +34,7 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
 @property (weak, nonatomic) IBOutlet UITextField *textFeildEleven;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIButton *dismissButton;
 
 
 
@@ -47,6 +49,7 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyBoardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     
     [self setKeyBoardDelegate];
+    [self setupButton];
     
 }
 
@@ -123,6 +126,14 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
 - (IBAction)dismiss:(UIButton *)sender {
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+-(void)setupButton
+{
+    self.dismissButton.layer.cornerRadius = 20;
+    self.dismissButton.clipsToBounds = YES;
+    self.dismissButton.layer.borderWidth = 2;
+    self.dismissButton.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.dismissButton.tintColor = [UIColor blackColor];
 }
 
 - (IBAction)saveInfo:(UIButton *)sender {
