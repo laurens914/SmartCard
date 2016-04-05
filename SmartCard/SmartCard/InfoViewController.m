@@ -9,9 +9,12 @@
 #import "InfoViewController.h"
 
 @interface InfoViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
+
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *uploadImage;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UIButton *imageButton;
+@property (nonatomic)CGPoint selfCenter;
 
 - (IBAction)dismiss:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldOne;
@@ -29,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 
+
 @end
 
 @implementation InfoViewController
@@ -36,13 +40,39 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyBoardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    
+    [self setKeyBoardDelegate];
+    
 }
+
+-(void)keyBoardWillShow:(NSNotification*)sender{
+    
+    NSDictionary *userInfo = sender.userInfo;
+    
+    NSValue *keyboard = userInfo[UIKeyboardFrameBeginUserInfoKey];
+    
+    CGPoint center = self.view.center;
+    
+     self.selfCenter = center;
+    
+    center.y = [keyboard CGRectValue].size.height;
+
+    
+    NSNumber *keyboardDuration = userInfo[UIKeyboardAnimationDurationUserInfoKey];
+    
+    [UIView animateWithDuration:keyboardDuration.doubleValue animations:^{
+        
+            self.view.center = center;
+    }];
+    
+}
+
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
-//    [self setupSelectedTextFields:_index];
 }
 -(void)loadView
 {
@@ -59,9 +89,31 @@
     return YES;
 }
 
+
+-(void)setKeyBoardDelegate{
+    
+    _textFieldOne.delegate = self;
+    _textFieldTwo.delegate = self;
+    _textFieldThree.delegate = self;
+    _textFieldFour.delegate = self;
+    _textFieldFive.delegate = self;
+    _textFieldSix.delegate = self;
+    _textFieldSeven.delegate = self;
+    _textFieldEight.delegate = self;
+    _textFieldNine.delegate = self;
+    _textFieldTen.delegate = self;
+    _textFeildEleven.delegate = self;
+}
+
+-(void)dismiss{
+    
+    self.view.center = self.selfCenter;
+}
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
+    [self dismiss];
     return YES;
 }
 
@@ -83,6 +135,7 @@
     imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     imagePicker.delegate =self;
     [self presentViewController:imagePicker animated:YES completion:nil];
+    
 }
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
@@ -90,6 +143,8 @@
     self.imageView.image = newImage;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
 
 -(void)templateATextFeilds
 {
@@ -202,6 +257,7 @@
 -(void)setupSelectedTextFields:(NSInteger)index
 {
     switch (index) {
+            
         case 0:
             [self templateATextFeilds];
             break;
@@ -226,6 +282,7 @@
             break;
     }
 }
+
 
 
 
