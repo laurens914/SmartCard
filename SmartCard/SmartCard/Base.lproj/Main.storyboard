@@ -57,7 +57,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="savedCell" id="8n0-WU-lme" customClass="SavedCollectionViewCell">
-                                        <rect key="frame" x="103.5" y="0.0" width="393" height="228"/>
+                                        <rect key="frame" x="104" y="0.0" width="393" height="228"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="228"/>
@@ -296,17 +296,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87b-0x-aVF">
-                                <rect key="frame" x="20" y="40" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="65z-9k-LJV"/>
-                                    <constraint firstAttribute="height" constant="40" id="p2V-Mu-N4z"/>
-                                </constraints>
-                                <state key="normal" title="x"/>
-                                <connections>
-                                    <action selector="dismissButton:" destination="ks4-Nt-Itf" eventType="touchUpInside" id="Dy8-su-STF"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ti3-0g-WFP">
                                 <rect key="frame" x="267" y="481" width="66" height="30"/>
                                 <state key="normal" title="Enter Info"/>
@@ -326,16 +315,29 @@
                                     <action selector="save:" destination="ks4-Nt-Itf" eventType="touchUpInside" id="vuI-EJ-Hes"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87b-0x-aVF">
+                                <rect key="frame" x="5" y="5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="8ql-v6-giw"/>
+                                    <constraint firstAttribute="height" constant="40" id="ZMa-HU-JuV"/>
+                                </constraints>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissButton:" destination="ks4-Nt-Itf" eventType="touchUpInside" id="Dy8-su-STF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.71372549019607845" green="0.76078431372549016" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="XE8-lX-oOc" firstAttribute="top" secondItem="pbx-az-6xS" secondAttribute="bottom" constant="51" id="F6z-hW-DFa"/>
-                            <constraint firstItem="87b-0x-aVF" firstAttribute="top" secondItem="bwu-Ic-44E" secondAttribute="bottom" constant="20" id="I8u-bK-kYM"/>
                             <constraint firstItem="87b-0x-aVF" firstAttribute="leading" secondItem="Y93-xV-2FL" secondAttribute="leading" constant="20" id="Iyw-nV-HHV"/>
+                            <constraint firstItem="87b-0x-aVF" firstAttribute="leading" secondItem="Y93-xV-2FL" secondAttribute="leading" constant="5" id="WM6-91-bcK"/>
                             <constraint firstItem="XE8-lX-oOc" firstAttribute="top" secondItem="ti3-0g-WFP" secondAttribute="bottom" constant="89" id="bnm-Oe-gzi"/>
                             <constraint firstItem="pbx-az-6xS" firstAttribute="centerX" secondItem="Y93-xV-2FL" secondAttribute="centerX" id="m7d-BG-Dy4"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="87b-0x-aVF" secondAttribute="leading" id="rE1-Cx-uLk"/>
                             <constraint firstItem="87b-0x-aVF" firstAttribute="top" secondItem="Y93-xV-2FL" secondAttribute="top" constant="40" id="rs0-Oq-8JU"/>
+                            <constraint firstItem="87b-0x-aVF" firstAttribute="top" secondItem="Y93-xV-2FL" secondAttribute="top" constant="5" id="uvj-du-DRy"/>
                             <constraint firstItem="ti3-0g-WFP" firstAttribute="centerX" secondItem="Y93-xV-2FL" secondAttribute="centerX" id="vxl-gV-XAF"/>
                         </constraints>
                         <variation key="default">
@@ -417,11 +419,15 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQe-ze-p07">
-                                <rect key="frame" x="0.0" y="20" width="30" height="40"/>
+                                <rect key="frame" x="5" y="5" width="40" height="40"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="GpY-Lp-Lqg"/>
                                     <constraint firstAttribute="height" constant="40" id="HVa-3s-0j5"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="g7M-x0-q6x"/>
                                 </constraints>
-                                <state key="normal" title="X"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="dismiss:" destination="Iy0-6k-exG" eventType="touchUpInside" id="foz-xI-kpV"/>
                                 </connections>
@@ -479,7 +485,7 @@
                             <constraint firstItem="qTo-Zn-Zdn" firstAttribute="trailing" secondItem="roy-Ya-gU6" secondAttribute="trailing" id="FUM-4L-dFU"/>
                             <constraint firstItem="Ovw-zy-uvl" firstAttribute="leading" secondItem="gn5-rN-jQt" secondAttribute="leadingMargin" constant="25" id="IAd-Zv-Oye"/>
                             <constraint firstItem="mEp-e5-UEf" firstAttribute="leading" secondItem="kH9-Kw-0Sf" secondAttribute="leading" id="LqO-Tb-2qF"/>
-                            <constraint firstItem="ZQe-ze-p07" firstAttribute="leading" secondItem="gn5-rN-jQt" secondAttribute="leading" id="Mcv-vf-jZe"/>
+                            <constraint firstItem="ZQe-ze-p07" firstAttribute="leading" secondItem="gn5-rN-jQt" secondAttribute="leading" constant="5" id="Mcv-vf-jZe"/>
                             <constraint firstItem="fJc-tg-U2I" firstAttribute="leading" secondItem="Ovw-zy-uvl" secondAttribute="trailing" constant="8" id="OGS-42-Z1N"/>
                             <constraint firstItem="Je6-Gp-3vd" firstAttribute="trailing" secondItem="hEl-VE-OfN" secondAttribute="trailing" id="PH5-ja-lIe"/>
                             <constraint firstItem="qTo-Zn-Zdn" firstAttribute="leading" secondItem="roy-Ya-gU6" secondAttribute="leading" id="RrD-DD-5bE"/>
@@ -487,7 +493,7 @@
                             <constraint firstItem="Je6-Gp-3vd" firstAttribute="top" secondItem="hEl-VE-OfN" secondAttribute="bottom" constant="8" id="UBg-So-6QQ"/>
                             <constraint firstItem="765-4B-gdG" firstAttribute="leading" secondItem="mEp-e5-UEf" secondAttribute="leading" id="Uug-uh-flt"/>
                             <constraint firstItem="GGS-R4-T3R" firstAttribute="leading" secondItem="gSK-ij-6BJ" secondAttribute="leading" id="Xtt-oD-HYL"/>
-                            <constraint firstItem="ZQe-ze-p07" firstAttribute="top" secondItem="gn5-rN-jQt" secondAttribute="top" constant="20" id="Yha-kc-GTk"/>
+                            <constraint firstItem="ZQe-ze-p07" firstAttribute="top" secondItem="gn5-rN-jQt" secondAttribute="top" constant="5" id="Yha-kc-GTk"/>
                             <constraint firstItem="gSK-ij-6BJ" firstAttribute="leading" secondItem="Ovw-zy-uvl" secondAttribute="leading" id="asH-Xv-dEQ"/>
                             <constraint firstItem="nRe-Np-HJG" firstAttribute="top" secondItem="qTo-Zn-Zdn" secondAttribute="bottom" constant="8" id="cKN-Nk-4OL"/>
                             <constraint firstItem="kH9-Kw-0Sf" firstAttribute="top" secondItem="GGS-R4-T3R" secondAttribute="bottom" constant="8" id="cf3-bd-L3f"/>
@@ -509,6 +515,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dismissButton" destination="ZQe-ze-p07" id="syy-Ti-Q0q"/>
                         <outlet property="imageButton" destination="fJc-tg-U2I" id="92L-mB-pKK"/>
                         <outlet property="imageView" destination="Ovw-zy-uvl" id="F3u-xh-Mzd"/>
                         <outlet property="saveButton" destination="cZl-Vg-EY9" id="hC4-u8-lfj"/>

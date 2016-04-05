@@ -34,7 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor colorWithRed:0.51 green:0.56 blue:0.65 alpha:1.0]];
+    [self.view setBackgroundColor:[UIColor colorWithRed:0.71 green:0.76 blue:0.85 alpha:1.0]];
     [self setupButton];
     [self setupCollectionView];
 }
