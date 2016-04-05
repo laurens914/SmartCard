@@ -159,8 +159,6 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
     CGPoint velocity = [sender velocityInView:self.view];
     CGPoint translation = [sender translationInView:self.view];
     
-    NSLog(@"%f", translation.y);
-    
     if (self.savedHeight.constant >= 60 && self.savedHeight.constant <= self.halfScreenHeight) {
         
         if (self.savedHeight.constant >= self.halfScreenHeight && velocity.y>0) {
