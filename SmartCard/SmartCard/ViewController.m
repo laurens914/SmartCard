@@ -24,6 +24,7 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 @interface ViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate>
 - (IBAction)create:(UIButton *)sender;
 - (IBAction)save:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *createHeight;
@@ -35,7 +36,7 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 @property (nonatomic) CGPoint lastKnownTranslation;
 @property (nonatomic) BOOL editEnabled;
 
-@property (strong, nonatomic)NSArray* dataSource;
+@property (strong, nonatomic)NSMutableArray* dataSource;
 @property (strong, nonatomic)CardImage* selectedCard;
 
 - (IBAction)deleteCellButton:(id)sender;
@@ -50,7 +51,7 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
     [self hideSavedTemplatesAnimated:NO];
     [self setupPanGesture];
     [self setupLongPress];
-    
+    _cancelButton.hidden = YES;
     
 }
 
@@ -118,7 +119,7 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 #pragma mark - Get Saved Images & Prepare For Segue
 
 -(void)setDataSourceWithSavedImages{
-    _dataSource = [[CardStore shared]returnCardImages];
+    _dataSource = [NSMutableArray arrayWithArray:[[CardStore shared]returnCardImages]];
     [_savedCollectionView reloadData];
     
 }
@@ -262,11 +263,27 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 
 
 - (IBAction)deleteCellButton:(id)sender {
-    UIButton * button = (UIButton *)sender;
-    NSIndexPath *indexPath = [self.savedCollectionView indexPathForItemAtPoint:button.frame.origin];
-    //    UICollectionViewCell *cell = [self.savedCollectionView cellForItemAtIndexPath:indexPath];
-    NSArray *itemsToDelete = [[NSArray alloc]initWithObjects:indexPath, nil];
-    [self.savedCollectionView deleteItemsAtIndexPaths:itemsToDelete];
+    
+    SavedCollectionViewCell* cell = (SavedCollectionViewCell*)[[sender superview]superview];
+    NSIndexPath *indexPath = [self.savedCollectionView indexPathForCell:cell];
+    
+    NSLog(@"path.row%@",self.dataSource[indexPath.row]);
+    
+    CardImage *imageToDelete = self.dataSource[indexPath.row];
+    
+    [self.dataSource removeObjectAtIndex:indexPath.row];
+    [[CardStore shared]removeCard:imageToDelete];
+    
+    
+    [self.savedCollectionView deleteItemsAtIndexPaths:@[indexPath]];
+    
+    if ([self.dataSource count ] == 0) {
+        
+        self.editEnabled = NO;
+        _cancelButton.hidden = YES;
+        [self.savedCollectionView reloadData];
+    }
+    
 }
 
 
@@ -286,10 +303,17 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 {
     if (sender.state == UIGestureRecognizerStateBegan) {
         self.editEnabled = YES;
+        _cancelButton.hidden = NO;
         [self.savedCollectionView reloadData];
         }
 }
 
+- (IBAction)cancel:(UIButton *)sender {
+    
+    self.editEnabled = NO;
+    _cancelButton.hidden = YES;
+    [self.savedCollectionView reloadData];
+}
 
 
 
