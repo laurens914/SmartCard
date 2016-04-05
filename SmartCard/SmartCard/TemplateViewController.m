@@ -41,7 +41,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.templateCollectionView setContentOffset:CGPointMake(1.0, 1.0) animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
