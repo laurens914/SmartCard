@@ -37,8 +37,8 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 
 @property (strong, nonatomic)NSArray* dataSource;
 @property (strong, nonatomic)CardImage* selectedCard;
-- (IBAction)deleteCellButton:(id)sender;
 
+- (IBAction)deleteCellButton:(id)sender;
 
 @end
 
@@ -125,7 +125,7 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    if ([segue.identifier  isEqual: @"shareViewController"]) {
+    if ([segue.identifier  isEqual: @"sharedViewController"]) {
         
         NSIndexPath *path = [[_savedCollectionView indexPathsForSelectedItems]objectAtIndex:0];
             
@@ -221,6 +221,7 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
     
     savedCell.backgroundColor = [UIColor blackColor];
     CardImage *card = _dataSource[indexPath.row];
+    savedCell.selectedCellIndexPath = indexPath;
     UIImage *cardImage = [UIImage imageWithData:card.buisnessCard];
 
     savedCell.imageView.image = cardImage;
@@ -236,7 +237,9 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if (!self.editEnabled){
+    [self performSegueWithIdentifier:@"sharedViewController" sender:nil];
+    }
 }
 
 
@@ -257,10 +260,15 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
     }
 }
 
- 
+
 - (IBAction)deleteCellButton:(id)sender {
-    
+    UIButton * button = (UIButton *)sender;
+    NSIndexPath *indexPath = [self.savedCollectionView indexPathForItemAtPoint:button.frame.origin];
+    //    UICollectionViewCell *cell = [self.savedCollectionView cellForItemAtIndexPath:indexPath];
+    NSArray *itemsToDelete = [[NSArray alloc]initWithObjects:indexPath, nil];
+    [self.savedCollectionView deleteItemsAtIndexPaths:itemsToDelete];
 }
+
 
 
 -(void)setupLongPress
@@ -271,16 +279,13 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
     longPress.minimumPressDuration = 0.2;
     longPress.delaysTouchesBegan = YES;
     
-    
 }
-
 
 
 -(void)longPressGesture:(UILongPressGestureRecognizer *)sender
 {
     if (sender.state == UIGestureRecognizerStateBegan) {
         self.editEnabled = YES;
-        
         [self.savedCollectionView reloadData];
         }
 }

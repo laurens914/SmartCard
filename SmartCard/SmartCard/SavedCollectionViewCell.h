@@ -11,5 +11,6 @@
 @interface SavedCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
+@property (strong, nonatomic) NSIndexPath *selectedCellIndexPath;
 
 @end
