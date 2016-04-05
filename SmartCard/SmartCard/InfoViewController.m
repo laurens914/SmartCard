@@ -329,6 +329,7 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
             break;
         case 3:
             [self templateDTextFields];
+            break;
         case 4:
             [self templateETextFields];
             break;
