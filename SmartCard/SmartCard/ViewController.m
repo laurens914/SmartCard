@@ -227,5 +227,24 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 }
+
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CardImage *card = _dataSource[indexPath.row];
+    UIImage *cardImage = [UIImage imageWithData:card.buisnessCard];
+
+    
+    CGSize size = cardImage.size;
+    
+    if (size.width > size.height) {
+        //        Landscape Card
+        return CGSizeMake(175.0, 100.0);
+    } else {
+        //        Portrait Card
+        return CGSizeMake(99.0, 200.0);
+    }
+}
+
  
 @end

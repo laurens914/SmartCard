@@ -24,8 +24,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="gNV-fD-UoE"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Create">
+                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="24"/>
+                                <state key="normal" title="CREATE">
                                     <color key="titleColor" red="0.15294117647058825" green="0.16078431372549018" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -57,7 +57,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="savedCell" id="8n0-WU-lme" customClass="SavedCollectionViewCell">
-                                        <rect key="frame" x="104" y="0.0" width="393" height="228"/>
+                                        <rect key="frame" x="103.5" y="0.0" width="393" height="228"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="228"/>
