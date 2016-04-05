@@ -26,7 +26,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="24"/>
                                 <state key="normal" title="CREATE">
-                                    <color key="titleColor" red="0.15294117647058825" green="0.16078431372549018" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="create:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L7L-Ye-IvV"/>
@@ -39,9 +39,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="mtO-Ls-Tm0"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Saved">
-                                    <color key="titleColor" red="0.15294117647058825" green="0.16078431372549018" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="23"/>
+                                <state key="normal" title="SAVED">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="save:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jBQ-q1-VS2"/>
