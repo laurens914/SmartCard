@@ -24,8 +24,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="gNV-fD-UoE"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Create">
+                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="24"/>
+                                <state key="normal" title="CREATE">
                                     <color key="titleColor" red="0.15294117647058825" green="0.16078431372549018" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
