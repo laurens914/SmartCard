@@ -8,9 +8,6 @@
 
 #import "RegexService.h"
 
-NSString *const emailRegexValidationString = @"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}$";
-NSString *const phoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9]{3}[\\s.-]?[0-9]{4}$";
-
 @implementation RegexService
 
 +(BOOL)regexValidationForString:(NSString *)string withRegex:(NSString *)regexString {

@@ -7,9 +7,12 @@
 //
 
 #import "InfoViewController.h"
+#import "RegexService.h"
+
+NSString *const kEmailRegexValidationString = @"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}$";
+NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9]{3}[\\s.-]?[0-9]{4}$";
 
 @interface InfoViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
-
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *uploadImage;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
@@ -124,9 +127,55 @@
 
 - (IBAction)saveInfo:(UIButton *)sender {
     
+    BOOL isEmailValid = YES;
+    BOOL isPhoneValid = YES;
+    
+    if (!self.textFieldThree.hidden) {
+        if ([self.textFieldThree.placeholder isEqualToString:@"Email Address"]) {
+            isEmailValid = [RegexService regexValidationForString:self.textFieldThree.text withRegex:kEmailRegexValidationString];
+        } else if ([self.textFieldThree.placeholder isEqualToString:@"Phone Number"]) {
+            isPhoneValid = [RegexService regexValidationForString:self.textFieldThree.text withRegex:kPhoneRegexValidationString];
+        }
+    }
+    
+    if (!self.textFieldFour.hidden) {
+        if ([self.textFieldFour.placeholder isEqualToString:@"Email Address"]) {
+            isEmailValid = [RegexService regexValidationForString:self.textFieldFour.text withRegex:kEmailRegexValidationString];
+        } else if ([self.textFieldFour.placeholder isEqualToString:@"Phone Number"]) {
+            isPhoneValid = [RegexService regexValidationForString:self.textFieldFour.text withRegex:kPhoneRegexValidationString];
+        }
+    }
+    
+    if (!isPhoneValid) {
+        [self invalid:@"Phone"];
+        return;
+    }
+    
+    if (!isEmailValid) {
+        [self invalid:@"Email"];
+        return;
+    }
+    
     self.completion(_textFieldOne.text, _textFieldTwo.text, _textFieldThree.text,_textFieldFour.text, _textFieldFive.text, _textFieldSix.text, _textFieldSeven.text, _textFieldEight.text, _textFieldNine.text, _textFieldTen.text, _textFeildEleven.text, _imageView.image);
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)invalid:(NSString *)type {
+    
+    NSString * titleText = [type isEqualToString:@"Phone"] ? @"Invalid Phone Number" : @"Invalid E-mail Address";
+    NSString * message = [type isEqualToString:@"Phone"] ? @"Please enter a valid phone number." : @"Please enter a valid e-mail address.";
+    
+    
+    UIAlertController * alert = [UIAlertController alertControllerWithTitle:titleText
+                                                                    message:message
+                                                             preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Ok"
+                                              style:UIAlertActionStyleDefault
+                                            handler:nil]];
+    [self presentViewController:alert
+                       animated:YES
+                     completion:nil];
 }
 
 - (IBAction)add:(UIButton *)sender {
