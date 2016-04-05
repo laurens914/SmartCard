@@ -59,7 +59,7 @@
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
     
-    NSLog(@"%@", _currentView);
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -130,7 +130,7 @@
             switch (weak.selectedIndex) {
                     
                 case 0:
-                    NSLog(@"%@",textBoxOne);
+
                     
                   
                   _currentImageView = [TemplateAView setUpViewWithView:weak.view website:textBoxOne];
