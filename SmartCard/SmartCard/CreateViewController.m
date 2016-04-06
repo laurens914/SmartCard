@@ -18,9 +18,12 @@
 #import "TemplateGView.h"
 #import "CardStore.h"
 #import "AppDelegate.h"
+#import <QuartzCore/QuartzCore.h>
+
+#define IS_IPHONE_4S CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(320.0, 480.0))
+#define IS_IPHONE_5 CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(320.0, 568.0))
 
 @import UIKit;
-#import <QuartzCore/QuartzCore.h>
 
 @interface CreateViewController ()
 
@@ -96,11 +99,11 @@
     self.enterButton.layer.cornerRadius = 15;
     self.saveButton.layer.cornerRadius = 15;
     
-    if (CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(320.0, 480.0))) {
+    if (IS_IPHONE_4S || IS_IPHONE_5) {
         if (self.selectedIndex == 5 || self.selectedIndex == 6) {
-            self.enterButtonBottomConstraint.constant = 10;
+            self.enterButtonBottomConstraint.constant = (IS_IPHONE_5) ? 40 : 10;
             self.enterButtonCenterXConstraint.constant -= 45;
-            self.saveButtonBottomConstraint.constant = 10;
+            self.saveButtonBottomConstraint.constant = (IS_IPHONE_5) ? 40 : 10;
             self.saveButtonCenterXConstraint.constant += 60;
         }
     }
