@@ -37,7 +37,7 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
 @property (weak, nonatomic) IBOutlet UIButton *dismissButton;
 
 @property (nonatomic) BOOL keyboardIsHidden;
-@property (weak, nonatomic) UITextView *selectedTextField;
+@property (weak, nonatomic) UITextField *selectedTextField;
 
 @end
 
@@ -55,29 +55,23 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
 }
 
 -(void)keyBoardWillShow:(NSNotification*)sender{
-//    if (self.selectedTextField.frame.origin.y < 300) {
-        NSDictionary *userInfo = sender.userInfo;
-        NSValue* keyboard = [userInfo valueForKey:UIKeyboardFrameEndUserInfoKey];
-        CGRect keyboardRect = [keyboard CGRectValue];
-        CGPoint center = self.view.center;
-//        self.selfCenter = center;
-        
-        center.y = (self.selectedTextField.frame.origin.y < 300) ? 330-self.selectedTextField.frame.origin.y : self.selfCenter.y - keyboardRect.size.height;
-        
-//        center.y -= t;
-//        center.y = ;
-        
-        NSLog(@"KEYBOARD HEIGHT FROM USER INFO: %f", keyboardRect.size.height);
-        NSLog(@"SELECTED TEXT Y ORIGIN: %f", self.selectedTextField.frame.origin.y);
-        NSLog(@"MY CENTER: %f", self.view.center.y);
-        NSLog(@"NEW CENTER: %f", center.y);
+    NSDictionary *userInfo = sender.userInfo;
+    NSValue* keyboard = [userInfo valueForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [keyboard CGRectValue];
+    CGPoint center = self.view.center;
     
-        NSNumber *keyboardDuration = userInfo[UIKeyboardAnimationDurationUserInfoKey];
-        [UIView animateWithDuration:keyboardDuration.doubleValue animations:^{
-            self.view.center = center;
-            self.keyboardIsHidden = NO;
-        }];
-//    }
+    center.y = (self.selectedTextField.frame.origin.y < keyboardRect.size.height) ? self.selfCenter.y-self.selectedTextField.frame.origin.y+50 : self.selfCenter.y-keyboardRect.size.height+40;
+
+    NSLog(@"KEYBOARD HEIGHT FROM USER INFO: %f", keyboardRect.size.height);
+    NSLog(@"SELECTED TEXT Y ORIGIN: %f", self.selectedTextField.frame.origin.y);
+    NSLog(@"MY CENTER: %f", self.view.center.y);
+    NSLog(@"NEW CENTER: %f\n\n\n", center.y);
+
+    NSNumber *keyboardDuration = userInfo[UIKeyboardAnimationDurationUserInfoKey];
+    [UIView animateWithDuration:keyboardDuration.doubleValue animations:^{
+        self.view.center = center;
+        self.keyboardIsHidden = NO;
+    }];
 }
 
 -(void)dismissKeyboard{
