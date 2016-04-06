@@ -129,14 +129,37 @@
     
     CGSize size = currImage.size;
     
-    if (size.width > size.height) {
-//        Landscape Card
-        return CGSizeMake(350.0, 200.0);
+    if (CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(320.0, 480.0)) || (CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(320.0, 568.0)))) {
+        
+        if (size.width > size.height) {
+            return CGSizeMake(300.0, 170.0);
+        } else {
+            return CGSizeMake(250.0, 390.0);
+        }
+        
     } else {
-//        Portrait Card
-        return CGSizeMake(300.0, 600.0);
+        
+        if (size.width > size.height) {
+            return CGSizeMake(350.0, 200.0);
+        } else {
+            return CGSizeMake(300.0, 600.0);
+        }
     }
 }
+
+/*
+ 
+ viewXWidth = 231.0;
+ viewXHeight = 132.0;
+ websiteTop = 60.0;
+ fontSize = 16.0;
+ 
+ }else{
+ viewXWidth = 350.0;
+ viewXHeight = 200.0;
+ websiteTop = 90.0;
+ fontSize = 20.0;
+ */
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if ([scrollView isEqual:self.templateCollectionView]) {
