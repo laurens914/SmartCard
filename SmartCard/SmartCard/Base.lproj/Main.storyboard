@@ -391,8 +391,11 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZl-Vg-EY9">
-                                <rect key="frame" x="282" y="555" width="37" height="30"/>
-                                <state key="normal" title="Enter"/>
+                                <rect key="frame" x="274" y="555" width="53" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="  Enter  ">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="saveInfo:" destination="Iy0-6k-exG" eventType="touchUpInside" id="qbA-7a-JhT"/>
                                 </connections>
@@ -406,7 +409,9 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJc-tg-U2I">
                                 <rect key="frame" x="133" y="95" width="74" height="30"/>
-                                <state key="normal" title="Add Image"/>
+                                <state key="normal" title="Add Image">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="add:" destination="Iy0-6k-exG" eventType="touchUpInside" id="a5w-VS-rmB"/>
                                 </connections>
