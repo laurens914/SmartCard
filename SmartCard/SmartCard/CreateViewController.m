@@ -36,6 +36,18 @@
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UIButton *enterButton;
 
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *enterButtonCenterXConstraint;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *saveButtonCenterXConstraint;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *saveButtonBottomConstraint;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *enterButtonBottomConstraint;
+
+
+
+
 @end
 
 @implementation CreateViewController
