@@ -122,7 +122,9 @@
     nameLabel.textAlignment = NSTextAlignmentLeft;
     
     nameLabel.textColor = [UIColor blackColor];
-    nameLabel.numberOfLines = 0;
+    
+    nameLabel.adjustsFontSizeToFitWidth = YES;
+    nameLabel.numberOfLines = 1;
     
     NSLayoutConstraint *nLTrailing = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: isFiveORFour? - 13.6 : -20];
     

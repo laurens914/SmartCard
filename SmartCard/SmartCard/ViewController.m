@@ -297,7 +297,7 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressGesture:)];
     longPress.delegate = self;
     [self.savedCollectionView addGestureRecognizer:longPress];
-    longPress.minimumPressDuration = 0.2;
+    longPress.minimumPressDuration = 0.5;
     longPress.delaysTouchesBegan = YES;
     
 }

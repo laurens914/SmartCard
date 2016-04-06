@@ -94,13 +94,14 @@
     companyLabel.text = company;
     UIFont *font = [UIFont fontWithName:@"Avenir-Book" size:isFiveORFour ? 13.2 : 20.0];
     companyLabel.font = font;
-    companyLabel.textAlignment = NSTextAlignmentCenter;
-    companyLabel.numberOfLines = 0;
+    companyLabel.textAlignment = NSTextAlignmentLeft;
+    companyLabel.adjustsFontSizeToFitWidth = YES;
+    companyLabel.numberOfLines = 1;
     
     UIColor *textColor = [UIColor blackColor];
     companyLabel.textColor = textColor;
     
-    NSLayoutConstraint *cLLLeading = [NSLayoutConstraint constraintWithItem:companyLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: imageView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: isFiveORFour ? -13.2 :-20];
+    NSLayoutConstraint *cLLLeading = [NSLayoutConstraint constraintWithItem:companyLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: imageView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: isFiveORFour ? 6.6 :10];
     
     NSLayoutConstraint *cLLTrailing = [NSLayoutConstraint constraintWithItem:companyLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: isFiveORFour ? -52.8 : -80.0];
     
@@ -167,15 +168,20 @@
     UIFont *nameFont = [UIFont fontWithName:@"Arial-BoldMT" size: isFiveORFour ? 10.56 : 16.0];
     nameLabel.font = nameFont;
     nameLabel.textAlignment = NSTextAlignmentCenter;
-    nameLabel.numberOfLines = 0;
-    
+    nameLabel.numberOfLines = 1;
+    nameLabel.adjustsFontSizeToFitWidth = YES;
     nameLabel.textColor = textColor;
+    
+    NSLayoutConstraint *nLLeading = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeLeading multiplier:1.0 constant: isFiveORFour ? 158.8 : 240];
+    
+
     
     NSLayoutConstraint *nLTrailing = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: isFiveORFour ? -20 : -30];
     
     NSLayoutConstraint *nLLBotton = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeBottomMargin multiplier:1.0 constant: isFiveORFour ? -66.6 : -100];
     
     [backgroundImage addSubview:nameLabel];
+    nLLeading.active = YES;
     nLTrailing.active = YES;
     nLLBotton.active = YES;
     

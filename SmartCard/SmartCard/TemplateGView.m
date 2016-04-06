@@ -80,6 +80,9 @@
     companyNameLabel.font = font;
     companyNameLabel.textAlignment = NSTextAlignmentCenter;
     companyNameLabel.textColor = [UIColor whiteColor];
+    companyNameLabel.adjustsFontSizeToFitWidth = YES;
+    companyNameLabel.numberOfLines = 1.0;
+    
     
     UIColor *textColor = [UIColor yellowColor];
     
@@ -105,6 +108,8 @@
     UIFont *smallerFont = [UIFont fontWithName:@"ArialHebrew-Light" size:15.0];
     nameLabel.font = smallerFont;
     nameLabel.textAlignment = NSTextAlignmentCenter;
+    nameLabel.adjustsFontSizeToFitWidth = YES;
+    nameLabel.numberOfLines = 1.0;
     
     
     NSLayoutConstraint *nxLLeading = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeLeading multiplier:1.0 constant: 0];
@@ -127,6 +132,8 @@
     titleLabel.text = title;
     titleLabel.font = smallerFont;
     titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.adjustsFontSizeToFitWidth = YES;
+    titleLabel.numberOfLines = 1.0;
     
     
     titleLabel.textColor = textColor;
@@ -155,6 +162,8 @@
     
     emailLabel.textAlignment = NSTextAlignmentCenter;
     emailLabel.textColor = [UIColor whiteColor];
+    emailLabel.adjustsFontSizeToFitWidth = YES;
+    emailLabel.numberOfLines = 1.0;
     
     
     NSLayoutConstraint *eLLeading = [NSLayoutConstraint constraintWithItem:emailLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeLeading multiplier:1.0 constant: 0];
@@ -175,6 +184,8 @@
     websiteLabel.text = website;
     websiteLabel.font = smallerFont;
     websiteLabel.textAlignment = NSTextAlignmentCenter;
+    websiteLabel.adjustsFontSizeToFitWidth = YES;
+    websiteLabel.numberOfLines = 1.0;
     
     
     websiteLabel.textColor = textColor;
