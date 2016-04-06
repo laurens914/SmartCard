@@ -103,7 +103,8 @@
     nameLabel.textAlignment = NSTextAlignmentCenter;
     
     nameLabel.textColor = [UIColor whiteColor];
-    nameLabel.numberOfLines = 0;
+    nameLabel.numberOfLines = 2;
+    nameLabel.adjustsFontSizeToFitWidth = YES;
     
     NSLayoutConstraint *nLLeading = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: imageView attribute:NSLayoutAttributeLeading multiplier:1.0 constant:isFiveORFour? 79.2 : 120];
     
