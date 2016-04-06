@@ -96,6 +96,14 @@
     self.enterButton.layer.cornerRadius = 15;
     self.saveButton.layer.cornerRadius = 15;
     
+    if (CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(320.0, 480.0))) {
+        if (self.selectedIndex == 5 || self.selectedIndex == 6) {
+            self.enterButtonBottomConstraint.constant = 10;
+            self.enterButtonCenterXConstraint.constant -= 45;
+            self.saveButtonBottomConstraint.constant = 10;
+            self.saveButtonCenterXConstraint.constant += 60;
+        }
+    }
 }
 
 -(UIView*)selectView:(NSInteger)index{
