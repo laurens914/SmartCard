@@ -363,24 +363,70 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     
-    int newLength = [textField.text length] + [string length] - range.length;
+    NSUInteger newLength = [textField.text length] + [string length] - range.length;
     
-    if (newLength > 16) {
-        UIAlertController *alertController = [ UIAlertController alertControllerWithTitle:@"Error" message:@"Max Characters Exceeded" preferredStyle:UIAlertControllerStyleAlert];
+    if (!self.textFieldThree.hidden) {
+        if ([textField.placeholder isEqualToString:@"Email Address"] && newLength > 30) {
+            [self stringTooLong];
+            return NO;
+            
+        }else if (![textField.placeholder isEqualToString:@"Email Address"] && ![textField.placeholder isEqualToString:@"Website"] && newLength > 16) {
+            [self stringTooLong];
+            
+            return NO;
+        }
+    } if (!self.textFieldFour.hidden) {
+        if ([textField.placeholder isEqualToString:@"Email Address"] && ![textField.placeholder isEqualToString:@"Website"] && newLength > 30) {
+            [self stringTooLong];
+            return NO;
+        }
         
-        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
-        
-        [self presentViewController:alertController animated:YES completion:nil];
-        
-        
-        return NO;
+        else if (![textField.placeholder isEqualToString:@"Email Address"] && ![textField.placeholder isEqualToString:@"Website"] && newLength > 16) {
+            [self stringTooLong];
+            return NO;
+        }
+    }
+    if(!self.textFieldOne.hidden){
+        if([textField.placeholder isEqualToString:@"Website"] && newLength > 24){
+            [self stringTooLong];
+            return NO;
+        } else if (![textField.placeholder isEqualToString:@"Website"] && ![textField.placeholder isEqualToString:@"Email Address"] && newLength >16){
+            [self stringTooLong];
+            return NO;
+        }
+    }
+    if(!self.textFieldFive.hidden){
+        if ([textField.placeholder isEqualToString:@"Website"] && newLength > 24){
+            [self stringTooLong];
+            return  NO;
+            
+        } else if (![textField.placeholder isEqualToString:@"Website"] && ![textField.placeholder isEqualToString:@"Email Address"]&& newLength > 16){
+            [self stringTooLong];
+            return NO;
+        }
+    }
+    if(!self.textFieldSeven.hidden){
+        if ([textField.placeholder isEqualToString:@"Website"] && newLength > 24){
+            [self  stringTooLong];
+            return  NO;
+        } else if (![textField.placeholder isEqualToString:@"Website"] && ![textField.placeholder isEqualToString:@"Email Address"] && newLength > 16){
+            [self stringTooLong];
+            return NO;
+        }
     }
     
     return YES;
 }
 
 
-
+-(void)stringTooLong{
+    UIAlertController *alertController = [ UIAlertController alertControllerWithTitle:@"Error" message:@"Max Characters Exceeded" preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+}
 
 
 @end
