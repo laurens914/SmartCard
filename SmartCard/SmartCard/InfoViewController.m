@@ -51,6 +51,7 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismissKeyboard) name:UIKeyboardWillHideNotification object:nil];
     [self setKeyBoardDelegate];
     [self setupButton];
+    [self setupImageView];
     self.selfCenter = self.view.center;
 }
 
@@ -119,6 +120,12 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
     _textFeildEleven.delegate = self;
 }
 
+-(void)setupImageView
+{
+    self.imageView.layer.borderColor = [[UIColor whiteColor]CGColor];
+    self.imageView.layer.borderWidth = 2.0;
+}
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
@@ -140,6 +147,7 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
     self.dismissButton.layer.borderWidth = 2;
     self.dismissButton.layer.borderColor = [UIColor whiteColor].CGColor;
     self.dismissButton.tintColor = [UIColor blackColor];
+    self.saveButton.layer.cornerRadius = 15;
 }
 
 - (IBAction)saveInfo:(UIButton *)sender {
@@ -226,6 +234,7 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
     [_textFieldTen setHidden:YES];
     [_textFeildEleven setHidden:YES];
     [self.imageButton setHidden:YES];
+    [self.imageView setHidden:YES];
 }
 
 -(void)templateBTextFeilds
@@ -257,6 +266,7 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
     [_textFieldTen setHidden:YES];
     [_textFeildEleven setHidden:YES];
     [self.imageButton setHidden:YES];
+    [self.imageView setHidden:YES];
 }
 
 -(void)templateDTextFields
