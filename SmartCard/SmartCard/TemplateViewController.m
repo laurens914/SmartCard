@@ -13,6 +13,7 @@
 #import "CreateViewController.h"
 
 #define Y_POS targetContentOffset->y
+#define IPHONE_4S CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(320.0, 480.0))
 
 @interface TemplateViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
@@ -53,23 +54,33 @@
     sender = _templateCollectionView;
     
     if ([segue.identifier isEqualToString:@"createVC"]) {
-        
         CreateViewController *destinationVC = segue.destinationViewController;
-        
         NSIndexPath *path = [[_templateCollectionView indexPathsForSelectedItems]objectAtIndex:0];
-        
         _selectedIndex = path.row;
         
         destinationVC.selectedIndex = self.selectedIndex;
-        
     }
+}
+
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    NSIndexPath *path = [[_templateCollectionView indexPathsForSelectedItems]objectAtIndex:0];
+    
+    if (IPHONE_4S && path.row == 1) {
+        [self unavailable];
+        return NO;
+    }
+    return YES;
 }
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
 
-
+-(void)unavailable {
+    UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Sorry!" message:@"Template is unavailable on iPhone 4s." preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
 
 -(void)setupButton
 {
@@ -119,8 +130,8 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-
- 
+    
+    
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -147,20 +158,6 @@
     }
 }
 
-/*
- 
- viewXWidth = 231.0;
- viewXHeight = 132.0;
- websiteTop = 60.0;
- fontSize = 16.0;
- 
- }else{
- viewXWidth = 350.0;
- viewXHeight = 200.0;
- websiteTop = 90.0;
- fontSize = 20.0;
- */
-
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if ([scrollView isEqual:self.templateCollectionView]) {
         
@@ -183,16 +180,11 @@
     : (cellCenter.y/viewHeight)+startingSize;
     
     cell.transform = CGAffineTransformMakeScale(scale, scale);
-
+    
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
     if ([scrollView isEqual:self.templateCollectionView]) {
-    
-//       Y_POS is used in a #define statement at the top of the page. The compiler replaces all instances of
-//       Y_POS with 'targetContentOffset->y' before building the project.
-        
-//        NSLog(@"------Finished scrolling! Y = %f", Y_POS);
         
         if (Y_POS < 115) {
             Y_POS = 0;
