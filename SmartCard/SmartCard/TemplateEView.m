@@ -96,22 +96,26 @@
     nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
     nameLabel.text = name;
-    UIFont *font = [UIFont fontWithName:@"BanglaSamgamMN-Bold" size:isFiveORFour? 3 : 21.0];
+    UIFont *font = [UIFont fontWithName:@"Arial" size: 18.0];
      UIFont *font2 = [UIFont fontWithName:@"Arial" size: 13];
     
     nameLabel.font = isFiveORFour? font2 : font;
     nameLabel.textAlignment = NSTextAlignmentCenter;
     
     nameLabel.textColor = [UIColor whiteColor];
+    nameLabel.numberOfLines = 0;
     
-    NSLayoutConstraint *nLLeading = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: imageView attribute:NSLayoutAttributeLeading multiplier:1.0 constant:isFiveORFour? 99: 150];
+    NSLayoutConstraint *nLLeading = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: imageView attribute:NSLayoutAttributeLeading multiplier:1.0 constant:isFiveORFour? 79.2 : 120];
     
-    NSLayoutConstraint *nLTop = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTopMargin multiplier:1.0 constant: isFiveORFour? 56.1 : 85];
+    NSLayoutConstraint *nLTrailing = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:isFiveORFour? -13.6: -20];
+    
+    NSLayoutConstraint *nLTop = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTopMargin multiplier:1.0 constant: isFiveORFour? 40: 60];
     
     
     [backgroundImage addSubview:nameLabel];
     
     nLLeading.active = YES;
+    nLTrailing.active = YES;
     nLTop.active = YES;
     
     UILabel *phoneNumberLabel = [[UILabel alloc ]init];
@@ -128,7 +132,7 @@
     
     NSLayoutConstraint *pNLLeading = [NSLayoutConstraint constraintWithItem:phoneNumberLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: imageView attribute:NSLayoutAttributeLeading multiplier:1.0 constant:isFiveORFour? 99 : 150];
     
-    NSLayoutConstraint *pNLTop = [NSLayoutConstraint constraintWithItem:phoneNumberLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTopMargin multiplier:1.0 constant: isFiveORFour? 79.2 : 120];
+    NSLayoutConstraint *pNLTop = [NSLayoutConstraint constraintWithItem:phoneNumberLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: nameLabel attribute:NSLayoutAttributeTopMargin multiplier:1.0 constant: isFiveORFour? 20 : 30];
     
     
     [backgroundImage addSubview:phoneNumberLabel];

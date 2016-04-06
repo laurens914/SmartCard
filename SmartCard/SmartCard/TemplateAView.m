@@ -80,6 +80,7 @@
     websiteLabel.font = font;
     websiteLabel.textAlignment = NSTextAlignmentCenter;
     
+    
     UIColor *textColor = [UIColor colorWithRed:76.0 / 255.0 green:214.0 / 255.0 blue:102.0 / 255.0 alpha:1.0];
     websiteLabel.textColor = textColor;
     
