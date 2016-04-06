@@ -12,12 +12,28 @@
 
 +(UIImageView*)setUpViewWithView:(UIView*)view name:(NSString*)name firstAddress:(NSString*)firstAddress secondaryAddress:(NSString*)secondaryAddress email:(NSString*)email phone:(NSString*)phone website:(NSString*)website jobTitle:(NSString*)title company:(NSString*)company logo:(UIImage*)logo{
     
+    Boolean isFiveORFour;
+    
+ 
+    
+    if (CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(320.0, 480.0)) || (CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(320.0, 568.0)))) {
+        
+        isFiveORFour = YES;
+        
+    }else{
+        
+        isFiveORFour = NO;
+        
+    }
+
+    
     UIView *viewX = [[UIView alloc]init];
     viewX.translatesAutoresizingMaskIntoConstraints = NO;
+  
     
-    NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:viewX attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:350.0];
+    NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:viewX attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:isFiveORFour ? 231.0 : 350.0];
     
-    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:viewX attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:200.0];
+    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:viewX attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:isFiveORFour ? 132.0 : 200.0];
     
     
     NSLayoutConstraint *centerX = [NSLayoutConstraint constraintWithItem:viewX attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeCenterXWithinMargins multiplier:1.0 constant:0];
@@ -39,9 +55,9 @@
     
     NSLayoutConstraint *BGITrailing = [NSLayoutConstraint constraintWithItem:backgroundImage attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: viewX attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0];
     
-    NSLayoutConstraint *BGITop = [NSLayoutConstraint constraintWithItem:backgroundImage attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: viewX attribute:NSLayoutAttributeTopMargin multiplier:1.0 constant:-20];
+    NSLayoutConstraint *BGITop = [NSLayoutConstraint constraintWithItem:backgroundImage attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: viewX attribute:NSLayoutAttributeTopMargin multiplier:1.0 constant: isFiveORFour ? -13.2 : -20];
     
-    NSLayoutConstraint *BGIBottom = [NSLayoutConstraint constraintWithItem:backgroundImage attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: viewX attribute:NSLayoutAttributeBottomMargin multiplier:1.0 constant:+20];
+    NSLayoutConstraint *BGIBottom = [NSLayoutConstraint constraintWithItem:backgroundImage attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: viewX attribute:NSLayoutAttributeBottomMargin multiplier:1.0 constant:isFiveORFour ? 13.2 : +20];
     
     [viewX addSubview:backgroundImage];
     
@@ -56,13 +72,13 @@
     imageView.image = logo;
     imageView.backgroundColor = [UIColor redColor];
     
-    NSLayoutConstraint *IVLeading = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeLeading multiplier:1.0 constant: 20];
+    NSLayoutConstraint *IVLeading = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeLeading multiplier:1.0 constant: isFiveORFour ? 13.2 : +20];
     
-    NSLayoutConstraint *IVTrailing = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: -250];
+    NSLayoutConstraint *IVTrailing = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:isFiveORFour? -168 : -250];
     
-    NSLayoutConstraint *IVTop = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTopMargin multiplier:1.0 constant: 20];
+    NSLayoutConstraint *IVTop = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTopMargin multiplier:1.0 constant: isFiveORFour ? 13.2 : +20];
     
-    NSLayoutConstraint *IVBotton = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeBottomMargin multiplier:1.0 constant: -110];
+    NSLayoutConstraint *IVBotton = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeBottomMargin multiplier:1.0 constant: isFiveORFour? -64.6: -110];
     
     [backgroundImage addSubview:imageView];
     
@@ -76,20 +92,20 @@
     companyLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
     companyLabel.text = company;
-    UIFont *font = [UIFont fontWithName:@"Avenir-Book" size:20.0];
+    UIFont *font = [UIFont fontWithName:@"Avenir-Book" size:isFiveORFour ? 13.2 : 20.0];
     companyLabel.font = font;
     companyLabel.textAlignment = NSTextAlignmentCenter;
     
     UIColor *textColor = [UIColor blackColor];
     companyLabel.textColor = textColor;
     
-    NSLayoutConstraint *cLLLeading = [NSLayoutConstraint constraintWithItem:companyLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: imageView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: -20];
+    NSLayoutConstraint *cLLLeading = [NSLayoutConstraint constraintWithItem:companyLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: imageView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: isFiveORFour ? -13.2 :-20];
     
-    NSLayoutConstraint *cLLTrailing = [NSLayoutConstraint constraintWithItem:companyLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: -80];
+    NSLayoutConstraint *cLLTrailing = [NSLayoutConstraint constraintWithItem:companyLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: isFiveORFour ? -52.8 : -80.0];
     
-    NSLayoutConstraint *cLLTop = [NSLayoutConstraint constraintWithItem:companyLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTopMargin multiplier:1.0 constant: 40];
+    NSLayoutConstraint *cLLTop = [NSLayoutConstraint constraintWithItem:companyLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTopMargin multiplier:1.0 constant: isFiveORFour ? 26.4 : 40];
     
-    NSLayoutConstraint *cLLBotton = [NSLayoutConstraint constraintWithItem:companyLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeBottomMargin multiplier:1.0 constant: -130];
+    NSLayoutConstraint *cLLBotton = [NSLayoutConstraint constraintWithItem:companyLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeBottomMargin multiplier:1.0 constant: isFiveORFour ? -85.5 : -130];
     
     [backgroundImage addSubview:companyLabel];
     
@@ -103,16 +119,16 @@
     addressLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
     addressLabel.text = firstAddress;
-    UIFont *smallFont = [UIFont fontWithName:@"ArialHebrew-Light" size:14.0];
+    UIFont *smallFont = [UIFont fontWithName:@"ArialHebrew-Light" size: isFiveORFour ? 9.24 : 14.0];
     addressLabel.font = smallFont;
     addressLabel.textAlignment = NSTextAlignmentCenter;
     
     UIColor *smallTextColor = [UIColor blackColor];
     addressLabel.textColor = smallTextColor;
     
-    NSLayoutConstraint *aLLeading = [NSLayoutConstraint constraintWithItem:addressLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeLeading multiplier:1.0 constant: +20];
+    NSLayoutConstraint *aLLeading = [NSLayoutConstraint constraintWithItem:addressLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeLeading multiplier:1.0 constant: isFiveORFour ? 13.2 : +20];
     
-    NSLayoutConstraint *aLLBotton = [NSLayoutConstraint constraintWithItem:addressLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeBottomMargin multiplier:1.0 constant: -80];
+    NSLayoutConstraint *aLLBotton = [NSLayoutConstraint constraintWithItem:addressLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeBottomMargin multiplier:1.0 constant:  isFiveORFour ? -52.8 : -80.0];
     
     [backgroundImage addSubview:addressLabel];
     
@@ -123,7 +139,7 @@
     secondAddressLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
     secondAddressLabel.text = secondaryAddress;
-    UIFont *smallerFont = [UIFont fontWithName:@"ArialHebrew-Light" size:12.0];
+    UIFont *smallerFont = [UIFont fontWithName:@"ArialHebrew-Light" size: isFiveORFour ? 8.0 : 12.0];
     
     secondAddressLabel.font = smallerFont;
     
@@ -131,9 +147,9 @@
     
     secondAddressLabel.textColor = smallTextColor;
     
-    NSLayoutConstraint *sALLeading = [NSLayoutConstraint constraintWithItem:secondAddressLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeLeading multiplier:1.0 constant: +20];
+    NSLayoutConstraint *sALLeading = [NSLayoutConstraint constraintWithItem:secondAddressLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeLeading multiplier:1.0 constant:  isFiveORFour ? 13.2 : 20.0];
     
-    NSLayoutConstraint *sALLBotton = [NSLayoutConstraint constraintWithItem:secondAddressLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeBottomMargin multiplier:1.0 constant: -60];
+    NSLayoutConstraint *sALLBotton = [NSLayoutConstraint constraintWithItem:secondAddressLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeBottomMargin multiplier:1.0 constant:  isFiveORFour ? -40.0 : -60];
     
     [backgroundImage addSubview:secondAddressLabel];
     
@@ -145,15 +161,15 @@
     nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
     nameLabel.text = name;
-    UIFont *nameFont = [UIFont fontWithName:@"Arial-BoldMT" size:16.0];
+    UIFont *nameFont = [UIFont fontWithName:@"Arial-BoldMT" size: isFiveORFour ? 10.56 : 16.0];
     nameLabel.font = nameFont;
     nameLabel.textAlignment = NSTextAlignmentCenter;
     
     nameLabel.textColor = textColor;
     
-    NSLayoutConstraint *nLTrailing = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: -30];
+    NSLayoutConstraint *nLTrailing = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: isFiveORFour ? -20 : -30];
     
-    NSLayoutConstraint *nLLBotton = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeBottomMargin multiplier:1.0 constant: -100];
+    NSLayoutConstraint *nLLBotton = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeBottomMargin multiplier:1.0 constant: isFiveORFour ? -66.6 : -100];
     
     [backgroundImage addSubview:nameLabel];
     nLTrailing.active = YES;
@@ -169,9 +185,9 @@
     
     titleLabel.textColor = textColor;
     
-    NSLayoutConstraint *tLTrailing = [NSLayoutConstraint constraintWithItem:titleLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: -30];
+    NSLayoutConstraint *tLTrailing = [NSLayoutConstraint constraintWithItem:titleLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: isFiveORFour? -20 : -30];
     
-    NSLayoutConstraint *tLLBotton = [NSLayoutConstraint constraintWithItem:titleLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeBottomMargin multiplier:1.0 constant: -80];
+    NSLayoutConstraint *tLLBotton = [NSLayoutConstraint constraintWithItem:titleLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeBottomMargin multiplier:1.0 constant:isFiveORFour ? -52.8 : -80];
     
     [backgroundImage addSubview:titleLabel];
     tLTrailing.active = YES;
@@ -189,9 +205,9 @@
     phoneLabel.textColor = textColor;
     
     
-    NSLayoutConstraint *pLTrailing = [NSLayoutConstraint constraintWithItem:phoneLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: -30];
+    NSLayoutConstraint *pLTrailing = [NSLayoutConstraint constraintWithItem:phoneLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: isFiveORFour ? -20 : -30];
     
-    NSLayoutConstraint *pLBotton = [NSLayoutConstraint constraintWithItem:phoneLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeBottomMargin multiplier:1.0 constant: -60];
+    NSLayoutConstraint *pLBotton = [NSLayoutConstraint constraintWithItem:phoneLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeBottomMargin multiplier:1.0 constant:isFiveORFour ? -40 : -60];
     
     [backgroundImage addSubview:phoneLabel];
     
@@ -210,9 +226,9 @@
     
     emailLabel.textColor = textColor;
     
-    NSLayoutConstraint *eLTrailing = [NSLayoutConstraint constraintWithItem:emailLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: -30];
+    NSLayoutConstraint *eLTrailing = [NSLayoutConstraint constraintWithItem:emailLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: isFiveORFour ? -20 : -30];
     
-    NSLayoutConstraint *eLBotton = [NSLayoutConstraint constraintWithItem:emailLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeBottomMargin multiplier:1.0 constant: -45];
+    NSLayoutConstraint *eLBotton = [NSLayoutConstraint constraintWithItem:emailLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeBottomMargin multiplier:1.0 constant:isFiveORFour ? -29.7 : -45];
     
     [backgroundImage addSubview:emailLabel];
     

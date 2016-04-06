@@ -13,12 +13,32 @@
 
 +(UIImageView*)setUpViewWithView:(UIView*)view website:(NSString*)website{
     
+    float viewXWidth;
+    float viewXHeight;
+    float websiteTop;
+    float fontSize;
+    
+    if (CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(320.0, 480.0)) || (CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(320.0, 568.0)))) {
+        
+        viewXWidth = 231.0;
+        viewXHeight = 132.0;
+        websiteTop = 60.0;
+        fontSize = 16.0;
+
+    }else{
+        viewXWidth = 350.0;
+        viewXHeight = 200.0;
+        websiteTop = 90.0;
+        fontSize = 20.0;
+        
+    }
+    
     UIView *viewX = [[UIView alloc]init];
     viewX.translatesAutoresizingMaskIntoConstraints = NO;
     
-    NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:viewX attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:350.0];
+    NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:viewX attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:viewXWidth];
     
-    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:viewX attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:200.0];
+    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:viewX attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:viewXHeight];
     
     
     NSLayoutConstraint *centerX = [NSLayoutConstraint constraintWithItem:viewX attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeCenterXWithinMargins multiplier:1.0 constant:0];
@@ -56,7 +76,7 @@
     websiteLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
     websiteLabel.text = website;
-    UIFont *font = [UIFont fontWithName:@"GeezaPro" size:20.0];
+    UIFont *font = [UIFont fontWithName:@"GeezaPro" size:fontSize];
     websiteLabel.font = font;
     websiteLabel.textAlignment = NSTextAlignmentCenter;
     
@@ -67,7 +87,7 @@
     
     NSLayoutConstraint *MlTrailing = [NSLayoutConstraint constraintWithItem:websiteLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: 0];
     
-    NSLayoutConstraint *MlTop = [NSLayoutConstraint constraintWithItem:websiteLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTopMargin multiplier:1.0 constant: +90];
+    NSLayoutConstraint *MlTop = [NSLayoutConstraint constraintWithItem:websiteLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTopMargin multiplier:1.0 constant: websiteTop];
     
     
     [backgroundImage addSubview:websiteLabel];

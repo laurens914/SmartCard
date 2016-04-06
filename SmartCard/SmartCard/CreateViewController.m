@@ -91,7 +91,7 @@
     switch (index) {
         case 0:
             
-         [TemplateAView setUpViewWithView:self.view website:@"www.fullName.com"];
+         [TemplateAView setUpViewWithView:self.view website:@"www.fullName.com" ];
             break;
             
         case 1:
@@ -141,10 +141,10 @@
                     
                 case 0:
 
-                    
-                  
+
                   _currentImageView = [TemplateAView setUpViewWithView:weak.view website:textBoxOne];
                     [self.saveButton setHidden:NO];
+
                     
                     break;
                 case 1:
