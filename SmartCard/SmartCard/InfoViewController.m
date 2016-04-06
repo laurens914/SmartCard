@@ -36,7 +36,8 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *dismissButton;
 
-
+@property (nonatomic) BOOL keyboardIsHidden;
+@property (weak, nonatomic) UITextView *selectedTextField;
 
 @end
 
@@ -45,36 +46,49 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+ 
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyBoardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismissKeyboard) name:UIKeyboardWillHideNotification object:nil];
     [self setKeyBoardDelegate];
     [self setupButton];
-    
+    self.selfCenter = self.view.center;
 }
 
 -(void)keyBoardWillShow:(NSNotification*)sender{
-    
-    NSDictionary *userInfo = sender.userInfo;
-    
-    NSValue *keyboard = userInfo[UIKeyboardFrameBeginUserInfoKey];
-    
-    CGPoint center = self.view.center;
-    
-     self.selfCenter = center;
-    
-    center.y = [keyboard CGRectValue].size.height;
-
-    
-    NSNumber *keyboardDuration = userInfo[UIKeyboardAnimationDurationUserInfoKey];
-    
-    [UIView animateWithDuration:keyboardDuration.doubleValue animations:^{
+//    if (self.selectedTextField.frame.origin.y < 300) {
+        NSDictionary *userInfo = sender.userInfo;
+        NSValue* keyboard = [userInfo valueForKey:UIKeyboardFrameEndUserInfoKey];
+        CGRect keyboardRect = [keyboard CGRectValue];
+        CGPoint center = self.view.center;
+//        self.selfCenter = center;
         
-            self.view.center = center;
-    }];
+        center.y = (self.selectedTextField.frame.origin.y < 300) ? 330-self.selectedTextField.frame.origin.y : self.selfCenter.y - keyboardRect.size.height;
+        
+//        center.y -= t;
+//        center.y = ;
+        
+        NSLog(@"KEYBOARD HEIGHT FROM USER INFO: %f", keyboardRect.size.height);
+        NSLog(@"SELECTED TEXT Y ORIGIN: %f", self.selectedTextField.frame.origin.y);
+        NSLog(@"MY CENTER: %f", self.view.center.y);
+        NSLog(@"NEW CENTER: %f", center.y);
     
+        NSNumber *keyboardDuration = userInfo[UIKeyboardAnimationDurationUserInfoKey];
+        [UIView animateWithDuration:keyboardDuration.doubleValue animations:^{
+            self.view.center = center;
+            self.keyboardIsHidden = NO;
+        }];
+//    }
 }
 
+-(void)dismissKeyboard{
+    self.view.center = self.selfCenter;
+    self.keyboardIsHidden = YES;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -97,7 +111,7 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
 
 
 -(void)setKeyBoardDelegate{
-    
+    self.keyboardIsHidden = YES;
     _textFieldOne.delegate = self;
     _textFieldTwo.delegate = self;
     _textFieldThree.delegate = self;
@@ -111,16 +125,14 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
     _textFeildEleven.delegate = self;
 }
 
--(void)dismiss{
-    
-    self.view.center = self.selfCenter;
-}
-
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
-    [self dismiss];
     return YES;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    self.selectedTextField = textField;
 }
 
 - (IBAction)dismiss:(UIButton *)sender {
