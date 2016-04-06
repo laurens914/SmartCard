@@ -81,6 +81,9 @@
     UIFont *font = [UIFont fontWithName:@"Avenir-Book" size:20.0];
     nameLabel.font = font;
     nameLabel.textAlignment = NSTextAlignmentCenter;
+    nameLabel.adjustsFontSizeToFitWidth = YES;
+    nameLabel.numberOfLines = 1;
+    
     
     UIColor *textColor = [UIColor whiteColor];
     nameLabel.textColor = textColor;
@@ -128,13 +131,14 @@
     emailLabel.text = email;
     emailLabel.font = smallerFont;
     emailLabel.textAlignment = NSTextAlignmentCenter;
-    
+    emailLabel.adjustsFontSizeToFitWidth = YES;
+    emailLabel.numberOfLines = 1.0;
     
     emailLabel.textColor = textColor;
     
-    NSLayoutConstraint *eLLeading = [NSLayoutConstraint constraintWithItem:emailLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeLeading multiplier:1.0 constant: 0];
+    NSLayoutConstraint *eLLeading = [NSLayoutConstraint constraintWithItem:emailLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeLeading multiplier:1.0 constant: 8];
     
-    NSLayoutConstraint *eLTrailing = [NSLayoutConstraint constraintWithItem:emailLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: 0];
+    NSLayoutConstraint *eLTrailing = [NSLayoutConstraint constraintWithItem:emailLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: -8];
     
     NSLayoutConstraint *eLTop = [NSLayoutConstraint constraintWithItem:emailLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTopMargin multiplier:1.0 constant: 245];
     
