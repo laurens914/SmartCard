@@ -94,13 +94,14 @@
     companyLabel.text = company;
     UIFont *font = [UIFont fontWithName:@"Avenir-Book" size:isFiveORFour ? 13.2 : 20.0];
     companyLabel.font = font;
-    companyLabel.textAlignment = NSTextAlignmentCenter;
-    companyLabel.numberOfLines = 0;
+    companyLabel.textAlignment = NSTextAlignmentLeft;
+    companyLabel.adjustsFontSizeToFitWidth = YES;
+    companyLabel.numberOfLines = 1;
     
     UIColor *textColor = [UIColor blackColor];
     companyLabel.textColor = textColor;
     
-    NSLayoutConstraint *cLLLeading = [NSLayoutConstraint constraintWithItem:companyLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: imageView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: isFiveORFour ? -13.2 :-20];
+    NSLayoutConstraint *cLLLeading = [NSLayoutConstraint constraintWithItem:companyLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: imageView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: isFiveORFour ? 6.6 :10];
     
     NSLayoutConstraint *cLLTrailing = [NSLayoutConstraint constraintWithItem:companyLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTrailing multiplier:1.0 constant: isFiveORFour ? -52.8 : -80.0];
     
