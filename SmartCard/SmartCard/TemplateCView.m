@@ -146,17 +146,24 @@
     nameLabel.text = name;
     nameLabel.font = font;
     nameLabel.textAlignment = NSTextAlignmentCenter;
-    
+    nameLabel.adjustsFontSizeToFitWidth = YES;
+
+    nameLabel.numberOfLines = 2.0;
+
     nameLabel.textColor = textColor;
     
+    NSLayoutConstraint *nLWidth = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem: nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:isFiveORFour? 66: 100];
     
     NSLayoutConstraint *nLTrailing = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:isFiveORFour? -6.6 : -10];
     
-    NSLayoutConstraint *nLTop = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTopMargin multiplier:1.0 constant: isFiveORFour? -6.6: -10];
+    NSLayoutConstraint *nLTop = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTopMargin multiplier:1.0 constant: isFiveORFour? -2.6: -6];
     
-    NSLayoutConstraint *nLBotton = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeBottomMargin multiplier:1.0 constant:isFiveORFour ? -118.0 : -180];
+    NSLayoutConstraint *nLBotton = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeBottomMargin multiplier:1.0 constant:isFiveORFour ? -105.0 : -160];
     
     [backgroundImage addSubview:nameLabel];
+    
+    nLWidth.active = YES;
+//    nLHeight.active = YES;
     
     nLTrailing.active = YES;
     nLTop.active = YES;
@@ -176,9 +183,9 @@
     
     NSLayoutConstraint *ppLTrailing = [NSLayoutConstraint constraintWithItem:phoneLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:isFiveORFour ? -6.6 : -10];
     
-    NSLayoutConstraint *ppLTop = [NSLayoutConstraint constraintWithItem:phoneLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTopMargin multiplier:1.0 constant:isFiveORFour? 10 : 20];
+    NSLayoutConstraint *ppLTop = [NSLayoutConstraint constraintWithItem:phoneLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeTopMargin multiplier:1.0 constant:isFiveORFour? 20 : 40];
     
-    NSLayoutConstraint *ppLBotton = [NSLayoutConstraint constraintWithItem:phoneLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeBottomMargin multiplier:1.0 constant: isFiveORFour ? -105.6  : -160];
+    NSLayoutConstraint *ppLBotton = [NSLayoutConstraint constraintWithItem:phoneLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeBottomMargin multiplier:1.0 constant: isFiveORFour ? -92.4  : -140];
     
     [backgroundImage addSubview:phoneLabel];
     

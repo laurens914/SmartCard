@@ -38,6 +38,7 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
 
 @property (nonatomic) BOOL keyboardIsHidden;
 @property (weak, nonatomic) UITextField *selectedTextField;
+//@property(nonatomic)BOOL textIsTooLong;
 
 @end
 
@@ -151,7 +152,7 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
 }
 
 - (IBAction)saveInfo:(UIButton *)sender {
-    
+
     BOOL isEmailValid = YES;
     BOOL isPhoneValid = YES;
     
@@ -359,6 +360,25 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
             break;
     }
 }
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    int newLength = [textField.text length] + [string length] - range.length;
+    
+    if (newLength > 16) {
+        UIAlertController *alertController = [ UIAlertController alertControllerWithTitle:@"Error" message:@"Max Characters Exceeded" preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+        
+        
+        return NO;
+    }
+    
+    return YES;
+}
+
 
 
 

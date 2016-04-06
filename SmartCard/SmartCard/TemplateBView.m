@@ -95,6 +95,7 @@
     UIFont *font = [UIFont fontWithName:@"Avenir-Book" size:isFiveORFour ? 13.2 : 20.0];
     companyLabel.font = font;
     companyLabel.textAlignment = NSTextAlignmentCenter;
+    companyLabel.numberOfLines = 0;
     
     UIColor *textColor = [UIColor blackColor];
     companyLabel.textColor = textColor;
@@ -122,6 +123,7 @@
     UIFont *smallFont = [UIFont fontWithName:@"ArialHebrew-Light" size: isFiveORFour ? 9.24 : 14.0];
     addressLabel.font = smallFont;
     addressLabel.textAlignment = NSTextAlignmentCenter;
+    addressLabel.numberOfLines = 0;
     
     UIColor *smallTextColor = [UIColor blackColor];
     addressLabel.textColor = smallTextColor;
@@ -146,6 +148,7 @@
     secondAddressLabel.textAlignment = NSTextAlignmentCenter;
     
     secondAddressLabel.textColor = smallTextColor;
+    secondAddressLabel.numberOfLines = 0;
     
     NSLayoutConstraint *sALLeading = [NSLayoutConstraint constraintWithItem:secondAddressLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: backgroundImage attribute:NSLayoutAttributeLeading multiplier:1.0 constant:  isFiveORFour ? 13.2 : 20.0];
     
@@ -164,6 +167,7 @@
     UIFont *nameFont = [UIFont fontWithName:@"Arial-BoldMT" size: isFiveORFour ? 10.56 : 16.0];
     nameLabel.font = nameFont;
     nameLabel.textAlignment = NSTextAlignmentCenter;
+    nameLabel.numberOfLines = 0;
     
     nameLabel.textColor = textColor;
     
@@ -182,6 +186,7 @@
     
     titleLabel.font = smallFont;
     titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.numberOfLines = 0;
     
     titleLabel.textColor = textColor;
     
@@ -223,6 +228,7 @@
     
     emailLabel.font = smallerFont;
     emailLabel.textAlignment = NSTextAlignmentCenter;
+    emailLabel.numberOfLines = 0;
     
     emailLabel.textColor = textColor;
     
