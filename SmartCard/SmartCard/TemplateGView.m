@@ -172,7 +172,7 @@
     UILabel *websiteLabel = [[UILabel alloc ]init];
     websiteLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    websiteLabel.text = company;
+    websiteLabel.text = website;
     websiteLabel.font = smallerFont;
     websiteLabel.textAlignment = NSTextAlignmentCenter;
     

@@ -40,6 +40,7 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 @property (strong, nonatomic)CardImage* selectedCard;
 
 - (IBAction)deleteCellButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *cancel;
 
 @end
 
@@ -51,6 +52,7 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
     [self hideSavedTemplatesAnimated:NO];
     [self setupPanGesture];
     [self setupLongPress];
+    [self setupButton];
     _cancelButton.hidden = YES;
     
 }
@@ -192,6 +194,10 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 }
 
 #pragma mark - Buttons
+-(void)setupButton
+{
+    self.cancel.layer.cornerRadius = 15;
+}
 
 - (IBAction)create:(UIButton *)sender {
 }

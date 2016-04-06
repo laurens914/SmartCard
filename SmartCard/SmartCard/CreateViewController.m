@@ -33,6 +33,8 @@
 @property(strong, nonatomic)UIView* currentView;
 
 @property (weak, nonatomic) IBOutlet UIButton *dismiss;
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
+@property (weak, nonatomic) IBOutlet UIButton *enterButton;
 
 @end
 
@@ -42,6 +44,8 @@
     
     [super viewDidLoad];
     [self setupButton];
+    [self.saveButton setHidden:YES];
+    
     _isInfo = NO;
 }
 
@@ -77,6 +81,9 @@
     self.dismiss.layer.borderWidth = 2;
     self.dismiss.layer.borderColor = [UIColor whiteColor].CGColor;
     self.dismiss.tintColor = [UIColor blackColor];
+    self.enterButton.layer.cornerRadius = 15;
+    self.saveButton.layer.cornerRadius = 15;
+    
 }
 
 -(UIView*)selectView:(NSInteger)index{
@@ -134,32 +141,40 @@
                     
                 case 0:
 
-                    
-                  
-                  _currentImageView = [TemplateAView setUpViewWithView:weak.view website:textBoxOne ];
+
+                  _currentImageView = [TemplateAView setUpViewWithView:weak.view website:textBoxOne];
+                    [self.saveButton setHidden:NO];
+
                     
                     break;
                 case 1:
                     _currentImageView = [TemplateBView setUpViewWithView:weak.view name:[NSString stringWithFormat:@"%@ %@", textBoxOne, textBoxTwo] firstAddress: textBoxFive secondaryAddress: [NSString stringWithFormat:@"%@ %@ %@", textBoxSix, textBoxSeven, textBoxEight] email:textBoxThree phone:textBoxFour website:nil jobTitle:textBoxNine company:textBoxTen logo:logoImage];
+                    [self.saveButton setHidden:NO];
                     break;
                 case 2:
                 
                 _currentImageView =[TemplateCView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", textBoxOne, textBoxTwo] firstAddress:nil secondaryAddress:nil email:textBoxThree phone:textBoxFour website:textBoxFive jobTitle:textBoxSix company:textBoxSeven];
+                    [self.saveButton setHidden:NO];
                     break;
                 case 3:
                   _currentImageView = [TemplateDView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", textBoxOne, textBoxTwo] phone:textBoxThree website:nil jobTitle:textBoxFive company:textBoxFour logo:logoImage];
+                    [self.saveButton setHidden:NO];
                     break;
                 case 4:
                  _currentImageView = [TemplateEView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", textBoxOne, textBoxTwo] phone:textBoxThree logo:logoImage];
+                    [self.saveButton setHidden:NO];
                     break;
                 case 5:
                   _currentImageView = [TemplateFView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", textBoxOne, textBoxTwo] email:textBoxFour phone:textBoxThree logo:logoImage];
+                    [self.saveButton setHidden:NO];
                     break;
                 case 6:
-                   _currentImageView = [TemplateGView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", textBoxTwo, textBoxTwo] firstAddress:nil secondaryAddress:nil email:textBoxFour phone: textBoxThree website:textBoxSeven jobTitle:textBoxSix company:textBoxFive logo:logoImage];
+                   _currentImageView = [TemplateGView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", textBoxOne, textBoxTwo] firstAddress:nil secondaryAddress:nil email:textBoxFour phone: textBoxThree website:textBoxSeven jobTitle:textBoxSix company:textBoxFive logo:logoImage];
+                    [self.saveButton setHidden:NO];
                     break;
                     
                 default:
+                    [self.saveButton setHidden:NO];
                     break;
             }
 
