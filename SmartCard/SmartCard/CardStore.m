@@ -26,25 +26,7 @@
 }
 
 
--(void)saveCardImage:(NSData*)imageData{
-    
-    AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
-    NSManagedObjectContext *context = delegate.managedObjectContext;
-    
-    ContactData *card = [NSEntityDescription insertNewObjectForEntityForName:@"ContactData" inManagedObjectContext:context];
-    card.businessCardData = imageData;
-    
-    NSError* saveError;
-    
-    [context save: &saveError];
-    
-    if (saveError == nil) {
-        NSLog(@"saving");
-    }
-    
-}
-
--(void)saveCardData:(ContactData *)contact
+-(void)saveCardData:(ContactData *)contact data:(NSData*)imgData
 {
     
     AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
@@ -63,6 +45,8 @@
     contactData.addressCity = contact.addressCity;
     contactData.addressPostalCode = contact.addressPostalCode;
     contactData.image = contact.image;
+    
+    contactData.businessCardData = imgData;
     
     NSError *saveDataError;
     [context save: &saveDataError];

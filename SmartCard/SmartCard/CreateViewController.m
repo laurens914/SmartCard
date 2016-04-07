@@ -162,17 +162,17 @@
          __weak typeof(self)weak = self;
         
         destinationViewController.completion = ^(NSString *textBoxOne, NSString* textBoxTwo, NSString* textBoxThree, NSString*textBoxFour, NSString* textBoxFive, NSString* textBoxSix, NSString* textBoxSeven, NSString* textBoxEight, NSString* textBoxNine, NSString *textBoxTen, NSString *textBoxEleven, UIImage* logoImage){
-            AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
-            NSManagedObjectContext *context = delegate.managedObjectContext;
+  
+    
             
             switch (weak.selectedIndex) {
                     
                 case 0:{
 
                   _currentImageView = [TemplateAView setUpViewWithView:weak.view website:textBoxOne];
-                    ContactData *contact = [NSEntityDescription insertNewObjectForEntityForName:@"ContactData" inManagedObjectContext:context];
-                    contact.website = textBoxOne;
-                    [[CardStore shared]saveCardData:contact];
+                   
+                    self.thisContact.website = textBoxOne;
+                
                     
                     [self.saveButton setHidden:NO];
                     
@@ -181,48 +181,48 @@
                 case 1:{
                     _currentImageView = [TemplateBView setUpViewWithView:weak.view name:[NSString stringWithFormat:@"%@ %@", textBoxOne, textBoxTwo] firstAddress: textBoxFive secondaryAddress: [NSString stringWithFormat:@"%@ %@ %@", textBoxSix, textBoxSeven, textBoxEight] email:textBoxThree phone:textBoxFour website:nil jobTitle:textBoxNine company:textBoxTen logo:logoImage];
                     NSData *logoData = [NSData dataWithData:UIImagePNGRepresentation(logoImage)];
-                    ContactData *contactTwo = [NSEntityDescription insertNewObjectForEntityForName:@"ContactData" inManagedObjectContext:context];
-                    contactTwo.firstName = textBoxOne;
-                    contactTwo.lastName = textBoxTwo;
-                    contactTwo.emailAddress = textBoxThree;
-                    contactTwo.phoneNumber = textBoxFour;
-                    contactTwo.addressStreet = textBoxFive;
-                    contactTwo.addressCity = textBoxSix;
-                    contactTwo.addressState = textBoxSeven;
-                    contactTwo.addressPostalCode = textBoxEight;
-                    contactTwo.positionTitle = textBoxNine;
-                    contactTwo.buinessName = textBoxTen;
-                    contactTwo.image = logoData;
-                    [[CardStore shared]saveCardData:contactTwo];
+                    
+                    self.thisContact.firstName = textBoxOne;
+                    self.thisContact.lastName = textBoxTwo;
+                    self.thisContact.emailAddress = textBoxThree;
+                    self.thisContact.phoneNumber = textBoxFour;
+                    self.thisContact.addressStreet = textBoxFive;
+                    self.thisContact.addressCity = textBoxSix;
+                    self.thisContact.addressState = textBoxSeven;
+                    self.thisContact.addressPostalCode = textBoxEight;
+                    self.thisContact.positionTitle =   textBoxNine;
+                    self.thisContact.buinessName = textBoxTen;
+                    self.thisContact.image = logoData;
+                   
                     [self.saveButton setHidden:NO];
                     break;
                 }
                 case 2:{
                 
                 _currentImageView =[TemplateCView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", textBoxOne, textBoxTwo] firstAddress:nil secondaryAddress:nil email:textBoxThree phone:textBoxFour website:textBoxFive jobTitle:textBoxSix company:textBoxSeven];
-                    ContactData *contactThree = [[ContactData alloc]init];
-                    contactThree.firstName = textBoxOne;
-                    contactThree.lastName = textBoxTwo;
-                    contactThree.emailAddress = textBoxThree;
-                    contactThree.phoneNumber = textBoxFour;
-                    contactThree.website = textBoxFive;
-                    contactThree.positionTitle = textBoxSix;
-                    contactThree.buinessName = textBoxSeven;
-                    [[CardStore shared]saveCardData:contactThree];
+                  
+                    self.thisContact.firstName = textBoxOne;
+                    self.thisContact.lastName = textBoxTwo;
+                    self.thisContact.emailAddress = textBoxThree;
+                    self.thisContact.phoneNumber = textBoxFour;
+                    self.thisContact.website = textBoxFive;
+                    self.thisContact.positionTitle = textBoxSix;
+                    self.thisContact.buinessName = textBoxSeven;
+                
                     [self.saveButton setHidden:NO];
                     break;
                 }
                 case 3:{
                   _currentImageView = [TemplateDView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", textBoxOne, textBoxTwo] phone:textBoxThree website:nil jobTitle:textBoxFive company:textBoxFour logo:logoImage];
                      NSData *logoDataTwo = [NSData dataWithData:UIImagePNGRepresentation(logoImage)];
-                    ContactData *contactFour = [[ContactData alloc]init];
-                    contactFour.firstName = textBoxOne;
-                    contactFour.lastName = textBoxTwo;
-                    contactFour.phoneNumber = textBoxThree;
-                    contactFour.buinessName = textBoxFour;
-                    contactFour.positionTitle = textBoxFive;
-                    contactFour.image = logoDataTwo;
-                    [[CardStore shared]saveCardData:contactFour];
+               
+                    self.thisContact.firstName = textBoxOne;
+                    self.thisContact.lastName = textBoxTwo;
+                    self.thisContact.phoneNumber = textBoxThree;
+                    self.thisContact.buinessName = textBoxFour;
+                    self.thisContact.positionTitle = textBoxFive;
+                    self.thisContact.image = logoDataTwo;
+              
                     [self.saveButton setHidden:NO];
                     break;
                 }
@@ -230,40 +230,40 @@
                 {
                  _currentImageView = [TemplateEView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", textBoxOne, textBoxTwo] phone:textBoxThree logo:logoImage];
                     NSData *logoDataThree = [NSData dataWithData:UIImagePNGRepresentation(logoImage)];
-                    ContactData *contactFive = [[ContactData alloc]init];
-                    contactFive.firstName = textBoxOne;
-                    contactFive.lastName = textBoxTwo;
-                    contactFive.phoneNumber = textBoxThree;
-                    contactFive.image = logoDataThree;
-                    [[CardStore shared]saveCardData:contactFive];
+                   
+                    self.thisContact.firstName = textBoxOne;
+                    self.thisContact.lastName = textBoxTwo;
+                    self.thisContact.phoneNumber = textBoxThree;
+                    self.thisContact.image = logoDataThree;
+    
                     [self.saveButton setHidden:NO];
                     break;
                 }
                 case 5:{
                   _currentImageView = [TemplateFView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", textBoxOne, textBoxTwo] email:textBoxFour phone:textBoxThree logo:logoImage];
                     NSData *logoDataFour = [NSData dataWithData:UIImagePNGRepresentation(logoImage)];
-                    ContactData *contactSix = [[ContactData alloc]init];
-                    contactSix.firstName = textBoxOne;
-                    contactSix.lastName = textBoxTwo;
-                    contactSix.emailAddress = textBoxFour;
-                    contactSix.phoneNumber = textBoxThree;
-                    contactSix.image = logoDataFour;
-                    [[CardStore shared]saveCardData:contactSix];
+             
+                    self.thisContact.firstName = textBoxOne;
+                    self.thisContact.lastName = textBoxTwo;
+                    self.thisContact.emailAddress = textBoxFour;
+                    self.thisContact.phoneNumber = textBoxThree;
+                    self.thisContact.image = logoDataFour;
+            
                     [self.saveButton setHidden:NO];
                     break;
                 }
                 case 6:{
                    _currentImageView = [TemplateGView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", textBoxOne, textBoxTwo] firstAddress:nil secondaryAddress:nil email:textBoxFour phone: textBoxThree website:textBoxSeven jobTitle:textBoxSix company:textBoxFive logo:logoImage];
                     NSData *logoData = [NSData dataWithData:UIImagePNGRepresentation(logoImage)];
-                    ContactData *contactSeven = [[ContactData alloc]init];
-                    contactSeven.firstName = textBoxOne;
-                    contactSeven.lastName = textBoxTwo;
-                    contactSeven.phoneNumber = textBoxThree;
-                    contactSeven.emailAddress = textBoxFour;
-                    contactSeven.buinessName = textBoxFive;
-                    contactSeven.positionTitle = textBoxSix;
-                    contactSeven.image = logoData;
-                    [[CardStore shared]saveCardData:contactSeven];
+
+                    self.thisContact.firstName = textBoxOne;
+                    self.thisContact.lastName = textBoxTwo;
+                    self.thisContact.phoneNumber = textBoxThree;
+                    self.thisContact.emailAddress = textBoxFour;
+                    self.thisContact.buinessName = textBoxFive;
+                    self.thisContact.positionTitle = textBoxSix;
+                    self.thisContact.image = logoData;
+           
                     [self.saveButton setHidden:NO];
                     break;
                 }
@@ -294,8 +294,8 @@
     NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(screenShot)];
     
     UIGraphicsEndImageContext();
-
-    [[CardStore shared]saveCardImage:imageData];
+    
+    [[CardStore shared]saveCardData:self.thisContact data:imageData];
     
     return screenShot;
 }

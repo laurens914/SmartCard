@@ -28,7 +28,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [Fabric with:@[[Crashlytics class]]];
-    [self saveFromCDToContact];
+   
     
     BOOL launchedWithShortcut = NO;
     UIApplicationShortcutItem *shortCut = [launchOptions objectForKey:UIApplicationLaunchOptionsShortcutItemKey];
