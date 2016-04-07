@@ -92,6 +92,8 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 -(void)animateConstraints{
     if (self.isSavedShowing) {
         [self hideSavedTemplatesAnimated:YES];
+        self.editEnabled = NO;
+        _cancelButton.hidden = YES;
     } else {
         [self showSavedTemplatesAnimated:YES];
     }
