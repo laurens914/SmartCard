@@ -14,7 +14,6 @@
 
 +(instancetype _Nonnull)shared;
 
--(void)saveCardImage:(NSData * _Nonnull )imageData;
 -(void)saveCardData:(ContactData * _Nonnull)contact data:(NSData* _Nonnull)imgData;
 
 -( NSArray* _Nullable )returnCardImages;

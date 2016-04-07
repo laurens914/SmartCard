@@ -162,8 +162,8 @@
          __weak typeof(self)weak = self;
         
         destinationViewController.completion = ^(NSString *textBoxOne, NSString* textBoxTwo, NSString* textBoxThree, NSString*textBoxFour, NSString* textBoxFive, NSString* textBoxSix, NSString* textBoxSeven, NSString* textBoxEight, NSString* textBoxNine, NSString *textBoxTen, NSString *textBoxEleven, UIImage* logoImage){
-            AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
-            NSManagedObjectContext *context = delegate.managedObjectContext;
+  
+    
             
             switch (weak.selectedIndex) {
                     
@@ -294,8 +294,6 @@
     NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(screenShot)];
     
     UIGraphicsEndImageContext();
-
-//    [[CardStore shared]saveCardImage:imageData];
     
     [[CardStore shared]saveCardData:self.thisContact data:imageData];
     
