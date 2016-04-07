@@ -44,7 +44,7 @@
     
 }
 
--(void)saveCardData:(ContactData *)contact
+-(void)saveCardData:(ContactData *)contact data:(NSData*)imgData
 {
     
     AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
@@ -63,6 +63,8 @@
     contactData.addressCity = contact.addressCity;
     contactData.addressPostalCode = contact.addressPostalCode;
     contactData.image = contact.image;
+    
+    contactData.businessCardData = imgData;
     
     NSError *saveDataError;
     [context save: &saveDataError];
