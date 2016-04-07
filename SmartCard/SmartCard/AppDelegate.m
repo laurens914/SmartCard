@@ -29,35 +29,46 @@
     
     [Fabric with:@[[Crashlytics class]]];
    
-    
-    BOOL launchedWithShortcut = NO;
     UIApplicationShortcutItem *shortCut = [launchOptions objectForKey:UIApplicationLaunchOptionsShortcutItemKey];
-    if (launchedWithShortcut == YES){
+    NSLog(@"%@", shortCut);
+    if (shortCut){
         [self shortCutItems:shortCut];
+        return NO;
     }
     return YES;
 }
 
 -(void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler
 {
-    [self shortCutItems:shortcutItem];
+    completionHandler([self shortCutItems:shortcutItem]);
 }
 
--(void)shortCutItems:(UIApplicationShortcutItem *)shortcutItem
+-(BOOL)shortCutItems:(UIApplicationShortcutItem *)shortcutItem
 {
     if ([shortcutItem.type isEqualToString:@"com.laurenspatz.SmartCard.openCreate"])
     {
         NSLog(@"open create");
-        TemplateViewController *templateVC = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"templateVC"];
-        [self.window.rootViewController presentViewController:templateVC animated:YES completion:nil];
+        ViewController *homeVC = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"homeViewController"];
+        [self.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
+        [self.window.rootViewController presentViewController:homeVC animated:YES completion:^{
+            [homeVC performSegueWithIdentifier:@"templateViewController" sender:nil];
+        }];
+        return YES;
 
     } else if ([shortcutItem.type isEqualToString:@"com.laurenspatz.SmartCard.openSaved"]) {
         NSLog(@"open saved");
         ViewController *mainVCwithShared = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"homeViewController"];
+        [self.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
         [self.window.rootViewController presentViewController:mainVCwithShared animated:YES completion:^{
-            [mainVCwithShared showSavedTemplatesAnimated:NO];
+            [mainVCwithShared showSavedTemplatesAnimated:YES];
         }];
+        return YES;
     }
+    return NO;
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{
+    return YES;
 }
 
 #pragma mark - Core Data stack
