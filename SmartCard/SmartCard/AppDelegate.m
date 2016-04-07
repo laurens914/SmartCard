@@ -68,6 +68,56 @@
 }
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{
+    NSString *urlString = [NSString stringWithFormat:@"%@", url];
+    
+    NSString * first = @"";
+    NSString * last = @"";
+    NSString * email = @"";
+    NSString * phone = @"";
+    NSString * aStreet = @"";
+    NSString * aCity = @"";
+    NSString * aState = @"";
+    NSString * aZip = @"";
+    NSString * position = @"";
+    NSString * company = @"";
+    
+    for (NSString *component in [urlString componentsSeparatedByString:@"&"]) {
+        NSArray *componentsArray = [component componentsSeparatedByString:@"="];
+        
+        if (componentsArray.count >= 2) {
+            NSString *key = componentsArray[0];
+            NSString *value = componentsArray[1];
+            
+            if (![key isEqualToString:@"SmartCard://"] && value ) {
+                
+
+                
+                if ([key isEqualToString:@"firstName"]) {
+                    first = [value stringByReplacingOccurrencesOfString:@"_" withString:@" "];
+                } else if ([key isEqualToString:@"lastName"]) {
+                    last = [value stringByReplacingOccurrencesOfString:@"_" withString:@" "];
+                } else if ([key isEqualToString:@"email"]) {
+                    email = [value stringByReplacingOccurrencesOfString:@"_" withString:@" "];
+                } else if ([key isEqualToString:@"phoneNumber"]) {
+                    phone = [value stringByReplacingOccurrencesOfString:@"_" withString:@" "];
+                } else if ([key isEqualToString:@"addressSreet"]) {
+                    aStreet = [value stringByReplacingOccurrencesOfString:@"_" withString:@" "];
+                } else if ([key isEqualToString:@"addressCity"]) {
+                    aCity = [value stringByReplacingOccurrencesOfString:@"_" withString:@" "];
+                } else if ([key isEqualToString:@"addressState"]) {
+                    aState = [value stringByReplacingOccurrencesOfString:@"_" withString:@" "];
+                } else if ([key isEqualToString:@"zipCode"]) {
+                    aZip = [value stringByReplacingOccurrencesOfString:@"_" withString:@" "];
+                } else if ([key isEqualToString:@"jobTitle"]) {
+                    position = [value stringByReplacingOccurrencesOfString:@"_" withString:@" "];
+                } else if ([key isEqualToString:@"company"]) {
+                    company = [value stringByReplacingOccurrencesOfString:@"_" withString:@" "];
+                }
+            }
+        }
+    }
+    [[ContactService sharedContact]saveNewContactWithFirstName:first andLastName:last andEmail:email andPhoneNumber:phone andAddressStreet:aStreet andAddressCity:aCity andAddressState:aState andPostalCode:aZip andJobTitle:position andCompany:company];
+    
     return YES;
 }
 
@@ -151,16 +201,16 @@
 //    }
 //}
 
--(void)saveFromCDToContact
-{
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"ContactData"];
-    NSError *error;
-    
-    NSArray *contacts = [self.managedObjectContext executeFetchRequest:request error:&error];
-    for (ContactData *contact in contacts) {
-        [[ContactService sharedContact]saveNewContact:contact];
-    }
-}
+//-(void)saveFromCDToContact
+//{
+//    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"ContactData"];
+//    NSError *error;
+//    
+//    NSArray *contacts = [self.managedObjectContext executeFetchRequest:request error:&error];
+//    for (ContactData *contact in contacts) {
+//        [[ContactService sharedContact]saveNewContact:contact];
+//    }
+//}
 
 
 - (NSManagedObjectContext *)managedObjectContext {
