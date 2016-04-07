@@ -77,7 +77,6 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
 }
 
 -(void)dismissKeyboard{
-    [self.view endEditing:YES];
     self.view.center = self.selfCenter;
     self.keyboardIsHidden = YES;
 }
@@ -382,42 +381,16 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
     
     NSUInteger newLength = [textField.text length] + [string length] - range.length;
     
-    //If textField.placeholder isEqualToString:@"Email Address" then we check against 30
-    //If textField.placeholder isEqualToString:@"Website" then we check against 24
-    //Otherwise, we check against 16;
-    
     int checkNumber = 16;
     
-    if (!self.textFieldThree.hidden) {
-        if ([textField.placeholder isEqualToString:@"Email Address"]) {
-            checkNumber = 30;
-        }
+    if ([textField.placeholder isEqualToString:@"Email Address"]) {
+        checkNumber = 30;
     }
     
-    if (!self.textFieldFour.hidden) {
-        if ([textField.placeholder isEqualToString:@"Email Address"]) {
-            checkNumber = 30;
-        }
+    if ([textField.placeholder isEqualToString:@"Website"]){
+        checkNumber = 24;
     }
-    
-    if(!self.textFieldOne.hidden){
-        if([textField.placeholder isEqualToString:@"Website"]) {
-            checkNumber = 24;
-        }
-    }
-    
-    if(!self.textFieldFive.hidden){
-        if ([textField.placeholder isEqualToString:@"Website"]){
-            checkNumber = 24;
-        }
-    }
-    
-    if(!self.textFieldSeven.hidden){
-        if ([textField.placeholder isEqualToString:@"Website"]){
-            checkNumber = 24;
-        }
-    }
-    
+
     if (newLength > checkNumber) {
         [self stringTooLong];
         return NO;
