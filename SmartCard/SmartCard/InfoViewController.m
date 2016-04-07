@@ -149,6 +149,22 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
     return YES;
 }
 
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    
+    if ([textField.placeholder isEqualToString:@"Email Address"]) {
+        [textField setKeyboardType:UIKeyboardTypeEmailAddress];
+        
+    }
+    if ([textField.placeholder isEqualToString:@"Phone Number"]) {
+        [textField setKeyboardType:UIKeyboardTypePhonePad];
+    }
+    
+    if ([textField.placeholder isEqualToString:@"Website"]) {
+        [textField setKeyboardType:UIKeyboardTypeWebSearch];
+    }
+    return YES;
+}
+
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     self.selectedTextField = textField;
 }
