@@ -2,7 +2,7 @@
 //  ContactData.h
 //  SmartCard
 //
-//  Created by Lauren Spatz on 3/30/16.
+//  Created by Lauren Spatz on 4/7/16.
 //  Copyright © 2016 Lauren Spatz. All rights reserved.
 //
 

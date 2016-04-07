@@ -11,7 +11,7 @@
 #import "HomeCollectionViewFlowLayout.h"
 #import "SavedCollectionViewFlowLayout.h"
 #import "SavedCollectionViewCell.h"
-#import "CardImage.h"
+#import "ContactData.h"
 #import "ContactService.h"
 #import "CardStore.h"
 
@@ -37,7 +37,7 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 @property (nonatomic) BOOL editEnabled;
 
 @property (strong, nonatomic)NSMutableArray* dataSource;
-@property (strong, nonatomic)CardImage* selectedCard;
+@property (strong, nonatomic)ContactData* selectedCard;
 
 - (IBAction)deleteCellButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *cancel;
@@ -134,10 +134,11 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
             
         _selectedCard = _dataSource[path.row];
         
-        UIImage *selectedImage = [UIImage imageWithData:_selectedCard.buisnessCard];
+        UIImage *selectedImage = [UIImage imageWithData:_selectedCard.businessCardData];
         
         ShareViewController *shareVC = segue.destinationViewController;
         shareVC.selectedImage = selectedImage;
+        shareVC.contactData = _selectedCard;
         
     }
 }
@@ -225,9 +226,9 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
     SavedCollectionViewCell *savedCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"savedCell" forIndexPath:indexPath];
     
     savedCell.backgroundColor = [UIColor blackColor];
-    CardImage *card = _dataSource[indexPath.row];
+    ContactData *card = _dataSource[indexPath.row];
     savedCell.selectedCellIndexPath = indexPath;
-    UIImage *cardImage = [UIImage imageWithData:card.buisnessCard];
+    UIImage *cardImage = [UIImage imageWithData:card.businessCardData];
 
     savedCell.imageView.image = cardImage;
     if (self.editEnabled == NO){
@@ -250,8 +251,8 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CardImage *card = _dataSource[indexPath.row];
-    UIImage *cardImage = [UIImage imageWithData:card.buisnessCard];
+    ContactData *card = _dataSource[indexPath.row];
+    UIImage *cardImage = [UIImage imageWithData:card.businessCardData];
 
     
     CGSize size = cardImage.size;
@@ -273,7 +274,7 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
     
     NSLog(@"path.row%@",self.dataSource[indexPath.row]);
     
-    CardImage *imageToDelete = self.dataSource[indexPath.row];
+    ContactData *imageToDelete = self.dataSource[indexPath.row];
     
     [self.dataSource removeObjectAtIndex:indexPath.row];
     [[CardStore shared]removeCard:imageToDelete];

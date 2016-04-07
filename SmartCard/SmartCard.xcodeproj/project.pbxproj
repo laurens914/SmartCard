@@ -22,6 +22,8 @@
 		891A5A9D1CA3280A00D42A47 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 891A5A9B1CA3280A00D42A47 /* Crashlytics.framework */; };
 		891A5AA21CA349B100D42A47 /* HomeCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 891A5AA11CA349B100D42A47 /* HomeCollectionViewFlowLayout.m */; };
 		891A5AA51CA3577600D42A47 /* TemplateCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 891A5AA41CA3577600D42A47 /* TemplateCollectionViewCell.m */; };
+		89351F4A1CB6C9E900708445 /* ContactData+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 89351F471CB6C9E900708445 /* ContactData+CoreDataProperties.m */; };
+		89351F4B1CB6C9E900708445 /* ContactData.m in Sources */ = {isa = PBXBuildFile; fileRef = 89351F491CB6C9E900708445 /* ContactData.m */; };
 		894B5AF31CA0C0E300DD2BFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 894B5AF21CA0C0E300DD2BFD /* main.m */; };
 		894B5AF61CA0C0E300DD2BFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 894B5AF51CA0C0E300DD2BFD /* AppDelegate.m */; };
 		894B5AF91CA0C0E300DD2BFD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 894B5AF81CA0C0E300DD2BFD /* ViewController.m */; };
@@ -29,10 +31,6 @@
 		894B5AFF1CA0C0E300DD2BFD /* SmartCard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 894B5AFD1CA0C0E300DD2BFD /* SmartCard.xcdatamodeld */; };
 		894B5B011CA0C0E300DD2BFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 894B5B001CA0C0E300DD2BFD /* Assets.xcassets */; };
 		894B5B041CA0C0E300DD2BFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 894B5B021CA0C0E300DD2BFD /* LaunchScreen.storyboard */; };
-		895B210B1CAC69F400CC8610 /* CardImage+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 895B21041CAC69F300CC8610 /* CardImage+CoreDataProperties.m */; };
-		895B210C1CAC69F400CC8610 /* CardImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 895B21061CAC69F400CC8610 /* CardImage.m */; };
-		895B210D1CAC69F400CC8610 /* ContactData+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 895B21081CAC69F400CC8610 /* ContactData+CoreDataProperties.m */; };
-		895B210E1CAC69F400CC8610 /* ContactData.m in Sources */ = {isa = PBXBuildFile; fileRef = 895B210A1CAC69F400CC8610 /* ContactData.m */; };
 		895B21111CAC6EE000CC8610 /* ContactService.m in Sources */ = {isa = PBXBuildFile; fileRef = 895B21101CAC6EE000CC8610 /* ContactService.m */; };
 		89A36A201CA1E6D200997095 /* TemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A36A1F1CA1E6D200997095 /* TemplateViewController.m */; };
 		89A36A231CA1E6DC00997095 /* CreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A36A221CA1E6DC00997095 /* CreateViewController.m */; };
@@ -70,6 +68,10 @@
 		891A5AA11CA349B100D42A47 /* HomeCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		891A5AA31CA3577600D42A47 /* TemplateCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateCollectionViewCell.h; sourceTree = "<group>"; };
 		891A5AA41CA3577600D42A47 /* TemplateCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateCollectionViewCell.m; sourceTree = "<group>"; };
+		89351F461CB6C9E900708445 /* ContactData+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ContactData+CoreDataProperties.h"; sourceTree = "<group>"; };
+		89351F471CB6C9E900708445 /* ContactData+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ContactData+CoreDataProperties.m"; sourceTree = "<group>"; };
+		89351F481CB6C9E900708445 /* ContactData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactData.h; sourceTree = "<group>"; };
+		89351F491CB6C9E900708445 /* ContactData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactData.m; sourceTree = "<group>"; };
 		894B5AEE1CA0C0E300DD2BFD /* SmartCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		894B5AF21CA0C0E300DD2BFD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		894B5AF41CA0C0E300DD2BFD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -81,14 +83,6 @@
 		894B5B001CA0C0E300DD2BFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		894B5B031CA0C0E300DD2BFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		894B5B051CA0C0E300DD2BFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		895B21031CAC69F300CC8610 /* CardImage+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CardImage+CoreDataProperties.h"; path = "../CardImage+CoreDataProperties.h"; sourceTree = "<group>"; };
-		895B21041CAC69F300CC8610 /* CardImage+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CardImage+CoreDataProperties.m"; path = "../CardImage+CoreDataProperties.m"; sourceTree = "<group>"; };
-		895B21051CAC69F400CC8610 /* CardImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardImage.h; path = ../CardImage.h; sourceTree = "<group>"; };
-		895B21061CAC69F400CC8610 /* CardImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardImage.m; path = ../CardImage.m; sourceTree = "<group>"; };
-		895B21071CAC69F400CC8610 /* ContactData+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ContactData+CoreDataProperties.h"; path = "../ContactData+CoreDataProperties.h"; sourceTree = "<group>"; };
-		895B21081CAC69F400CC8610 /* ContactData+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ContactData+CoreDataProperties.m"; path = "../ContactData+CoreDataProperties.m"; sourceTree = "<group>"; };
-		895B21091CAC69F400CC8610 /* ContactData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactData.h; path = ../ContactData.h; sourceTree = "<group>"; };
-		895B210A1CAC69F400CC8610 /* ContactData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactData.m; path = ../ContactData.m; sourceTree = "<group>"; };
 		895B210F1CAC6EE000CC8610 /* ContactService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactService.h; sourceTree = "<group>"; };
 		895B21101CAC6EE000CC8610 /* ContactService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactService.m; sourceTree = "<group>"; };
 		895B21121CADA80800CC8610 /* SmartCard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SmartCard.entitlements; sourceTree = "<group>"; };
@@ -159,16 +153,12 @@
 		0B7B573F1CA0E57E00CD05F9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				89351F461CB6C9E900708445 /* ContactData+CoreDataProperties.h */,
+				89351F471CB6C9E900708445 /* ContactData+CoreDataProperties.m */,
+				89351F481CB6C9E900708445 /* ContactData.h */,
+				89351F491CB6C9E900708445 /* ContactData.m */,
 				0B7B57401CA0E5A700CD05F9 /* BaseTemplate.h */,
 				0B7B57411CA0E5A700CD05F9 /* BaseTemplate.m */,
-				895B21031CAC69F300CC8610 /* CardImage+CoreDataProperties.h */,
-				895B21041CAC69F300CC8610 /* CardImage+CoreDataProperties.m */,
-				895B21051CAC69F400CC8610 /* CardImage.h */,
-				895B21061CAC69F400CC8610 /* CardImage.m */,
-				895B21071CAC69F400CC8610 /* ContactData+CoreDataProperties.h */,
-				895B21081CAC69F400CC8610 /* ContactData+CoreDataProperties.m */,
-				895B21091CAC69F400CC8610 /* ContactData.h */,
-				895B210A1CAC69F400CC8610 /* ContactData.m */,
 				E94808761CB4482400AFF926 /* RegexService.h */,
 				E94808771CB4482400AFF926 /* RegexService.m */,
 				895B210F1CAC6EE000CC8610 /* ContactService.h */,
@@ -367,17 +357,17 @@
 				895B21111CAC6EE000CC8610 /* ContactService.m in Sources */,
 				0BF1BC461CA38CC700EEEEF7 /* SavedCollectionViewCell.m in Sources */,
 				0B98A7741CAB7DB60057D3BE /* TemplateCView.m in Sources */,
+				89351F4B1CB6C9E900708445 /* ContactData.m in Sources */,
 				0B98A7711CAB7CC20057D3BE /* TemplateBView.m in Sources */,
-				895B210E1CAC69F400CC8610 /* ContactData.m in Sources */,
 				89A36A261CA1E6E300997095 /* InfoViewController.m in Sources */,
 				0B98A77D1CAB7F080057D3BE /* TemplateFView.m in Sources */,
 				0BCA11AB1CB1ADDE006A757F /* CardStore.m in Sources */,
 				894B5AF91CA0C0E300DD2BFD /* ViewController.m in Sources */,
+				89351F4A1CB6C9E900708445 /* ContactData+CoreDataProperties.m in Sources */,
 				891A5AA21CA349B100D42A47 /* HomeCollectionViewFlowLayout.m in Sources */,
 				89A36A231CA1E6DC00997095 /* CreateViewController.m in Sources */,
 				0B7B57421CA0E5A700CD05F9 /* BaseTemplate.m in Sources */,
 				0B98A7771CAB7E220057D3BE /* TemplateDView.m in Sources */,
-				895B210B1CAC69F400CC8610 /* CardImage+CoreDataProperties.m in Sources */,
 				89A36A201CA1E6D200997095 /* TemplateViewController.m in Sources */,
 				0B98A76E1CAB79E00057D3BE /* TemplateAView.m in Sources */,
 				894B5AF61CA0C0E300DD2BFD /* AppDelegate.m in Sources */,
@@ -385,9 +375,7 @@
 				0BF1BC4A1CA38D2400EEEEF7 /* SavedCollectionViewFlowLayout.m in Sources */,
 				E94808781CB4482400AFF926 /* RegexService.m in Sources */,
 				0B98A7801CAB7F550057D3BE /* TemplateGView.m in Sources */,
-				895B210D1CAC69F400CC8610 /* ContactData+CoreDataProperties.m in Sources */,
 				0B98A77A1CAB7EA10057D3BE /* TemplateEView.m in Sources */,
-				895B210C1CAC69F400CC8610 /* CardImage.m in Sources */,
 				894B5AF31CA0C0E300DD2BFD /* main.m in Sources */,
 				894B5AFF1CA0C0E300DD2BFD /* SmartCard.xcdatamodeld in Sources */,
 				89A36A291CA1E6EA00997095 /* ShareViewController.m in Sources */,

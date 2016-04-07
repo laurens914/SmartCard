@@ -8,7 +8,7 @@
 
 #import "ContactService.h"
 #import "AppDelegate.h"
-#import "CardImage.h"
+#import "ContactData.h"
 
 @implementation ContactService
 
