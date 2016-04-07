@@ -12,7 +12,7 @@
 @interface ShareViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property(strong, nonatomic)UIImage* selectedImage;
+@property(strong, nonatomic) UIImage* selectedImage;
 @property(strong, nonatomic) ContactData * contactData;
 
 @end

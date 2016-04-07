@@ -57,6 +57,7 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
     [self setupPanGesture];
     [self setupLongPress];
     [self setupButton];
+    [self setDataSourceWithSavedImages];
     _cancelButton.hidden = YES;
     
 }
@@ -126,6 +127,10 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 
 -(void)setDataSourceWithSavedImages{
     _dataSource = [NSMutableArray arrayWithArray:[[CardStore shared]returnCardImages]];
+    for (ContactData *contact in _dataSource) {
+        NSLog(@"%@", contact.firstName);
+
+    }
     [_savedCollectionView reloadData];
     
 }
@@ -137,6 +142,7 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
         NSIndexPath *path = [[_savedCollectionView indexPathsForSelectedItems]objectAtIndex:0];
             
         _selectedCard = _dataSource[path.row];
+        NSLog(@"%@", _selectedCard.firstName);
         
         UIImage *selectedImage = [UIImage imageWithData:_selectedCard.businessCardData];
         
