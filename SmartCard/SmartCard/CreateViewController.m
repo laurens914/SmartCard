@@ -59,11 +59,13 @@
 @implementation CreateViewController
 
 - (void)viewDidLoad {
+    AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+    NSManagedObjectContext *context = delegate.managedObjectContext;
     
     [super viewDidLoad];
     [self setupButton];
     [self.saveButton setHidden:YES];
-    
+    self.thisContact = [NSEntityDescription insertNewObjectForEntityForName:@"ContactData" inManagedObjectContext:context];
     _isInfo = NO;
 }
 
@@ -281,7 +283,8 @@
 
 -(UIImage*)takeScreenShot:(UIImageView*)selectedView{
     
-    
+    AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+    NSManagedObjectContext *context = delegate.managedObjectContext;
     CGSize size = CGSizeMake(selectedView.frame.size.width, selectedView.bounds.size.height);
    
     UIGraphicsBeginImageContextWithOptions(size, selectedView.opaque, 0.0f);
@@ -295,7 +298,13 @@
     
     UIGraphicsEndImageContext();
     
-    [[CardStore shared]saveCardData:self.thisContact data:imageData];
+//    [[CardStore shared]saveCardData:self.thisContact data:imageData];
+    _thisContact.businessCardData = imageData;
+    NSError *error;
+    [context save:&error];
+    if(error == nil){
+        NSLog(@"SAVED");
+    }
     
     return screenShot;
 }
