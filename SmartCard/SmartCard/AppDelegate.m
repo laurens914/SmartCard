@@ -80,6 +80,7 @@
     NSString * aZip = @"";
     NSString * position = @"";
     NSString * company = @"";
+    NSString * website = @"";
     
     for (NSString *component in [urlString componentsSeparatedByString:@"&"]) {
         NSArray *componentsArray = [component componentsSeparatedByString:@"="];
@@ -112,11 +113,20 @@
                     position = [value stringByReplacingOccurrencesOfString:@"_" withString:@" "];
                 } else if ([key isEqualToString:@"company"]) {
                     company = [value stringByReplacingOccurrencesOfString:@"_" withString:@" "];
+                } else if ([key isEqualToString:@"website"]) {
+                    website = [value stringByReplacingOccurrencesOfString:@"_" withString:@" "];
                 }
             }
         }
     }
-    [[ContactService sharedContact]saveNewContactWithFirstName:first andLastName:last andEmail:email andPhoneNumber:phone andAddressStreet:aStreet andAddressCity:aCity andAddressState:aState andPostalCode:aZip andJobTitle:position andCompany:company];
+    [[ContactService sharedContact]saveNewContactWithFirstName:first andLastName:last andEmail:email andPhoneNumber:phone andAddressStreet:aStreet andAddressCity:aCity andAddressState:aState andPostalCode:aZip andJobTitle:position andCompany:company andWebsite:website];
+    
+    UIAlertController *alertController = [ UIAlertController alertControllerWithTitle:@"Saved!" message:@"Contact has been saved to the phone" preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
+    
+    [self.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
+    [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
     
     return YES;
 }

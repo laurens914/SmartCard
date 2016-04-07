@@ -74,7 +74,8 @@
         NSString *zipCode = _contactData.addressPostalCode ? [_contactData.addressPostalCode stringByReplacingOccurrencesOfString:@" " withString:@"_"] :  @"";
         NSString *jobTitle = _contactData.positionTitle ? [_contactData.positionTitle stringByReplacingOccurrencesOfString:@" " withString:@"_"] : @"";
         NSString *organizationName = _contactData.buinessName ? [_contactData.buinessName stringByReplacingOccurrencesOfString:@" " withString:@"_"] : @"";
-        NSString *textMessage = [NSString stringWithFormat:@"SmartCard://=&firstName=%@&lastName=%@&phoneNumber=%@&email=%@&addressState=%@&addressStreet=%@&addressCity=%@&zipCode=%@&jobTitle=%@&company=%@", name, lastName,phone,emailAddress, addressState,addressStreet,addressCity,zipCode,jobTitle,organizationName];
+        NSString *website = _contactData.website ? [_contactData.website stringByReplacingOccurrencesOfString:@" " withString:@"_"] : @"";
+        NSString *textMessage = [NSString stringWithFormat:@"SmartCard://=&firstName=%@&lastName=%@&phoneNumber=%@&email=%@&addressState=%@&addressStreet=%@&addressCity=%@&zipCode=%@&jobTitle=%@&company=%@&website=%@", name, lastName,phone,emailAddress, addressState,addressStreet,addressCity,zipCode,jobTitle,organizationName,website];
         NSArray  *sharedObjects = @[text, textMessage];
          UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:sharedObjects applicationActivities:nil];
         [self presentViewController:activityVC animated:YES completion:nil];

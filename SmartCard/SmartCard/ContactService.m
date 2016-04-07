@@ -24,7 +24,7 @@
 }
 
 
--(void)saveNewContactWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName andEmail:(NSString *)email andPhoneNumber:(NSString *)phoneNumber andAddressStreet:(NSString *)aStreet andAddressCity:(NSString *)aCity andAddressState:(NSString *)aState andPostalCode:(NSString *)aPostalCode andJobTitle:(NSString *)position andCompany:(NSString *)company
+-(void)saveNewContactWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName andEmail:(NSString *)email andPhoneNumber:(NSString *)phoneNumber andAddressStreet:(NSString *)aStreet andAddressCity:(NSString *)aCity andAddressState:(NSString *)aState andPostalCode:(NSString *)aPostalCode andJobTitle:(NSString *)position andCompany:(NSString *)company andWebsite:(NSString *)website
 {
     CNContactStore *store = [[CNContactStore alloc]init];
     [store requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
@@ -40,7 +40,7 @@
             
             CNLabeledValue *emailContactHome = [CNLabeledValue labeledValueWithLabel:CNLabelHome value:email];
 
-            
+            CNLabeledValue *websiteForContact = [CNLabeledValue labeledValueWithLabel:CNLabelURLAddressHomePage value:website];
             
             
             CNLabeledValue *phoneContact = [CNLabeledValue labeledValueWithLabel:CNLabelPhoneNumberMain value:[CNPhoneNumber phoneNumberWithStringValue:(phoneNumber)]];
@@ -51,6 +51,7 @@
             newContact.emailAddresses = @[emailContactHome];
             newContact.postalAddresses = @[workAddress];
             newContact.phoneNumbers = @[phoneContact];
+            newContact.urlAddresses = @[websiteForContact];
             
             newContact.jobTitle = position;
             newContact.organizationName = company;
