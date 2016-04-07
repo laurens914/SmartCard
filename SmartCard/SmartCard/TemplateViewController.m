@@ -42,6 +42,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+     NSLog(@"senderTVCVidAppear: %@", _selfSender);
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,6 +60,7 @@
         _selectedIndex = path.row;
         
         destinationVC.selectedIndex = self.selectedIndex;
+        destinationVC.selfSender = _selfSender;
     }
 }
 
