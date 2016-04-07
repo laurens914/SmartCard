@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CardImage.h"
+#import "ContactData.h"
 @import UIKit;
 
 @interface CardStore : NSObject
@@ -15,8 +15,9 @@
 +(instancetype _Nonnull)shared;
 
 -(void)saveCardImage:(NSData * _Nonnull )imageData;
+-(void)saveCardData:(ContactData * _Nonnull)contact;
 
 -( NSArray* _Nullable )returnCardImages;
--(void)removeCard:(CardImage* _Nonnull)card;
+-(void)removeCard:(ContactData* _Nonnull)card;
 
 @end

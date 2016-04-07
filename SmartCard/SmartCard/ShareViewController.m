@@ -55,9 +55,21 @@
 
 - (IBAction)shareButton:(id)sender {
     
-    UIImage *shared = _selectedImage;
-    NSArray *sharedItems = @[shared];
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:sharedItems applicationActivities:nil];
-    [self presentViewController:activityVC animated:YES completion:nil];
+    UIAlertController *alertController = [ UIAlertController alertControllerWithTitle:@"Share Contact Card" message:@"Choose Format" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *sendImage = [UIAlertAction actionWithTitle:@"Send As Image" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIImage *shared = _selectedImage;
+        NSArray *sharedItems = @[shared];
+        UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:sharedItems applicationActivities:nil];
+        [self presentViewController:activityVC animated:YES completion:nil];
+    }];
+    UIAlertAction *sendLink = [UIAlertAction actionWithTitle:@"Send As Link" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //
+    }];
+    
+    [alertController addAction:sendLink];
+    [alertController addAction:sendImage];
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+ 
 }
 @end

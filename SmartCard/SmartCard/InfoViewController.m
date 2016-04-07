@@ -77,7 +77,6 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
 }
 
 -(void)dismissKeyboard{
-    [self.view endEditing:YES];
     self.view.center = self.selfCenter;
     self.keyboardIsHidden = YES;
 }
@@ -382,55 +381,21 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
     
     NSUInteger newLength = [textField.text length] + [string length] - range.length;
     
-    if (!self.textFieldThree.hidden) {
-        if ([textField.placeholder isEqualToString:@"Email Address"] && newLength > 30) {
-            [self stringTooLong];
-            return NO;
-            
-        }else if (![textField.placeholder isEqualToString:@"Email Address"] && ![textField.placeholder isEqualToString:@"Website"] && newLength > 16) {
-            [self stringTooLong];
-            
-            return NO;
-        }
-    } if (!self.textFieldFour.hidden) {
-        if ([textField.placeholder isEqualToString:@"Email Address"] && ![textField.placeholder isEqualToString:@"Website"] && newLength > 30) {
-            [self stringTooLong];
-            return NO;
-        }
-        
-        else if (![textField.placeholder isEqualToString:@"Email Address"] && ![textField.placeholder isEqualToString:@"Website"] && newLength > 16) {
-            [self stringTooLong];
-            return NO;
-        }
+    int checkNumber = 16;
+    
+    if ([textField.placeholder isEqualToString:@"Email Address"]) {
+        checkNumber = 30;
     }
-    if(!self.textFieldOne.hidden){
-        if([textField.placeholder isEqualToString:@"Website"] && newLength > 24){
-            [self stringTooLong];
-            return NO;
-        } else if (![textField.placeholder isEqualToString:@"Website"] && ![textField.placeholder isEqualToString:@"Email Address"] && newLength >16){
-            [self stringTooLong];
-            return NO;
-        }
+    
+    if ([textField.placeholder isEqualToString:@"Website"]){
+        checkNumber = 24;
     }
-    if(!self.textFieldFive.hidden){
-        if ([textField.placeholder isEqualToString:@"Website"] && newLength > 24){
-            [self stringTooLong];
-            return  NO;
-            
-        } else if (![textField.placeholder isEqualToString:@"Website"] && ![textField.placeholder isEqualToString:@"Email Address"]&& newLength > 16){
-            [self stringTooLong];
-            return NO;
-        }
+
+    if (newLength > checkNumber) {
+        [self stringTooLong];
+        return NO;
     }
-    if(!self.textFieldSeven.hidden){
-        if ([textField.placeholder isEqualToString:@"Website"] && newLength > 24){
-            [self  stringTooLong];
-            return  NO;
-        } else if (![textField.placeholder isEqualToString:@"Website"] && ![textField.placeholder isEqualToString:@"Email Address"] && newLength > 16){
-            [self stringTooLong];
-            return NO;
-        }
-    }
+    
     
     return YES;
 }
