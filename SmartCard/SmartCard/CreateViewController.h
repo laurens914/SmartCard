@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "TemplateViewController.h"
+#import "ContactData.h"
 
 @interface CreateViewController : UIViewController
 
 @property(weak, nonatomic)ViewController* selfSender;
+@property(strong, nonatomic)ContactData *thisContact;
 
 @property NSInteger selectedIndex;
 

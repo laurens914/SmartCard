@@ -170,9 +170,9 @@
                 case 0:{
 
                   _currentImageView = [TemplateAView setUpViewWithView:weak.view website:textBoxOne];
-                    ContactData *contact = [NSEntityDescription insertNewObjectForEntityForName:@"ContactData" inManagedObjectContext:context];
-                    contact.website = textBoxOne;
-                    [[CardStore shared]saveCardData:contact];
+                   
+                    self.thisContact.website = textBoxOne;
+                
                     
                     [self.saveButton setHidden:NO];
                     
@@ -181,19 +181,19 @@
                 case 1:{
                     _currentImageView = [TemplateBView setUpViewWithView:weak.view name:[NSString stringWithFormat:@"%@ %@", textBoxOne, textBoxTwo] firstAddress: textBoxFive secondaryAddress: [NSString stringWithFormat:@"%@ %@ %@", textBoxSix, textBoxSeven, textBoxEight] email:textBoxThree phone:textBoxFour website:nil jobTitle:textBoxNine company:textBoxTen logo:logoImage];
                     NSData *logoData = [NSData dataWithData:UIImagePNGRepresentation(logoImage)];
-                    ContactData *contactTwo = [NSEntityDescription insertNewObjectForEntityForName:@"ContactData" inManagedObjectContext:context];
-                    contactTwo.firstName = textBoxOne;
-                    contactTwo.lastName = textBoxTwo;
-                    contactTwo.emailAddress = textBoxThree;
-                    contactTwo.phoneNumber = textBoxFour;
-                    contactTwo.addressStreet = textBoxFive;
-                    contactTwo.addressCity = textBoxSix;
-                    contactTwo.addressState = textBoxSeven;
-                    contactTwo.addressPostalCode = textBoxEight;
-                    contactTwo.positionTitle = textBoxNine;
-                    contactTwo.buinessName = textBoxTen;
-                    contactTwo.image = logoData;
-                    [[CardStore shared]saveCardData:contactTwo];
+                    
+                    self.thisContact.firstName = textBoxOne;
+                    self.thisContact.lastName = textBoxTwo;
+                    self.thisContact.emailAddress = textBoxThree;
+                    self.thisContact.phoneNumber = textBoxFour;
+                    self.thisContact.addressStreet = textBoxFive;
+                    self.thisContact.addressCity = textBoxSix;
+                    self.thisContact.addressState = textBoxSeven;
+                    self.thisContact.addressPostalCode = textBoxEight;
+                    self.thisContact.positionTitle =   textBoxNine;
+                    self.thisContact.buinessName = textBoxTen;
+                    self.thisContact.image = logoData;
+                   
                     [self.saveButton setHidden:NO];
                     break;
                 }
