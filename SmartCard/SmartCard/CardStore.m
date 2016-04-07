@@ -8,7 +8,7 @@
 
 #import "CardStore.h"
 #import "AppDelegate.h"
-#import "CardImage.h"
+#import "ContactData.h"
 
 @implementation CardStore
 
@@ -31,8 +31,8 @@
     AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
     NSManagedObjectContext *context = delegate.managedObjectContext;
     
-    CardImage *card = [NSEntityDescription insertNewObjectForEntityForName:@"CardImage" inManagedObjectContext:context];
-    card.buisnessCard = imageData;
+    ContactData *card = [NSEntityDescription insertNewObjectForEntityForName:@"ContactData" inManagedObjectContext:context];
+    card.businessCardData = imageData;
     
     NSError* saveError;
     
@@ -44,9 +44,36 @@
     
 }
 
+-(void)saveCardData:(ContactData *)contact
+{
+    
+    AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+    NSManagedObjectContext *context = delegate.managedObjectContext;
+    
+    ContactData *contactData = [NSEntityDescription insertNewObjectForEntityForName:@"ContactData" inManagedObjectContext:context];
+    contactData.firstName = contact.firstName;
+    contactData.lastName = contact.lastName;
+    contactData.phoneNumber = contact.phoneNumber;
+    contactData.emailAddress = contact.emailAddress;
+    contactData.website = contact.website;
+    contactData.addressStreet = contact.addressStreet;
+    contactData.buinessName = contact.buinessName;
+    contactData.positionTitle = contact.positionTitle;
+    contactData.addressState = contact.addressState;
+    contactData.addressCity = contact.addressCity;
+    contactData.addressPostalCode = contact.addressPostalCode;
+    contactData.image = contact.image;
+    
+    NSError *saveDataError;
+    [context save: &saveDataError];
+    if(saveDataError == nil){
+        NSLog(@"saving");
+    }
+}
+
 -(NSArray* _Nullable)returnCardImages{
     
-    NSFetchRequest *fetch = [[NSFetchRequest alloc]initWithEntityName:@"CardImage"];
+    NSFetchRequest *fetch = [[NSFetchRequest alloc]initWithEntityName:@"ContactData"];
     
     AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
     NSManagedObjectContext *context = delegate.managedObjectContext;
@@ -65,7 +92,7 @@
     
 }
 
--(void)removeCard:(CardImage*)card{
+-(void)removeCard:(ContactData*)card{
     
     AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
     NSManagedObjectContext *context = delegate.managedObjectContext;

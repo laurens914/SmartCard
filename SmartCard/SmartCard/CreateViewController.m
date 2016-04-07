@@ -18,6 +18,7 @@
 #import "TemplateGView.h"
 #import "CardStore.h"
 #import "AppDelegate.h"
+#import "ContactData.h"
 #import <QuartzCore/QuartzCore.h>
 
 #define IS_IPHONE_4S CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(320.0, 480.0))
@@ -38,6 +39,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *dismiss;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UIButton *enterButton;
+
 
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *enterButtonCenterXConstraint;
@@ -158,43 +160,111 @@
          __weak typeof(self)weak = self;
         
         destinationViewController.completion = ^(NSString *textBoxOne, NSString* textBoxTwo, NSString* textBoxThree, NSString*textBoxFour, NSString* textBoxFive, NSString* textBoxSix, NSString* textBoxSeven, NSString* textBoxEight, NSString* textBoxNine, NSString *textBoxTen, NSString *textBoxEleven, UIImage* logoImage){
-            
+            AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+            NSManagedObjectContext *context = delegate.managedObjectContext;
             
             switch (weak.selectedIndex) {
                     
-                case 0:
-
+                case 0:{
 
                   _currentImageView = [TemplateAView setUpViewWithView:weak.view website:textBoxOne];
+                    ContactData *contact = [NSEntityDescription insertNewObjectForEntityForName:@"ContactData" inManagedObjectContext:context];
+                    contact.website = textBoxOne;
+                    [[CardStore shared]saveCardData:contact];
+                    
                     [self.saveButton setHidden:NO];
-
                     
                     break;
-                case 1:
+                }
+                case 1:{
                     _currentImageView = [TemplateBView setUpViewWithView:weak.view name:[NSString stringWithFormat:@"%@ %@", textBoxOne, textBoxTwo] firstAddress: textBoxFive secondaryAddress: [NSString stringWithFormat:@"%@ %@ %@", textBoxSix, textBoxSeven, textBoxEight] email:textBoxThree phone:textBoxFour website:nil jobTitle:textBoxNine company:textBoxTen logo:logoImage];
+                    NSData *logoData = [NSData dataWithData:UIImagePNGRepresentation(logoImage)];
+                    ContactData *contactTwo = [NSEntityDescription insertNewObjectForEntityForName:@"ContactData" inManagedObjectContext:context];
+                    contactTwo.firstName = textBoxOne;
+                    contactTwo.lastName = textBoxTwo;
+                    contactTwo.emailAddress = textBoxThree;
+                    contactTwo.phoneNumber = textBoxFour;
+                    contactTwo.addressStreet = textBoxFive;
+                    contactTwo.addressCity = textBoxSix;
+                    contactTwo.addressState = textBoxSeven;
+                    contactTwo.addressPostalCode = textBoxEight;
+                    contactTwo.positionTitle = textBoxNine;
+                    contactTwo.buinessName = textBoxTen;
+                    contactTwo.image = logoData;
+                    [[CardStore shared]saveCardData:contactTwo];
                     [self.saveButton setHidden:NO];
                     break;
-                case 2:
+                }
+                case 2:{
                 
                 _currentImageView =[TemplateCView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", textBoxOne, textBoxTwo] firstAddress:nil secondaryAddress:nil email:textBoxThree phone:textBoxFour website:textBoxFive jobTitle:textBoxSix company:textBoxSeven];
+                    ContactData *contactThree = [[ContactData alloc]init];
+                    contactThree.firstName = textBoxOne;
+                    contactThree.lastName = textBoxTwo;
+                    contactThree.emailAddress = textBoxThree;
+                    contactThree.phoneNumber = textBoxFour;
+                    contactThree.website = textBoxFive;
+                    contactThree.positionTitle = textBoxSix;
+                    contactThree.buinessName = textBoxSeven;
+                    [[CardStore shared]saveCardData:contactThree];
                     [self.saveButton setHidden:NO];
                     break;
-                case 3:
+                }
+                case 3:{
                   _currentImageView = [TemplateDView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", textBoxOne, textBoxTwo] phone:textBoxThree website:nil jobTitle:textBoxFive company:textBoxFour logo:logoImage];
+                     NSData *logoDataTwo = [NSData dataWithData:UIImagePNGRepresentation(logoImage)];
+                    ContactData *contactFour = [[ContactData alloc]init];
+                    contactFour.firstName = textBoxOne;
+                    contactFour.lastName = textBoxTwo;
+                    contactFour.phoneNumber = textBoxThree;
+                    contactFour.buinessName = textBoxFour;
+                    contactFour.positionTitle = textBoxFive;
+                    contactFour.image = logoDataTwo;
+                    [[CardStore shared]saveCardData:contactFour];
                     [self.saveButton setHidden:NO];
                     break;
+                }
                 case 4:
+                {
                  _currentImageView = [TemplateEView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", textBoxOne, textBoxTwo] phone:textBoxThree logo:logoImage];
+                    NSData *logoDataThree = [NSData dataWithData:UIImagePNGRepresentation(logoImage)];
+                    ContactData *contactFive = [[ContactData alloc]init];
+                    contactFive.firstName = textBoxOne;
+                    contactFive.lastName = textBoxTwo;
+                    contactFive.phoneNumber = textBoxThree;
+                    contactFive.image = logoDataThree;
+                    [[CardStore shared]saveCardData:contactFive];
                     [self.saveButton setHidden:NO];
                     break;
-                case 5:
+                }
+                case 5:{
                   _currentImageView = [TemplateFView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", textBoxOne, textBoxTwo] email:textBoxFour phone:textBoxThree logo:logoImage];
+                    NSData *logoDataFour = [NSData dataWithData:UIImagePNGRepresentation(logoImage)];
+                    ContactData *contactSix = [[ContactData alloc]init];
+                    contactSix.firstName = textBoxOne;
+                    contactSix.lastName = textBoxTwo;
+                    contactSix.emailAddress = textBoxFour;
+                    contactSix.phoneNumber = textBoxThree;
+                    contactSix.image = logoDataFour;
+                    [[CardStore shared]saveCardData:contactSix];
                     [self.saveButton setHidden:NO];
                     break;
-                case 6:
+                }
+                case 6:{
                    _currentImageView = [TemplateGView setUpViewWithView:self.view name:[NSString stringWithFormat:@"%@ %@", textBoxOne, textBoxTwo] firstAddress:nil secondaryAddress:nil email:textBoxFour phone: textBoxThree website:textBoxSeven jobTitle:textBoxSix company:textBoxFive logo:logoImage];
+                    NSData *logoData = [NSData dataWithData:UIImagePNGRepresentation(logoImage)];
+                    ContactData *contactSeven = [[ContactData alloc]init];
+                    contactSeven.firstName = textBoxOne;
+                    contactSeven.lastName = textBoxTwo;
+                    contactSeven.phoneNumber = textBoxThree;
+                    contactSeven.emailAddress = textBoxFour;
+                    contactSeven.buinessName = textBoxFive;
+                    contactSeven.positionTitle = textBoxSix;
+                    contactSeven.image = logoData;
+                    [[CardStore shared]saveCardData:contactSeven];
                     [self.saveButton setHidden:NO];
                     break;
+                }
                     
                 default:
                     [self.saveButton setHidden:NO];
@@ -246,6 +316,8 @@
     [self takeScreenShot: _currentImageView];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
 
 
 
