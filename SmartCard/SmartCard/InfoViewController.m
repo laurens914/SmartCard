@@ -54,8 +54,6 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
     [self setupButton];
     [self setupImageView];
     self.selfCenter = self.view.center;
-    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
 }
 
 -(void)keyBoardWillShow:(NSNotification*)sender{
@@ -82,6 +80,22 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
     [self.view endEditing:YES];
     self.view.center = self.selfCenter;
     self.keyboardIsHidden = YES;
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [_textFieldOne endEditing: YES];
+    [_textFieldTwo endEditing: YES];
+    [_textFieldThree endEditing: YES];
+    [_textFieldFour endEditing: YES];
+    [_textFieldFive endEditing: YES];
+    [_textFieldSix endEditing: YES];
+    [_textFieldSeven endEditing: YES];
+    [_textFieldEight endEditing: YES];
+    [_textFieldNine endEditing: YES];
+    [_textFieldTen endEditing: YES];
+    [_textFeildEleven endEditing: YES];
+
 }
 
 - (void)dealloc
