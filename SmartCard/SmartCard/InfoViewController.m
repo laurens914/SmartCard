@@ -54,9 +54,7 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
     [self setupButton];
     [self setupImageView];
     self.selfCenter = self.view.center;
-    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
-}
+    }
 
 -(void)keyBoardWillShow:(NSNotification*)sender{
     NSDictionary *userInfo = sender.userInfo;
