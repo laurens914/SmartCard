@@ -15,6 +15,7 @@
 
 +(instancetype)sharedContact;
 
--(void)saveNewContact:(ContactData *)contact;
+-(void)saveNewContactWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName andEmail:(NSString *)email andPhoneNumber:(NSString *)phoneNumber andAddressStreet:(NSString *)aStreet andAddressCity:(NSString *)aCity andAddressState:(NSString *)aState andPostalCode:(NSString *)aPostalCode andJobTitle:(NSString *)position andCompany:(NSString *)company andWebsite:(NSString *)website;
+
 
 @end
