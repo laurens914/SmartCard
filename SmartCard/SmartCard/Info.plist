@@ -49,21 +49,6 @@
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>UIApplicationShortcutItems</key>
-	<array>
-		<dict>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>View Saved</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>com.laurenspatz.SmartCard.openSaved</string>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Create New</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>com.laurenspatz.SmartCard.openCreate</string>
-		</dict>
-	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

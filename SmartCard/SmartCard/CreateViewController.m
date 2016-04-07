@@ -59,13 +59,9 @@
 @implementation CreateViewController
 
 - (void)viewDidLoad {
-    AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
-    NSManagedObjectContext *context = delegate.managedObjectContext;
-    
     [super viewDidLoad];
     [self setupButton];
     [self.saveButton setHidden:YES];
-    self.thisContact = [NSEntityDescription insertNewObjectForEntityForName:@"ContactData" inManagedObjectContext:context];
     _isInfo = NO;
 }
 
@@ -320,7 +316,9 @@
 }
 
 - (IBAction)save:(UIButton *)sender {
-
+    AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+    NSManagedObjectContext *context = delegate.managedObjectContext;
+    self.thisContact = [NSEntityDescription insertNewObjectForEntityForName:@"ContactData" inManagedObjectContext:context];
     [_selfSender dismissViewControllerAnimated:YES completion:nil];
     [self takeScreenShot: _currentImageView];
 }

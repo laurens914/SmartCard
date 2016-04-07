@@ -29,43 +29,9 @@
     
     [Fabric with:@[[Crashlytics class]]];
    
-    UIApplicationShortcutItem *shortCut = [launchOptions objectForKey:UIApplicationLaunchOptionsShortcutItemKey];
-    NSLog(@"%@", shortCut);
-    if (shortCut){
-        [self shortCutItems:shortCut];
-        return NO;
-    }
     return YES;
 }
 
--(void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler
-{
-    completionHandler([self shortCutItems:shortcutItem]);
-}
-
--(BOOL)shortCutItems:(UIApplicationShortcutItem *)shortcutItem
-{
-    if ([shortcutItem.type isEqualToString:@"com.laurenspatz.SmartCard.openCreate"])
-    {
-        NSLog(@"open create");
-        ViewController *homeVC = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"homeViewController"];
-        [self.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
-        [self.window.rootViewController presentViewController:homeVC animated:YES completion:^{
-            [homeVC performSegueWithIdentifier:@"templateViewController" sender:nil];
-        }];
-        return YES;
-
-    } else if ([shortcutItem.type isEqualToString:@"com.laurenspatz.SmartCard.openSaved"]) {
-        NSLog(@"open saved");
-        ViewController *mainVCwithShared = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"homeViewController"];
-        [self.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
-        [self.window.rootViewController presentViewController:mainVCwithShared animated:YES completion:^{
-            [mainVCwithShared showSavedTemplatesAnimated:YES];
-        }];
-        return YES;
-    }
-    return NO;
-}
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{
     NSString *urlString = [NSString stringWithFormat:@"%@", url];
