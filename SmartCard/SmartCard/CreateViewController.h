@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TemplateViewController.h"
 
 @interface CreateViewController : UIViewController
+
+@property(weak, nonatomic)ViewController* selfSender;
 
 @property NSInteger selectedIndex;
 

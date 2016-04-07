@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ShareViewController.h"
+#import "TemplateViewController.h"
 #import "HomeCollectionViewFlowLayout.h"
 #import "SavedCollectionViewFlowLayout.h"
 #import "SavedCollectionViewCell.h"
@@ -38,6 +39,7 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
 
 @property (strong, nonatomic)NSMutableArray* dataSource;
 @property (strong, nonatomic)CardImage* selectedCard;
+@property (weak, nonatomic)ViewController *selfSender;
 
 - (IBAction)deleteCellButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *cancel;
@@ -138,7 +140,17 @@ NSTimeInterval const kAnimationDurationCLOSE = 0.3;
         
         ShareViewController *shareVC = segue.destinationViewController;
         shareVC.selectedImage = selectedImage;
+
+    }
+    
+    if ([segue.identifier isEqualToString:@"templateViewController"]) {
         
+        _selfSender = self;
+        
+        TemplateViewController *templateVC = segue.destinationViewController;
+        
+        templateVC.selfSender = _selfSender;
+        NSLog(@"senderTVC: %@", _selfSender);
     }
 }
 

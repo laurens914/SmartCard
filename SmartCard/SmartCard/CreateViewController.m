@@ -7,8 +7,8 @@
 //
 
 #import "CreateViewController.h"
-#import "TemplateViewController.h"
 #import "InfoViewController.h"
+#import "ViewController.h"
 #import "TemplateAView.h"
 #import "TemplateBView.h"
 #import "TemplateCView.h"
@@ -35,10 +35,11 @@
 
 @property(strong, nonatomic)UIView* currentView;
 
+//@property (weak, nonatomic) ViewController* sender;
+
 @property (weak, nonatomic) IBOutlet UIButton *dismiss;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UIButton *enterButton;
-
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *enterButtonCenterXConstraint;
 
@@ -66,6 +67,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+     NSLog(@"senderCVCDidLoad: %@", _selfSender);
     
     if (_isInfo == NO) {
         
@@ -222,12 +224,9 @@
     NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(screenShot)];
     
     UIGraphicsEndImageContext();
-    
-    //Saving Image Data
 
     [[CardStore shared]saveCardImage:imageData];
     
-   
     return screenShot;
 }
 
@@ -242,9 +241,9 @@
 }
 
 - (IBAction)save:(UIButton *)sender {
-    
+
+    [_selfSender dismissViewControllerAnimated:YES completion:nil];
     [self takeScreenShot: _currentImageView];
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

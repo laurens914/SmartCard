@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewController.h"
 
 @interface TemplateViewController : UIViewController
+
+@property(weak, nonatomic)ViewController *selfSender;
 
 @end
