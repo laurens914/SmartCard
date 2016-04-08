@@ -26,9 +26,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
     [Fabric with:@[[Crashlytics class]]];
-   
     return YES;
 }
 
@@ -56,9 +54,7 @@
             NSString *value = componentsArray[1];
             
             if (![key isEqualToString:@"SmartCard://"] && value ) {
-                
-
-                
+                                
                 if ([key isEqualToString:@"firstName"]) {
                     first = [value stringByReplacingOccurrencesOfString:@"_" withString:@" "];
                 } else if ([key isEqualToString:@"lastName"]) {
@@ -67,7 +63,7 @@
                     email = [value stringByReplacingOccurrencesOfString:@"_" withString:@" "];
                 } else if ([key isEqualToString:@"phoneNumber"]) {
                     phone = [value stringByReplacingOccurrencesOfString:@"_" withString:@" "];
-                } else if ([key isEqualToString:@"addressSreet"]) {
+                } else if ([key isEqualToString:@"addressStreet"]) {
                     aStreet = [value stringByReplacingOccurrencesOfString:@"_" withString:@" "];
                 } else if ([key isEqualToString:@"addressCity"]) {
                     aCity = [value stringByReplacingOccurrencesOfString:@"_" withString:@" "];
@@ -147,47 +143,6 @@
     
     return _persistentStoreCoordinator;
 }
-
-//-(void)bootstrappin
-//{
-//    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"ContactData"];
-//    NSError *error;
-//    NSInteger count = [self.managedObjectContext countForFetchRequest:request error:&error];
-//    if (count == 0 && !error)
-//    {
-//        ContactData *newContact = [NSEntityDescription insertNewObjectForEntityForName:@"ContactData" inManagedObjectContext:self.managedObjectContext];
-//        newContact.firstName = @"Russell";
-//        newContact.lastName = @"Wilson";
-//        newContact.addressStreet = @"1212";
-//        newContact.addressState = @"WA";
-//        newContact.addressCity = @"Seattle";
-//        newContact.addressPostalCode = @"98199";
-//        newContact.emailAddress = @"dangeruss@seahawks.com";
-//        newContact.phoneNumber = @"206-550-1212";
-//        newContact.website = @"www.russellwilson.com";
-//        
-//        NSError *error;
-//        BOOL isSaved = [self.managedObjectContext save:&error];
-//        if (!isSaved)
-//        {
-//            NSLog(@"%@", error.localizedDescription);
-//        } else {
-//            NSLog(@"YAYYYYYYYYYY");
-//        }
-//    }
-//}
-
-//-(void)saveFromCDToContact
-//{
-//    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"ContactData"];
-//    NSError *error;
-//    
-//    NSArray *contacts = [self.managedObjectContext executeFetchRequest:request error:&error];
-//    for (ContactData *contact in contacts) {
-//        [[ContactService sharedContact]saveNewContact:contact];
-//    }
-//}
-
 
 - (NSManagedObjectContext *)managedObjectContext {
     // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.)

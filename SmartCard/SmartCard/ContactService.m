@@ -31,7 +31,7 @@
         if(granted){
             CNMutableContact *newContact = [[CNMutableContact alloc]init];
             CNMutablePostalAddress *postalAddress = [[CNMutablePostalAddress alloc]init];
-            postalAddress.street = aStreet;
+            postalAddress.street = [NSString stringWithFormat:@"%@\n", aStreet];
             postalAddress.state = aState;
             postalAddress.city = aCity;
             postalAddress.postalCode = aPostalCode;
