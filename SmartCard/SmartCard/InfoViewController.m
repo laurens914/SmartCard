@@ -397,7 +397,7 @@ NSString *const kPhoneRegexValidationString = @"^(\\(?[0-9]{3}\\)?)?[\\s.-]?[0-9
     
     NSUInteger newLength = [textField.text length] + [string length] - range.length;
     
-    int checkNumber = 16;
+    int checkNumber = 20;
     
     if ([textField.placeholder isEqualToString:@"Email Address"]) {
         checkNumber = 30;
